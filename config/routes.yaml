@@ -1,0 +1,42 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+#Usuário-----
+usuario:
+    path: /usuario/usuario
+    controller: App\Controller\Usuario\UsuarioController::usuario
+    methods: GET|POST
+
+cadastrarUsuario:
+    path: /usuario/cadastrar
+    controller: App\Controller\Usuario\CadastrarUsuarioController::cadastrarUsuario
+    methods: GET|POST
+
+#Cooperado-----
+cooperado:
+    path: /cooperado/cooperado
+    controller: App\Controller\Cooperado\CooperadoController::cooperado
+    methods: GET|POST
+
+#cooperado:
+#    path: /cooperado/cooperado
+#    controller: App\Controller\Cooperado\CooperadoController::cooperado
+#    methods: POST
+
+cadastrarCooperado:
+    path: /cooperado/cadastrar
+    controller: App\Controller\Cooperado\CadastrarCooperadoController::cadastrarCooperado
+    methods: GET|POST
+
+#Serviço-----
+servico:
+    path: /servico/servico
+    controller: App\Controller\Servico\ServicoController::servico
+    methods: GET|POST
+
