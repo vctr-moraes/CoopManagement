@@ -2,7 +2,6 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-
 index:
     path: /
     controller: App\Controller\HomeController::index
@@ -24,14 +23,9 @@ cooperado:
     controller: App\Controller\Cooperado\CooperadoController::cooperado
     methods: GET|POST
 
-#cooperado:
-#    path: /cooperado/cooperado
-#    controller: App\Controller\Cooperado\CooperadoController::cooperado
-#    methods: POST
-
-cadastrarCooperado:
-    path: /cooperado/cadastrar
-    controller: App\Controller\Cooperado\CadastrarCooperadoController::cadastrarCooperado
+cooperadoDesligado:
+    path: /cooperado/desligados
+    controller: App\Controller\Cooperado\CooperadoController::cooperadoDesligado
     methods: GET|POST
 
 #Serviço-----

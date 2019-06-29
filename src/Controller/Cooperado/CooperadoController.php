@@ -76,6 +76,8 @@
             $novoCooperado->setTelefoneCelular($telefoneCelular);
             $novoCooperado->setEmail($email);
             $novoCooperado->setDataMatricula($dataMatricula);
+
+            
         }
     }
 ?>
