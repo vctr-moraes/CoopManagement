@@ -19,8 +19,13 @@ cadastrarUsuario:
 
 #Cooperado-----
 cooperado:
-    path: /cooperado/cooperado
+    path: /cooperado
     controller: App\Controller\Cooperado\CooperadoController::cooperado
+    methods: GET|POST
+
+cooperadoCadastrar:
+    path: /cooperado/cadastrar
+    controller: App\Controller\Cooperado\CooperadoController::cadastrar
     methods: GET|POST
 
 cooperadoDesligado:
