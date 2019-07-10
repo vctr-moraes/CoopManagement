@@ -77,16 +77,14 @@
             $novoCooperado->setEmail($email);
             $novoCooperado->setDataMatricula($dataMatricula);
 
-            function retorno(){
-                $dados = array(
-                    'nome' => $nome,
-                    'sexo' => $$sexo,
-                    'estadoCivil' => $estadoCivil,
-                    'dataNascimento' => $dataNascimento
-                );
+            $dados = array(
+                'nome' => $nome,
+                'sexo' => $$sexo,
+                'estadoCivil' => $estadoCivil,
+                'dataNascimento' => $dataNascimento
+            );
 
-                $this->loadView('cooperados', $dados);
-            }
+            $this->loadView('cooperados', $dados);
         }
     }
 ?>
