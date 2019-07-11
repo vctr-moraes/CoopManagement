@@ -28,6 +28,16 @@ cooperadoCadastrar:
     controller: App\Controller\Cooperado\CooperadoController::cadastrar
     methods: GET|POST
 
+cooperadoSalvar:
+    path: /cooperado/salvar
+    controller: App\Controller\Cooperado\CooperadoController::salvar
+    methods: GET|POST
+
+cadastroRealizado:
+    path: /cooperado/teste
+    controller: App\Controller\Cooperado\CooperadoController::cadastrado
+    methods: GET/POST
+
 cooperadoDesligado:
     path: /cooperado/desligados
     controller: App\Controller\Cooperado\CooperadoController::cooperadoDesligado

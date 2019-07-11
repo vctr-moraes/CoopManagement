@@ -4,7 +4,7 @@
 
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\ser\Entity\Cooperado;
+    use Symfony\src\Entity\Cooperado;
 
     class CooperadoController extends AbstractController
     {
@@ -79,12 +79,12 @@
 
             $dados = array(
                 'nome' => $nome,
-                'sexo' => $$sexo,
+                'sexo' => $sexo,
                 'estadoCivil' => $estadoCivil,
                 'dataNascimento' => $dataNascimento
             );
 
-            $this->loadView('cooperados', $dados);
+            $this->loadView('teste', $dados);
         }
     }
 ?>
