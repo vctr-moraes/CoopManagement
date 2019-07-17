@@ -8,25 +8,16 @@
 
     class CooperadoController extends AbstractController
     {
-        /**
-         * @Route("/cooperado")
-         */
         public function cooperado()
         {
             return $this->render('cooperado/cooperado.html.twig');
         }
 
-        /**
-         * @Route("/cooperado/cadastrar")
-         */
         public function cadastrar()
         {
             return $this->render('cooperado/cadastrar.html.twig');
         }
 
-        /**
-         * @Route("/cooperado/salvar")
-         */
         public function salvar()
         {
             $nome = $_POST['nome'];
