@@ -26,17 +26,17 @@ cooperado:
 cooperadoCadastrar:
     path: /cooperado/cadastrar
     controller: App\Controller\Cooperado\CooperadoController::cadastrar
-    methods: GET|POST
+    methods: GET
 
 cooperadoSalvar:
     path: /cooperado/salvar
     controller: App\Controller\Cooperado\CooperadoController::salvar
-    methods: GET|POST
+    methods: POST
 
 cadastroRealizado:
     path: /cooperado/teste
     controller: App\Controller\Cooperado\CooperadoController::cadastrado
-    methods: GET/POST
+    methods: GET|POST
 
 cooperadoDesligado:
     path: /cooperado/desligados
