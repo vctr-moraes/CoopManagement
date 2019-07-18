@@ -1,14 +1,14 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Página para testes
+{% endblock %}
+
+{% block body %}
+    <h1>Página para testes</h1>
     {{ cooperado.getNome() }} <br>
     {{ cooperado.getSexo() }} <br>
     {{ cooperado.getEstadoCivil() }} <br>
     {{ cooperado.getDataNascimento() }} <br>
-</body>
-</html>
+{% endblock %}
+

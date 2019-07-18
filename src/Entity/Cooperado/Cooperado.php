@@ -4,12 +4,19 @@
 
     class Cooperado
     {
+        /** Column(type="integer") */
         private $matricula;
+        /** Column(type="string") */
         private $nome;
+        /** Column(type="string") */
         private $sexo;
+        /** Column(type="string") */
         private $estadoCivil;
+        /** Column(type="date") */
         private $dataNascimento;
+        /** Column(type="string") */
         private $racaCor;
+        /** Column(type="string") */
         private $necessidadeEspecial;
 
         private $cpf;
