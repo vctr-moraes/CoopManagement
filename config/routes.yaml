@@ -43,6 +43,17 @@ cooperadoDesligado:
     controller: App\Controller\Cooperado\CooperadoController::cooperadoDesligado
     methods: GET|POST
 
+#Curso-----
+curso:
+    path: /curso
+    controller: App\Controller\Curso\CursoController::curso
+    methods: GET|POST
+
+cursoCadastrar:
+    path: /curso/cadastrar
+    controller: App\Controller\Curso\CursoController::cadastrar
+    methods: GET|POST
+
 #Serviço-----
 servico:
     path: /servico/servico
