@@ -11,4 +11,9 @@
         {
             return $this->render('usuario/usuario.html.twig');
         }
+
+        public function cadastrarUsuario()
+        {
+            return $this->render('usuario/login.html.twig');
+        }
     }

@@ -14,7 +14,12 @@ usuario:
 
 cadastrarUsuario:
     path: /usuario/cadastrar
-    controller: App\Controller\Usuario\CadastrarUsuarioController::cadastrarUsuario
+    controller: App\Controller\Usuario\UsuarioController::cadastrarUsuario
+    methods: GET|POST
+
+loginUsuario:
+    path: /usuario/login
+    controller: App\Controller\Usuario\LoginUsuarioController::loginUsuario
     methods: GET|POST
 
 #Cooperado-----
