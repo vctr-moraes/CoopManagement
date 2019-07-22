@@ -47,6 +47,7 @@
             // $telefoneCelular = $_POST['telefoneCelular'];
             // $email = $_POST['email'];
             // $dataMatricula = $_POST['dataMatricula'];
+            // $cotaParte = $_POST['cotaParte'];
 
             $novoCooperado = new Cooperado();
 
@@ -76,6 +77,7 @@
             // $novoCooperado->setTelefoneCelular($telefoneCelular);
             // $novoCooperado->setEmail($email);
             // $novoCooperado->setDataMatricula($dataMatricula);
+            // $novoCooperado->setCotaParte($cotaParte);
 
             $dados = array(
                 'cooperado' => $novoCooperado

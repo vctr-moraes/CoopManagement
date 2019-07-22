@@ -37,6 +37,7 @@
         private $telefoneCelular;
         private $email;
         private $dataMatricula;
+        private $cotaParte;
 
         public function getMatricula()
         {
@@ -306,6 +307,16 @@
         public function setDataMatricula($dataMatricula)
         {
             $this->dataMatricula = $dataMatricula;
+        }
+
+        public function getCotaParte()
+        {
+            return $this->cotaParte;
+        }
+
+        public function setCotaParte($cotaParte)
+        {
+            $this->$cotaParte = $cotaParte;
         }
     }
 ?>

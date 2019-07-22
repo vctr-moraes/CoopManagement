@@ -12,7 +12,7 @@
             return $this->render('usuario/usuario.html.twig');
         }
 
-        public function cadastrarUsuario()
+        public function loginUsuario()
         {
             return $this->render('usuario/login.html.twig');
         }

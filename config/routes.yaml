@@ -14,12 +14,12 @@ usuario:
 
 cadastrarUsuario:
     path: /usuario/cadastrar
-    controller: App\Controller\Usuario\UsuarioController::cadastrarUsuario
+    controller: App\Controller\Usuario\CadastrarUsuarioController::cadastrarUsuario
     methods: GET|POST
 
-loginUsuario:
+logarNoSistema:
     path: /usuario/login
-    controller: App\Controller\Usuario\LoginUsuarioController::loginUsuario
+    controller: App\Controller\Usuario\UsuarioController::loginUsuario
     methods: GET|POST
 
 #Cooperado-----
@@ -28,12 +28,12 @@ cooperado:
     controller: App\Controller\Cooperado\CooperadoController::cooperado
     methods: GET|POST
 
-cooperadoCadastrar:
+cadastrarCooperado:
     path: /cooperado/cadastrar
     controller: App\Controller\Cooperado\CooperadoController::cadastrar
     methods: GET
 
-cooperadoSalvar:
+salvarCooperado:
     path: /cooperado/salvar
     controller: App\Controller\Cooperado\CooperadoController::salvar
     methods: POST
@@ -54,7 +54,7 @@ curso:
     controller: App\Controller\Curso\CursoController::curso
     methods: GET|POST
 
-cursoCadastrar:
+cadastrarCurso:
     path: /curso/cadastrar
     controller: App\Controller\Curso\CursoController::cadastrar
     methods: GET|POST
