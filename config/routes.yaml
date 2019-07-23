@@ -45,7 +45,12 @@ cadastroRealizado:
 
 cooperadoDesligado:
     path: /cooperado/desligados
-    controller: App\Controller\Cooperado\CooperadoController::cooperadoDesligado
+    controller: App\Controller\Cooperado\CooperadoController::desligados
+    methods: GET|POST
+
+novasMatriculas:
+    path: /cooperado/novos
+    controller: App\Controller\Cooperado\CooperadoController::novos
     methods: GET|POST
 
 #Curso-----

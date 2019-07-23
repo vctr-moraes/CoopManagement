@@ -17,5 +17,15 @@
         {
             return $this->render('cooperado/cadastrar.html.twig');
         }
+
+        public function desligados()
+        {
+            return $this->render('cooperado/desligados.html.twig');
+        }
+
+        public function novos()
+        {
+            return $this->render('cooperado/novos.html.twig');
+        }
     }
 ?>
