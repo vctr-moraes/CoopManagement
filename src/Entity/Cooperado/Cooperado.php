@@ -4,7 +4,7 @@
 
     class Cooperado
     {
-        private $matricula;
+        private $id;
         private $nome;
         private $sexo;
         private $estadoCivil;
@@ -23,6 +23,7 @@
         private $nomeMae;
         private $rendaFamiliar;
 
+        private $matricula;
         private $curso;
         private $turma;
         private $escolaridade;
@@ -39,14 +40,14 @@
         private $dataMatricula;
         private $cotaParte;
 
-        public function getMatricula()
+        public function getId()
         {
-            return $this->matricula;
+            return $this->id;
         }
 
-        public function setMatricula($matricula)
+        public function setId($id)
         {
-            $this->matricula = $matricula;
+            $this->id = $id;
         }
 
         public function getNome()
@@ -187,6 +188,16 @@
         public function setRendaFamiliar($rendaFamiliar)
         {
             $this->rendaFamiliar = $rendaFamiliar;
+        }
+
+        public function getMatricula()
+        {
+            return $this->matricula;
+        }
+
+        public function setMatricula($matricula)
+        {
+            $this->matricula = $matricula;
         }
 
         public function getCurso()
