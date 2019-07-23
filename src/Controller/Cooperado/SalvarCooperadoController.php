@@ -8,6 +8,9 @@
 
     class SalvarCooperadoController extends AbstractController
     {
+        /**
+         * Função salvar: irá receber os dados do formulário e atribuí-los aos atributos do objeto $novoCooperado
+         */
         public function salvar()
         {
             $nome = $_POST['nome'];
