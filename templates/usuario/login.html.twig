@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <title>Login</title>
-</head>
-<body>
-    <div class="container">
+{% extends 'base.html.twig' %}
 
-    <h1>Autenticação no Sistema</h1>
-    
-    <form action="/usuario/login">
-        <label for="usuario">Usuário</label><br>
-        <input type="text"><br><br>
-        <label for="senha">Senha</label><br>
-        <input type="password" name="senha" id=""><br><br>
-        <input type="submit" value="Entrar">
-        <a href="/usuario">Entrar</a>
-    </form>
-    <br>
-    <span><a href="">Esqueci minha senha</a></span><br><br>
-    <span>Não está cadastrado?</span>
-    <input type="submit" value="Clique aqui">
-        
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Autenticação no Sistema</h1>
+                <form action="/usuario/login">
+                    <label for="usuario">Usuário</label><br>
+                    <input type="text"><br><br>
+                    <label for="senha">Senha</label><br>
+                    <input type="password" name="senha" id=""><br><br>
+                    <input type="submit" value="Entrar">
+                    <a href="/usuario">Entrar</a>
+                </form>
+                <br>
+                <span><a href="">Esqueci minha senha</a></span><br><br>
+                <span>Não está cadastrado?</span>
+                <input type="submit" value="Clique aqui">
+            </div>
+        </div>
     </div>
-</body>
-</html>
+{% endblock %}
