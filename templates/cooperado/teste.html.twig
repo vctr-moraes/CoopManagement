@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    Página para testes
-{% endblock %}
+{% block title %}Teste{% endblock %}
 
 {% block body %}
-    <h1>Página para testes</h1>
-    {{ cooperado.getNome() }} <br>
-    {{ cooperado.getSexo() }} <br>
-    {{ cooperado.getEstadoCivil() }} <br>
-    {{ cooperado.getDataNascimento() }} <br><br>
 
-    <a href="/cooperado">Voltar</a>
+    <div class="container">
+        <h1>Página para testes</h1>
+        {{ cooperado.getNome() }} <br>
+        {{ cooperado.getSexo() }} <br>
+        {{ cooperado.getEstadoCivil() }} <br>
+        {{ cooperado.getDataNascimento() }} <br><br>
+
+        <a href="/cooperado">Voltar</a>
+    </div>
+    
 {% endblock %}
 
