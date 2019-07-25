@@ -11,4 +11,9 @@ class HomeController extends AbstractController
     {
         return $this->render('index.html.twig');
     }
+
+    public function sobre()
+    {
+        return $this->render('sobre.html.twig');
+    }
 }

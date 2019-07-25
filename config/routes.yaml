@@ -6,6 +6,10 @@ index:
     path: /
     controller: App\Controller\HomeController::index
 
+sobre:
+    path: /sobre
+    controller: App\Controller\HomeController::sobre
+
 #Usuário-----
 usuario:
     path: /usuario
