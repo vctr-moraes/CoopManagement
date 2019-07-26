@@ -1,13 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cadastrar novo curso{% endblock %}
+{% block title %}Cursos{% endblock %}
 
 {% block body %}
 
-    <div class="container">
-        <h1>Cursos</h1>
-        <a href="/curso/cadastrar">Cadastrar novo</a><br><br>
-        <a href="/usuario">Voltar</a>
-    </div>
+<div class="container">
+    <h1>Cursos</h1>
+
+    <nav class="nav">
+        <a class="nav-link active" href="/curso">Cursos</a>
+        <a class="nav-link" href="/curso/cadastrar">Cadastrar curso</a>
+        <a class="nav-link" href="/usuario">Voltar</a>
+    </nav>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Grau</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Tecnologia em Análise e Desenvolvimento de Sistemas</td>
+                <td>Superior</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Tecnologia em Cafeicultura</td>
+                <td>Superior</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Engenharia de Aquicultura</td>
+                <td>Superior</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Bacharelado em Ciências Biológicas</td>
+                <td>Superior</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Licenciatura em Ciências Biológicas</td>
+                <td>Superior</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
