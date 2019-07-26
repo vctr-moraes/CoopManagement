@@ -16,6 +16,11 @@
             return $this->render('cooperado/cooperado.html.twig');
         }
 
+        public function listar()
+        {
+            return $this->render('cooperado/listar.html.twig');
+        }
+
         /**
          * Retorna a view para cadastro de cooperado
          */

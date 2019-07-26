@@ -37,6 +37,11 @@ cadastrarCooperado:
     controller: App\Controller\Cooperado\CooperadoController::cadastrar
     methods: GET
 
+cooperados:
+    path: /cooperado/lista
+    controller: App\Controller\Cooperado\CooperadoController::listar
+    methods: GET|POST
+
 salvarCooperado:
     path: /cooperado/salvar
     controller: App\Controller\Cooperado\SalvarCooperadoController::salvar
