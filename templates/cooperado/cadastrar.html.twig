@@ -4,129 +4,468 @@
 
 {% block body %}
 
-    <div class="container">
-        <h2>Cadastrar novo cooperado</h2>
-        <form action="/cooperado/salvar" method="POST" name="form1">
-            <label for="nome">Nome</label><br>
-            <input type="text" name="nome"><br><br>
-            <label for="sexo">Sexo</label><br>
-            <input type="radio" name="sexo" value="Masculino">Masculino
-            <input type="radio" name="sexo" value="Feminino">Feminino <br><br>
-            <label for="estadoCivil">Estado Civil</label><br>
-            <select name="estadoCivil">
-                <option value="Solteiro">Solteiro</option>
-                <option value="Casado">Casado</option>
-                <option value="União Estável">União Estável</option>
-                <option value="Divorciado">Divorciado</option>
-                <option value="Divorciado">Viúvo</option>
-            </select><br><br>
-            <label for="dataNascimento">Data de Nascimento</label><br>
-            <input type="date" name="dataNascimento"><br><br>
-            <label for="racaCor">Raça/Cor</label><br>
-            <select name="racaCor">
-                <option value="Branco">Branco</option>
-                <option value="Negro">Negro</option>
-                <option value="Pardo">Pardo</option>
-                <option value="Amarelo">Amarelo</option>
-                <option value="Indígena">Indígena</option>
-            </select><br><br>
-            <label for="necessidadeEspecial">Necessidades Especiais</label><br>
-            <select name="necessidadeEspecial">
-                <option value="Física">Física</option>
-                <option value="Visual">Visual</option>
-                <option value="Auditiva">Auditiva</option>
-                <option value="Mental">Mental</option>
-            </select><br><br>
+<div class="container">
+    <h2>Cadastrar novo cooperado</h2> <br>
 
-            <label for="cpf">CPF</label><br>
-            <input type="text" name="cpf"><br><br>
-            <label for="rg">RG</label><br>
-            <input type="text" name="rg"><br><br>
-            <label for="orgaoExpedidorRg">Órgão Expedidor</label><br>
-            <input type="text" name="orgaoExpedidorRg"><br><br>
-            <label for="dataExpedicaoRg">Data da Expedição</label><br>
-            <input type="text" name="dataExpedicaoRg"><br><br>
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Nome</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Nome completo" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
 
-            <label for="naturalidade">Naturalidade</label><br>
-            <input type="naturalidade" name="$naturalidade"><br><br>
-            <label for="nacionalidade">Nacionalidade</label><br>
-            <input type="text" name="nacionalidade"><br><br>
-            <label for="nomePai">Nome do Pai</label><br>
-            <input type="text" name="nomePai"><br><br>
-            <label for="nomeMae">Nome da Mãe</label><br>
-            <input type="text" name="nomeMae"><br><br>
-            <label for="rendaFamiliar">Renda Familiar</label><br>
-            <input type="text" name="rendaFamiliar"><br><br>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Estado civil</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Solteiro">Solteiro</option>
+                    <option value="Casado">Casado</option>
+                    <option value="União Estável">União Estável</option>
+                    <option value="Divorciado">Divorciado</option>
+                    <option value="União Estável">União Estável</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
 
-            <label for="curso">Curso</label><br>
-            <select name="curso">
-                <option value="" checked disabled>Selecione</option>
-                <option value="curso 1">Curso 1</option>
-                <option value="curso 2">Curso 2</option>
-                <option value="curso 3">Curso 3</option>
-                <option value="curso 4">Curso 4</option>
-                <option value="curso 5">Curso 5</option>
-            </select><br><br>
-            <label for="turma">Turma</label><br>
-            <input type="turma" name="turma"><br><br>
-            <label for="escolaridade">Escolaridade</label><br>
-            <select name="">
-                <option value="Primeiro Grau">Primeiro Grau</option>
-                <option value="Segundo Grau">Segundo Grau</option>
-                <option value="Terceiro Grau">Terceiro Grau</option>
-            </select><br><br>
-            
-            <label for="rua">Rua</label><br>
-            <input type="text" name="rua"><br><br>
-            <label for="bairro">Bairro</label><br>
-            <input type="text" name="bairro"><br><br>
-            <label for="cidade">Cidade</label><br>
-            <input type="text" name="cidade"><br><br>
-            <label for="cep">CEP</label><br>
-            <input type="text" name="cpf"><br><br>
-            <label for="estado">Estado</label><br>
-            <select name="estado">
-                <option value="Acre">Acre</option>
-                <option value="Alagoas">Alagoas</option>
-                <option value="Amapá">Amapá</option>
-                <option value="Amazonas">Amazonas</option>
-                <option value="Bahia">Bahia</option>
-                <option value="Ceará">Ceará</option>
-                <option value="Distrito Federal">Distrito Federal</option>
-                <option value="Espírito Santo">Espírito Santo</option>
-                <option value="Goiás">Goiás</option>
-                <option value="Maranhão">Maranhão</option>
-                <option value="Mato Grosso">Mato Grosso</option>
-                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                <option value="Minas Gerais">Minas Gerais</option>
-                <option value="Pará">Pará</option>
-                <option value="Paraíba">Paraíba</option>
-                <option value="Paraná">Paraná</option>
-                <option value="Pernambuco">Pernambuco</option>
-                <option value="Piauí">Piauí</option>
-                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                <option value="Rondônia">Rondônia</option>
-                <option value="Roraima">Roraima</option>
-                <option value="Santa Catarina">Santa Catarina</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Sergipe">Sergipe</option>
-                <option value="Tocantins">Tocantins</option>
-            </select><br><br>
-            
-            <label for="telefoneResidencial">Telefone Residencial</label><br>
-            <input type="tel" name="telefoneResidencial" id=""><br><br>
-            <label for="telefoneCelular">Telefone Celular</label><br>
-            <input type="tel" name="telefoneCelular" id=""><br><br>
-            <label for="email">E-mail</label><br>
-            <input type="email" name="email"><br><br>
-            <label for="cotaParte">Cota-parte</label><br>
-            <input type="number" name="cotaParte" id="" placeholder="R$"><br><br>
-            <span>Você deve ler o Estatuto Social, antes de concluir seu cadastro. </span><a href="">Acesse-so aqui.</a><br><br>
-            <a href="/">Voltar</a>
-            <button>Cadastrar</button>
-        </form>
-    </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Sexo</label><br>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"
+                        required>
+                    <label class="custom-control-label" for="customRadioInline1">Masculino</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input"
+                        required>
+                    <label class="custom-control-label" for="customRadioInline2">Feminino</label>
+                </div>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom04">Data de nascimento</label>
+                <input class="custom-select" type="date" name="dataNascimento" id="">
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Raça/cor</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Branco">Branco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Pardo">Pardo</option>
+                    <option value="Amarelo">Amarelo</option>
+                    <option value="Indígena">Indígena</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom06">Necessidades especiais</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Física">Física</option>
+                    <option value="Visual">Visual</option>
+                    <option value="Auditiva">Auditiva</option>
+                    <option value="Mental">Mental</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom07">CPF</label>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom08">RG</label>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom09">Órgão expedidor</label>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="Digite a sigla" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom10">Data da expedição</label>
+                <input class="custom-select" type="date" name="dataNascimento" id="">
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom11">Naturalidade</label>
+                <input type="text" class="form-control" id="validationCustom11" placeholder="Cidade onde nasceu" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom12">Nacionalidade</label>
+                <input type="text" class="form-control" id="validationCustom12" placeholder="País onde nasceu" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom13">Nome do pai</label>
+                <input type="text" class="form-control" id="validationCustom13" placeholder="Nome completo" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom14">Nome da mãe</label>
+                <input type="text" class="form-control" id="validationCustom14" placeholder="Nome completo" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom15">Renda familiar</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Até 1.000 reais">Até 1.000 reais</option>
+                    <option value="De 1.001 a 2.000 reais">De 1.001 a 2.000 reais</option>
+                    <option value="De 2.001 a 3.000 reais">De 2.001 a 3.000 reais</option>
+                    <option value="De 3.001 a 4.000 reais">De 3.001 a 4.000 reais</option>
+                    <option value="De 4.001 a 5.000 reais">De 4.001 a 5.000 reais</option>
+                    <option value="Acima de 5.001 reais">Acima de 5.001 reais</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom16">Curso matriculado</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Tecnologia em Análise e Desenvolvimento de Sistemas">Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+                    <option value="Tecnologia em Cafeicultura">Tecnologia em Cafeicultura</option>
+                    <option value="Engenharia de Aquicultura">Engenharia de Aquicultura</option>
+                    <option value="Bacharelado em Ciências Biológicas">Bacharelado em Ciências Biológicas</option>
+                    <option value="Licenciatura em Ciências Biológicas">Licenciatura em Ciências Biológicas</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom17">Turma</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="2010/1">2010/1</option>
+                    <option value="2010/2">2010/2</option>
+                    <option value="2011/1">2011/1</option>
+                    <option value="2011/2">2011/2</option>
+                    <option value="2012/1">2012/1</option>
+                    <option value="2012/2">2012/2</option>
+                    <option value="2013/1">2013/1</option>
+                    <option value="2013/2">2013/2</option>
+                    <option value="2014/1">2014/1</option>
+                    <option value="2014/2">2014/2</option>
+                    <option value="2015/1">2015/1</option>
+                    <option value="2015/2">2015/2</option>
+                    <option value="2016/1">2016/1</option>
+                    <option value="2016/2">2016/2</option>
+                    <option value="2017/1">2017/1</option>
+                    <option value="2017/2">2017/2</option>
+                    <option value="2018/1">2018/1</option>
+                    <option value="2018/2">2018/2</option>
+                    <option value="2019/1">2019/1</option>
+                    <option value="2019/2">2019/2</option>
+                    <option value="2020/1">2020/1</option>
+                    <option value="2020/2">2020/2</option>
+                    <option value="2021/1">2021/1</option>
+                    <option value="2021/2">2021/2</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom18">Grau de escolaridade completo</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Primeiro grau">Primeiro grau</option>
+                    <option value="Segundo grau">Segundo grau</option>
+                    <option value="Terceiro grau">Terceiro grau</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom19">Rua</label>
+                <input type="text" class="form-control" id="validationCustom19"
+                    placeholder="Nome completo da rua e nº da residência" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom20">Bairro</label>
+                <input type="text" class="form-control" id="validationCustom20"
+                    placeholder="Bairro, distrito ou localidade" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom21">Cidade</label>
+                <input type="text" class="form-control" id="validationCustom21" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom22">CEP</label>
+                <input type="text" class="form-control" id="validationCustom22" placeholder="CEP ou Caixa Postal"
+                    required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom23">Estado</label>
+                <select class="custom-select">
+                    <option selected disabled>Selecione</option>
+                    <option value="Acre">Acre</option>
+                    <option value="Alagoas">Alagoas</option>
+                    <option value="Amapá">Amapá</option>
+                    <option value="Amazonas">Amazonas</option>
+                    <option value="Bahia">Bahia</option>
+                    <option value="Ceará">Ceará</option>
+                    <option value="Distrito Federal">Distrito Federal</option>
+                    <option value="Espírito Santo">Espírito Santo</option>
+                    <option value="Goiás">Goiás</option>
+                    <option value="Maranhão">Maranhão</option>
+                    <option value="Mato Grosso">Mato Grosso</option>
+                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                    <option value="Minas Gerais">Minas Gerais</option>
+                    <option value="Pará">Pará</option>
+                    <option value="Paraíba">Paraíba</option>
+                    <option value="Paraná">Paraná</option>
+                    <option value="Pernambuco">Pernambuco</option>
+                    <option value="Piauí">Piauí</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                    <option value="Rondônia">Rondônia</option>
+                    <option value="Roraima">Roraima</option>
+                    <option value="Santa Catarina">Santa Catarina</option>
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Sergipe">Sergipe</option>
+                    <option value="Tocantins">Tocantins</option>
+                </select>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom24">E-mail</label>
+                <input type="email" class="form-control" id="validationCustom24" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom25">Telefone residencial</label>
+                <input type="tel" class="form-control" id="validationCustom25" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom26">Telefone celular</label>
+                <input type="tel" class="form-control" id="validationCustom26" placeholder="" required>
+                <div class="valid-feedback">
+                    Ótimo!
+                </div>
+                <div class="invalid-feedback">
+                    Este campo não pode ficar em branco.
+                </div>
+            </div>
+
+            <div class="col-6 mx-auto">
+                <label for="validationCustom27">Cota-parte</label>
+                <div class="col-md-12 mb-3 input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">R$</span>
+                    </div>
+                    <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    <div class="valid-feedback">
+                        Ótimo!
+                    </div>
+                    <div class="invalid-feedback">
+                        Este campo não pode ficar em branco.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div> -->
+
+        <div class="form-group form-check d-flex justify-content-between align-items-center">
+            <div class="custom-control custom-checkbox pl-0 form-check">
+                <input type="checkbox" class="custom-control-input form-check-input" id="customCheck1">
+                <label class="custom-control-label form-check-label" for="customCheck1">Concordo com os termos e condições inseridas neste Estatuto Social.</label>
+                <div class="invalid-feedback">
+                    Se concordou com o Estatuto, você deve marcar este campo.
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Concluir matrícula</button>
+        </div>
+    </form>
+
+    <br>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+</div>
 
 {% endblock %}
