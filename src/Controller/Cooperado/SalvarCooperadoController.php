@@ -17,30 +17,6 @@
             $sexo = $_POST['sexo'];
             $estadoCivil = $_POST['estadoCivil'];
             $dataNascimento = $_POST['dataNascimento'];
-            // $racaCor = $_POST['racaCor'];
-            // $necessidadeEspecial = $_POST['necessidadeEspecial'];
-            // $cpf = $_POST['cpf'];
-            // $rg = $_POST['rg'];
-            // $orgaoExpedidorRg = $_POST['orgaoExpedidorRg'];
-            // $dataExpedicaoRg = $_POST['dataExpedicaoRg'];
-            // $naturalidade = $_POST['naturalidade'];
-            // $nacionalidade = $_POST['nacionalidade'];
-            // $nomePai = $_POST['nomePai'];
-            // $nomeMae = $_POST['nomeMae'];
-            // $rendaFamiliar = $_POST['rendaFamiliar'];
-            // $curso = $_POST['curso'];
-            // $turma = $_POST['turma'];
-            // $escolaridade = $_POST['escolaridade'];
-            // $rua = $_POST['rua'];
-            // $bairro = $_POST['bairro'];
-            // $cidade = $_POST['cidade'];
-            // $cep = $_POST['cep'];
-            // $estado = $_POST['estado'];
-            // $telefoneResidencial = $_POST['telefoneResidencial'];
-            // $telefoneCelular = $_POST['telefoneCelular'];
-            // $email = $_POST['email'];
-            // $dataMatricula = $_POST['dataMatricula'];
-            // $cotaParte = $_POST['cotaParte'];
 
             $novoCooperado = new Cooperado();
 
@@ -79,7 +55,4 @@
             return $this->render('cooperado/teste.html.twig', $dados);
         }
     }
-
-
-
 ?>
