@@ -7,7 +7,7 @@
 <div class="container">
     <h2>Cadastrar novo cooperado</h2> <br>
 
-    <form class="needs-validation" novalidate>
+    <form action="/cooperado/salvar" method="POST" name="form1" class="needs-validation" novalidate>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="validationCustom01">Nome</label>
@@ -139,7 +139,7 @@
 
             <div class="col-md-3 mb-3">
                 <label for="validationCustom10">Data da expedição</label>
-                <input class="custom-select" type="date" name="dataNascimento" id="">
+                <input class="form-control" type="date" name="dataNascimento" id="">
                 <div class="valid-feedback">
                     Ótimo!
                 </div>
