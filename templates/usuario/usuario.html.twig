@@ -5,10 +5,13 @@
 {% block body %}
     <div class="container">
         <h1>Painel do usuário</h1>
-        {# <a href="/usuario/cadastrar">Cadastrar</a><br><br> #}
-        {# <a href="/usuario/login">Entrar</a><br><br> #}
-        <a href="/cooperado">Cooperados</a><br><br>
-        <a href="/curso">Cursos</a><br><br>
-        <a href="/">Sair</a><br><br>
+
+        <hr class="col-md-12 mb-3">
+
+        <nav class="nav">
+            <a class="nav-link" href="/cooperado">Cooperados</a><br><br>
+            <a class="nav-link" href="/curso">Cursos</a><br><br>
+            <a class="nav-link" href="/">Sair</a><br><br>
+        </nav>
     </div>
 {% endblock %}

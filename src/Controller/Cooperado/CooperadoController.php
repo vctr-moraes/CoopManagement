@@ -16,6 +16,9 @@
             return $this->render('cooperado/cooperado.html.twig');
         }
 
+        /**
+         * Retorna a view com a lista de cooperados matriculados
+         */
         public function listar()
         {
             return $this->render('cooperado/listar.html.twig');

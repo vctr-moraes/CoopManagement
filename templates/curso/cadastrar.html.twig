@@ -7,6 +7,8 @@
 <div class="container">
     <h1>Cadastrar novo curso</h1>
 
+    <hr class="col-md-12 mb-3">
+
     <nav class="nav">
         <a class="nav-link active" href="/curso">Cursos</a>
         <a class="nav-link" href="/curso/cadastrar">Cadastrar curso</a>
@@ -14,29 +16,23 @@
     </nav>
 
     <form action="">
-        <label for="nomeCurso">Nome do curso</label>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio1">Tecnologia em Análise e Desenvolvimento de Sistemas</label>
+        <div class="col-md-5 mb-3">
+            <label for="nomeCurso">Nome do curso</label>
+            <input type="text" class="form-control" id="" placeholder="" required>
         </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio2">Tecnologia em Cafeicultura</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio3">Engenharia de Aquicultura</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio4">Bacharelado em Ciências Biológicas</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
-            <label class="custom-control-label" for="customRadio5">Licenciatura em Ciências Biológicas</label>
+        
+        <div class="col-md-5 mb-3">
+            <label for="nomeCurso">Grau acadêmico</label>
+            <select class="form-control">
+                <option value="" selected disabled>Selecione</option>
+                <option value="Técnico">Técnico</option>
+                <option value="Superior">Superior</option>
+            </select>
         </div>
         <br>
-        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <div class="form-group form-check d-flex justify-content-start align-items-center">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </div>
     </form>
 </div>
 

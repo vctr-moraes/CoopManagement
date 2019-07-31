@@ -104,6 +104,8 @@
                 </div>
             </div>
 
+            <hr class="col-md-11 mb-3">
+
             <div class="col-md-3 mb-3">
                 <label for="validationCustom07">CPF</label>
                 <input type="text" class="form-control" id="validationCustom04" placeholder="" required>
@@ -170,6 +172,8 @@
                 </div>
             </div>
 
+            <hr class="col-md-11 mb-3">
+
             <div class="col-md-4 mb-3">
                 <label for="validationCustom13">Nome do pai</label>
                 <input type="text" class="form-control" id="validationCustom13" placeholder="Nome completo" required>
@@ -210,6 +214,8 @@
                     Este campo não pode ficar em branco.
                 </div>
             </div>
+
+            <hr class="col-md-11 mb-3">
 
             <div class="col-md-4 mb-3">
                 <label for="validationCustom16">Curso matriculado</label>
@@ -281,6 +287,8 @@
                     Este campo não pode ficar em branco.
                 </div>
             </div>
+
+            <hr class="col-md-11 mb-3">
 
             <div class="col-md-6 mb-3">
                 <label for="validationCustom19">Rua</label>
@@ -402,6 +410,8 @@
                 </div>
             </div>
 
+            <hr class="col-md-11 mb-3">
+
             <div class="col-6 mx-auto">
                 <label for="validationCustom27">Cota-parte</label>
                 <div class="col-md-12 mb-3 input-group input-group-lg">
@@ -419,23 +429,21 @@
             </div>
         </div>
 
-        <!-- Button trigger modal -->
         <a href="" data-toggle="modal" data-target="#exampleModalScrollable"><strong>Você deve ler o Estatuto Social</strong></a>
 
         <div class="form-group form-check d-flex justify-content-between align-items-center">
             <div class="custom-control custom-checkbox pl-0 form-check">
-                <input type="checkbox" class="custom-control-input form-check-input" id="customCheck1">
-                <label class="custom-control-label form-check-label" for="customCheck1">Concordo com os termos e condições inseridas neste Estatuto Social.</label>
+                <input type="checkbox" class="custom-control-input form-check-input" name="habilitar" id="habilitar" onClick="OnOff()">
+                <label class="custom-control-label form-check-label" for="habilitar">Concordo com os termos e condições inseridas neste Estatuto Social.</label>
                 <div class="invalid-feedback">
                     Se concordou com o Estatuto, você deve marcar este campo.
                 </div>
             </div>
-            <button class="btn btn-outline-secondary" type="reset">Desistir</button>
-            <button class="btn btn-success" type="submit">Concluir matrícula</button>
+            <button class="btn btn-success" type="submit" name="enviar" id="enviar" disabled>Concluir matrícula</button>
         </div>
     </form>
 
-    <!-- Modal -->
+    <!-- Modal - Abre o estatuto social para leitura -->
     <div class="modal fade bd-example-modal-lg" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -494,7 +502,6 @@
     <br>
 
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
             window.addEventListener('load', function () {
@@ -512,6 +519,15 @@
                 });
             }, false);
         })();
+        
+        function OnOff() {
+            if (document.getElementById('habilitar').checked == true) {
+                document.getElementById('enviar').disabled = ""
+            }
+            if (document.getElementById('habilitar').checked == false) {
+                document.getElementById('enviar').disabled = "disabled"
+            }
+        }
     </script>
 
 </div>
