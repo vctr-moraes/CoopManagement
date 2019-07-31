@@ -15,15 +15,15 @@
         <a class="nav-link" href="/usuario">Voltar</a>
     </nav>
 
-    <form action="">
+    <form action="/curso/salvar" method="POST" name="form1">
         <div class="col-md-5 mb-3">
-            <label for="nomeCurso">Nome do curso</label>
-            <input type="text" class="form-control" id="" placeholder="" required>
+            <label for="nome" name="nome">Nome do curso</label>
+            <input type="text" name="nome" class="form-control" id="" placeholder="" required>
         </div>
         
         <div class="col-md-5 mb-3">
-            <label for="nomeCurso">Grau acadêmico</label>
-            <select class="form-control">
+            <label for="grau" name="grau">Grau acadêmico</label>
+            <select class="form-control" name="grau">
                 <option value="" selected disabled>Selecione</option>
                 <option value="Técnico">Técnico</option>
                 <option value="Superior">Superior</option>

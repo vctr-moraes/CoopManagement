@@ -73,5 +73,10 @@ cadastrarCurso:
     controller: App\Controller\Curso\CursoController::cadastrar
     methods: GET|POST
 
+salvarCurso:
+    path: /curso/salvar
+    controller: App\Controller\Curso\SalvarCursoController::salvar
+    methods: POST
+
 
 
