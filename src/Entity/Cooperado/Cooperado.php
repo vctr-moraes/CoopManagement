@@ -2,6 +2,8 @@
 
     namespace App\Entity\Cooperado;
 
+    use Doctrine\ORM\Mapping as ORM;
+
     class Cooperado
     {
         private $id;

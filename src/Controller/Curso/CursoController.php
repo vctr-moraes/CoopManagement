@@ -24,6 +24,23 @@
             return $this->render('curso/cadastrar.html.twig');
         }
 
+        /**
+         * @return Response
+         * 
+         */
+        public function novoCurso()
+        {
+            $ge = $this->getDoctrine()->getManager();
+
+            $curso = new Curso();
+            $curso->setNome("Análise de Sistemas")->setGrau("Superior");
+
+            $ge->persist(($curso));
+            $ge->flush();
+
+            return new Response("Curso cadastrado com sucesso!");
+        }
+
     }
 
 
