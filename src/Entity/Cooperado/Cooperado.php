@@ -160,6 +160,16 @@
             $this->naturalidade = $naturalidade;
         }
 
+        public function getNacionalidade()
+        {
+            return $this->nacionalidade;
+        }
+
+        public function setNacionalidade($nacionalidade)
+        {
+            $this->nacionalidade = $nacionalidade;
+        }
+
         public function getNomePai()
         {
             return $this->nomePai;
