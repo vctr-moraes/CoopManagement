@@ -13,7 +13,20 @@
          */
         public function curso()
         {
-            return $this->render('curso/curso.html.twig');
+            $curso = $this->getDoctrine()
+                ->getRepository(Curso::class);
+
+            if (! $curso) {
+                throw $this->createNotFoundException(
+                    'Curso não encontrado'
+                );
+            }
+
+            $dados = array(
+                'curso' => $curso
+            );
+
+            return $this->render('curso/curso.html.twig', $dados);
         }
 
         /**
@@ -22,23 +35,6 @@
         public function cadastrar()
         {
             return $this->render('curso/cadastrar.html.twig');
-        }
-
-        /**
-         * @return Response
-         * 
-         */
-        public function novoCurso()
-        {
-            $ge = $this->getDoctrine()->getManager();
-
-            $curso = new Curso();
-            $curso->setNome("Análise de Sistemas")->setGrau("Superior");
-
-            $ge->persist(($curso));
-            $ge->flush();
-
-            return new Response("Curso cadastrado com sucesso!");
         }
 
     }

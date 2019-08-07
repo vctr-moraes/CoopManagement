@@ -8,18 +8,26 @@
 
     class SalvarCursoController extends AbstractController
     {
-        public function salvar()
+        /**
+         * @return Response
+         */
+        public function salvar(): Response
         {
             $nome = $_POST['nome'];
             $grau = $_POST['grau'];
 
-            $novoCurso = new Curso();
+            $ge = $this->getDoctrine()->getManager();
 
-            $novoCurso->setNome($nome);
-            $novoCurso->setGrau($grau);
+            $curso = new Curso();
+            $curso->setNome($nome)->setGrau($grau);
+
+            $ge->persist(($curso));
+            $ge->flush();
+
+            // return new Response("Curso cadastrado com sucesso!");
 
             $dados = array(
-                'curso' => $novoCurso
+                'curso' => $curso
             );
 
             return $this->render('cooperado/teste.html.twig', $dados);

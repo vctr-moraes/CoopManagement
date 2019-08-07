@@ -113,8 +113,8 @@
         private $matricula;
 
         /**
-         * @var string
-         * @ORM\Column(type="string", length=100)
+         * @var int
+         * @ORM\Column(type="integer")
          */
         private $curso;
 
@@ -498,15 +498,15 @@
         }
 
         /**
-         * @return string
+         * @return int
          */
-        public function getCurso(): string
+        public function getCurso(): int
         {
             return $this->curso;
         }
 
         /**
-         * @param string $curso
+         * @param int $curso
          * @return Cooperado
          */
         public function setCurso($curso): Cooperado
@@ -623,64 +623,112 @@
             return $this;
         }
 
-        public function getEstado()
+        /**
+         * @return string
+         */
+        public function getEstado():string
         {
             return $this->estado;
         }
 
-        public function setEstado($estado)
+        /**
+         * @param string $estado
+         * @return Cooperado
+         */
+        public function setEstado($estado): Cooperado
         {
             $this->estado = $estado;
+            return $this;
         }
 
-        public function getTelefoneResidencial()
+        /**
+         * @return string
+         */
+        public function getTelefoneResidencial(): string
         {
             return $this->telefoneResidencial;
         }
 
-        public function setTelefoneResidencial($telefoneResidencial)
+        /**
+         * @param string $telefoneResidencial
+         * @return Cooperado
+         */
+        public function setTelefoneResidencial($telefoneResidencial): Cooperado
         {
             $this->telefoneResidencial = $telefoneResidencial;
+            return $this;
         }
 
-        public function getTelefoneCelular()
+        /**
+         * @return string
+         */
+        public function getTelefoneCelular(): string
         {
             return $this->telefoneCelular;
         }
 
-        public function setTelefoneCelular($telefoneCelular)
+        /**
+         * @param string $telefoneCelular
+         * @return Cooperado
+         */
+        public function setTelefoneCelular($telefoneCelular): Cooperado
         {
             $this->telefoneCelular = $telefoneCelular;
+            return $this;
         }
 
-        public function getEmail()
+        /**
+         * @return string
+         */
+        public function getEmail(): string
         {
             return $this->email;
         }
 
-        public function setEmail($email)
+        /**
+         * @param string $email
+         * @return Cooperado
+         */
+        public function setEmail($email): Cooperado
         {
             $this->email = $email;
+            return $this;
         }
 
-        public function getDataMatricula()
+        /**
+         * @return date
+         */
+        public function getDataMatricula(): date
         {
             return $this->dataMatricula;
         }
         
-        public function setDataMatricula($dataMatricula)
+        /**
+         * @param date $dataMatricula
+         * @return Cooperado
+         */
+        public function setDataMatricula($dataMatricula): Cooperado
         {
             $this->dataMatricula = $dataMatricula;
+            return $this;
         }
 
-        public function getCotaParte()
+        /**
+         * @return float
+         */
+        public function getCotaParte(): float
         {
             return $this->cotaParte;
         }
 
-        public function setCotaParte($cotaParte)
+        /**
+         * @param float $cotaParte
+         * @return Cooperado
+         */
+        public function setCotaParte($cotaParte): Cooperado
         {
             $this->$cotaParte = $cotaParte;
+            return $this;
         }
     }
 ?>

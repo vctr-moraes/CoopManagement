@@ -66,7 +66,7 @@ novasMatriculas:
 curso:
     path: /curso
     controller: App\Controller\Curso\CursoController::curso
-    methods: GET|POST
+    methods: GET
 
 cadastrarCurso:
     path: /curso/cadastrar
