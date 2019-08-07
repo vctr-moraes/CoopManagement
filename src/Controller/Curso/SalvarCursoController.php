@@ -21,7 +21,6 @@
             $nome = $request->request->get('nome');
             $grau = $request->request->get('grau');
 
-
             $ge = $this->getDoctrine()->getManager();
 
             $curso = new Curso();
@@ -32,11 +31,11 @@
 
             // return new Response("Curso cadastrado com sucesso!");
 
-            $dados = array(
-                'curso' => $curso
-            );
+            // $dados = array(
+            //     'curso' => $curso
+            // );
 
-            return $this->render('cooperado/teste.html.twig', $dados);
+            return $this->render('curso/cadastrar.html.twig');
         }
     }
 ?>

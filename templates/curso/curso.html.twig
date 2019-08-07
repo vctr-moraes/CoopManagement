@@ -24,11 +24,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>{{ curso.getNome() }}</td>
-                    <td>{{ curso.getGrau() }}</td>
-                </tr>
+                {% for curso in cursos %}
+                    <tr>
+                        <th scope="row">{{ curso.getId() }}</th>
+                        <td>{{ curso.getNome() }}</td>
+                        <td>{{ curso.getGrau() }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

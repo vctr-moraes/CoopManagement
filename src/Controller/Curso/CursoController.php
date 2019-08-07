@@ -13,17 +13,17 @@
          */
         public function curso()
         {
-            $curso = $this->getDoctrine()
+            $cursos = $this->getDoctrine()
                 ->getRepository(Curso::class)->findAll();
 
-            if (!$curso) {
-                throw $this->createNotFoundException(
-                    'Curso não encontrado'
-                );
+            if (!$cursos) {
+                // throw $this->createNotFoundException(
+                //     'Curso não encontrado'
+                // );
             }
 
             $dados = array(
-                'curso' => $curso
+                'cursos' => $cursos
             );
 
             return $this->render('curso/curso.html.twig', $dados);
