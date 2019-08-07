@@ -14,9 +14,9 @@
         public function curso()
         {
             $curso = $this->getDoctrine()
-                ->getRepository(Curso::class);
+                ->getRepository(Curso::class)->findAll();
 
-            if (! $curso) {
+            if (!$curso) {
                 throw $this->createNotFoundException(
                     'Curso não encontrado'
                 );
@@ -38,6 +38,4 @@
         }
 
     }
-
-
 ?>

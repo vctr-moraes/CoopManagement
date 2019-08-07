@@ -40,7 +40,7 @@
          * @param mixed $id
          * @return Curso
          */
-        public function setId($id)
+        public function setId($id): Curso
         {
             $this->id = $id;
             return $this;
