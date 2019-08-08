@@ -26,6 +26,11 @@ logarNoSistema:
     controller: App\Controller\Usuario\UsuarioController::loginUsuario
     methods: GET|POST
 
+usuarioIndex:
+    path: /usuario/index
+    controller: App\Controller\Usuario\UsuarioController::index
+    methods: GET|POST
+
 #Cooperado-----
 cooperado:
     path: /cooperado
