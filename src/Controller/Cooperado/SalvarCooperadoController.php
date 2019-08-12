@@ -4,8 +4,11 @@ namespace App\Controller\Cooperado;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\BrowserKit\Request;
 use App\Entity\Cooperado\Cooperado;
-use Symfony\Component\BrowserKit\Request;
+use App\Entity\Curso\Curso;
+use \DateTime;
 
 class SalvarCooperadoController extends AbstractController
 {
@@ -18,42 +21,74 @@ class SalvarCooperadoController extends AbstractController
         $sexo = $request->request->get('sexo');
         $estadoCivil = $request->request->get('estadoCivil');
         $dataNascimento = $request->request->get('dataNascimento');
+        $racaCor = $request->request->get('racaCor');
+        $necessidadeEspecial = $request->request->get('necessidadeEspecial');
+        $cpf = $request->request->get('cpf');
+        $rg = $request->request->get('rg');
+        $orgaoExpedidorRg = $request->request->get('orgaoExpedidorRg');
+        $dataExpedicaoRg = $request->request->get('dataExpedicaoRg');
+        $naturalidade = $request->request->get('naturalidade');
+        $nacionalidade = $request->request->get('nacionalidade');
+        $nomePai = $request->request->get('nomePai');
+        $nomeMae = $request->request->get('nomeMae');
+        $rendaFamiliar = $request->request->get('rendaFamiliar');
+        $matricula = $request->request->get('matricula');
+        $curso = $request->request->get('curso');
+            $objetoCurso = new Curso();
+            
+        $turma = $request->request->get('turma');
+        $escolaridade = $request->request->get('escolaridade');
+        $rua = $request->request->get('rua');
+        $bairro = $request->request->get('bairro');
+        $cidade = $request->request->get('cidade');
+        $cep = $request->request->get('cep');
+        $estado = $request->request->get('estado');
+        $telefoneResidencial = $request->request->get('telefoneResidencial');
+        $telefoneCelular = $request->request->get('telefoneCelular');
+        $email = $request->request->get('email');
+        $dataMatricula = $request->get('dataMatricula');
+        $cotaParte = $request->request->get('cotaParte');
 
-        $novoCooperado = new Cooperado();
+        $ge = $this->getDoctrine()->getManager();
 
-        $novoCooperado->setNome($nome);
-        $novoCooperado->setSexo($sexo);
-        $novoCooperado->setEstadoCivil($estadoCivil);
-        $novoCooperado->setDataNascimento($dataNascimento);
-        $novoCooperado->setRacaCor($racaCor);
-        $novoCooperado->setNecessidadeEspecial($necessidadeEspecial);
-        $novoCooperado->setCpf($cpf);
-        $novoCooperado->setRg($rg);
-        $novoCooperado->setOrgaoExpedidorRg($orgaoExpedidorRg);
-        $novoCooperado->setDataExpedicaoRg($dataExpedicaoRg);
-        $novoCooperado->setNaturalidade($naturalidade);
-        $novoCooperado->setNomePai($nomePai);
-        $novoCooperado->setNomeMae($nomeMae);
-        $novoCooperado->setRendaFamiliar($rendaFamiliar);
-        $novoCooperado->setCurso($curso);
-        $novoCooperado->setTurma($turma);
-        $novoCooperado->setEscolaridade($escolaridade);
-        $novoCooperado->setRua($rua);
-        $novoCooperado->setBairro($bairro);
-        $novoCooperado->setCidade($cidade);
-        $novoCooperado->setCep($cep);
-        $novoCooperado->setEstado($estado);
-        $novoCooperado->setTelefoneResidencial($telefoneResidencial);
-        $novoCooperado->setTelefoneCelular($telefoneCelular);
-        $novoCooperado->setEmail($email);
-        $novoCooperado->setDataMatricula($dataMatricula);
-        $novoCooperado->setCotaParte($cotaParte);
+        $cooperado = new Cooperado();
 
-        $dados = array(
-            'cooperado' => $novoCooperado
-        );
+        $cooperado->setNome($nome)
+            ->setSexo($sexo)
+            ->setEstadoCivil($estadoCivil)
+            // ->setDataNascimento($dataNascimento)
+            ->setDataNascimento(\DateTime::createFromFormat('Y-m-d', $dataNascimento))
+            ->setRacaCor($racaCor)
+            ->setNecessidadeEspecial($necessidadeEspecial)
+            ->setCpf($cpf)
+            ->setRg($rg)
+            ->setOrgaoExpedidorRg($orgaoExpedidorRg)
+            ->setDataExpedicaoRg(\DateTime::createFromFormat('Y-m-d', $dataExpedicaoRg))
+            ->setNaturalidade($naturalidade)
+            ->setNacionalidade($nacionalidade)
+            ->setNomePai($nomePai)
+            ->setNomeMae($nomeMae)
+            ->setRendaFamiliar($rendaFamiliar = (float) $rendaFamiliar)
+            ->setMatricula($matricula)
+            ->setCurso($curso)
+            ->setTurma($turma)
+            ->setEscolaridade($escolaridade)
+            ->setRua($rua)
+            ->setBairro($bairro)
+            ->setCidade($cidade)
+            ->setCep($cep)
+            ->setEstado($estado)
+            ->setTelefoneResidencial($telefoneResidencial)
+            ->setTelefoneCelular($telefoneCelular)
+            ->setEmail($email)
+            ->setDataMatricula($dataMatricula)
+            ->setCotaParte($cotaParte);
 
-        return $this->render('cooperado/teste.html.twig', $dados);
+        $ge->persist($cooperado);
+        $ge->flush();
+
+        return $this->render('cooperado/cadastrar.html.twig');
+
     }
 }
 
