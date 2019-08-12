@@ -21,7 +21,20 @@
          */
         public function listar()
         {
-            return $this->render('cooperado/listar.html.twig');
+            $cooperados = $this->getDoctrine()
+                ->getRepository(Cooperado::class)->findAll();
+
+            if (!$cooperados) {
+                // throw $this->createNotFoundException(
+                //     'Cooperado não encontrado'
+                // );
+            }
+
+            $dados = array(
+                'cooperados' => $cooperados
+            );
+
+            return $this->render('cooperado/listar.html.twig', $dados);
         }
 
         /**
@@ -45,7 +58,14 @@
          */
         public function novos()
         {
-            return $this->render('cooperado/novos.html.twig');
+            $cooperados = $this->getDoctrine()
+                ->getRepository(Cooperado::class)->findAll();
+
+            $dados = array(
+                'cooperados' => $cooperados
+            );
+
+            return $this->render('cooperado/novos.html.twig', $dados);
         }
     }
 ?>
