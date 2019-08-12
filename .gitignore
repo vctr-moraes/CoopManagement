@@ -17,8 +17,8 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-.gitignore/
-.env/
-.env.test/
+.gitignore
+.env
+.env.test
 composer.json/
 composer.lock/

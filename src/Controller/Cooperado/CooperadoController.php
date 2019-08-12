@@ -50,7 +50,14 @@
          */
         public function desligados()
         {
-            return $this->render('cooperado/desligados.html.twig');
+            $cooperados = $this->getDoctrine()
+                ->getRepository(Cooperado::class)->findAll();
+            
+                $dados = array(
+                    'cooperados' => $cooperados
+                );
+                
+            return $this->render('cooperado/desligados.html.twig', $dados);
         }
 
         /**
