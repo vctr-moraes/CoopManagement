@@ -35,7 +35,8 @@ class SalvarCursoController extends AbstractController
         //     'curso' => $curso
         // );
 
-        return $this->render('curso/cadastrar.html.twig');
+        // return $this->render('curso/cadastrar.html.twig');
+        return $this->redirectToRoute('curso');
     }
 }
 

@@ -33,8 +33,10 @@ class SalvarCooperadoController extends AbstractController
         $nomeMae = $request->request->get('nomeMae');
         $rendaFamiliar = $request->request->get('rendaFamiliar');
         $matricula = $request->request->get('matricula');
-        $curso = $request->request->get('curso');
-            $objetoCurso = new Curso();
+        $curso_id = $request->request->get('curso');
+
+        $objetoCurso = $this->getDoctrine()
+            ->getRepository(Curso::class)->find($curso_id);
             
         $turma = $request->request->get('turma');
         $escolaridade = $request->request->get('escolaridade');
@@ -68,9 +70,9 @@ class SalvarCooperadoController extends AbstractController
             ->setNacionalidade($nacionalidade)
             ->setNomePai($nomePai)
             ->setNomeMae($nomeMae)
-            ->setRendaFamiliar($rendaFamiliar = (float) $rendaFamiliar)
+            ->setRendaFamiliar((float) $rendaFamiliar)
             ->setMatricula($matricula)
-            ->setCurso($curso)
+            ->setCurso($objetoCurso)
             ->setTurma($turma)
             ->setEscolaridade($escolaridade)
             ->setRua($rua)
@@ -81,14 +83,13 @@ class SalvarCooperadoController extends AbstractController
             ->setTelefoneResidencial($telefoneResidencial)
             ->setTelefoneCelular($telefoneCelular)
             ->setEmail($email)
-            ->setDataMatricula($dataMatricula)
+            ->setDataMatricula(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')))
             ->setCotaParte($cotaParte);
 
         $ge->persist($cooperado);
         $ge->flush();
 
-        return $this->render('cooperado/cadastrar.html.twig');
-
+        return $this->redirectToRoute('index');
     }
 }
 

@@ -23,6 +23,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Curso</th>
                     <th scope="col">Data de Matrícula</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +31,8 @@
                     <tr>
                         <th scope="row">{{ cooperado.getId() }}</th>
                         <td>{{ cooperado.getNome() }}</td>
-                        <td>{{ curso.getCurso() }}</td>
-                        <td>{{ curso.getDataMatricula() }}</td>
+                        <td>{{ cooperado.getCurso().getNome() }}</td>
+                        <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
                         <td><button class="btn btn-secondary">Editar</button></td>
                     </tr>
                 {% endfor %}

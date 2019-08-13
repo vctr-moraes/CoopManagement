@@ -7,7 +7,7 @@
     <div class="container">
         <h2>Cadastrar novo cooperado</h2> <br>
 
-        <form action="/cooperado/salvar" method="POST" name="form1" class="needs-validation" novalidate>
+        <form action="/cooperado/salvar" method="POST" name="form1" class="needs-validation" id="form-cooperado" novalidate>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">Nome</label>
@@ -510,38 +510,57 @@
         </div>
 
         <br>
-
-        {% block javascripts %}
-            <script>
-                (function () {
-                    'use strict';
-                    window.addEventListener('load', function () {
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.getElementsByClassName('needs-validation');
-                        // Loop over them and prevent submission
-                        var validation = Array.prototype.filter.call(forms, function (form) {
-                            form.addEventListener('submit', function (event) {
-                                if (form.checkValidity() === false) {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                }
-                                form.classList.add('was-validated');
-                            }, false);
-                        });
-                    }, false);
-                })();
-                
-                function OnOff() {
-                    if (document.getElementById('habilitar').checked == true) {
-                        document.getElementById('enviar').disabled = ""
-                    }
-                    if (document.getElementById('habilitar').checked == false) {
-                        document.getElementById('enviar').disabled = "disabled"
-                    }
-                }
-            </script>
-        {% endblock %}
-
     </div>
+{% endblock %}
 
+{% block javascripts %}
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+        
+        function OnOff() {
+            if (document.getElementById('habilitar').checked == true) {
+                document.getElementById('enviar').disabled = ""
+            }
+            if (document.getElementById('habilitar').checked == false) {
+                document.getElementById('enviar').disabled = "disabled"
+            }
+        }
+
+        $(document).ready(function(){
+            $('#enviar').click(function(){
+                //  Swal.fire(
+                //     'Good job!',
+                //     'You clicked the button!',
+                //     'success'
+                // );
+
+                Swal.fire({
+                    title: 'Confirmado!',
+                    text: 'Cooperado cadastrado com sucesso!',
+                    onOpen: function(){
+                        setTimeout(() => {
+                            $('#form-cooperado').submit();
+                        }, 1000);
+                    }
+                });
+            });
+        });
+
+    </script>
 {% endblock %}
