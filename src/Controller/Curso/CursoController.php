@@ -37,5 +37,6 @@
             return $this->render('curso/cadastrar.html.twig');
         }
 
+        
     }
 ?>
