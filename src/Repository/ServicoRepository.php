@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Servico;
+use App\Entity\Servico\Servico;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
