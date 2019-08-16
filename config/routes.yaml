@@ -31,6 +31,11 @@ usuarioIndex:
     controller: App\Controller\Usuario\UsuarioController::index
     methods: GET|POST
 
+servicos:
+    path: /servicos/index
+    controller: App\Controller\Servico\ServicoController::index
+    methods: GET|POST
+
 #Cooperado-----
 cooperado:
     path: /cooperado
