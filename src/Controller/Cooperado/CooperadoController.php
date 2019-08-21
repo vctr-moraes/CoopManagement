@@ -25,7 +25,7 @@ class CooperadoController extends AbstractController
         $cooperados = $this->getDoctrine()
             ->getRepository(Cooperado::class)->findAll();
 
-        if (!$cooperados) {
+        if (! $cooperados) {
             // throw $this->createNotFoundException(
             //     'Cooperado não encontrado'
             // );
