@@ -23,7 +23,11 @@ class CooperadoController extends AbstractController
     public function listar()
     {
         $cooperados = $this->getDoctrine()
-            ->getRepository(Cooperado::class)->findAll();
+            ->getRepository(Cooperado::class)->findByStatus(
+                array(
+                    'status' => 'AT'
+                )
+            );
 
         if (! $cooperados) {
             // throw $this->createNotFoundException(
@@ -59,7 +63,11 @@ class CooperadoController extends AbstractController
     public function desligados()
     {
         $cooperados = $this->getDoctrine()
-            ->getRepository(Cooperado::class)->findAll();
+            ->getRepository(Cooperado::class)->findByStatus(
+                array(
+                    'status' => 'DE'
+                )
+            );
         
             $dados = array(
                 'cooperados' => $cooperados
@@ -74,7 +82,11 @@ class CooperadoController extends AbstractController
     public function novos()
     {
         $cooperados = $this->getDoctrine()
-            ->getRepository(Cooperado::class)->findAll();
+            ->getRepository(Cooperado::class)->findByStatus(
+                array(
+                    'status' => 'AG'
+                )
+            );
 
         $dados = array(
             'cooperados' => $cooperados

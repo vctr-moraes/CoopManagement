@@ -38,6 +38,22 @@ class SalvarCursoController extends AbstractController
         // return $this->render('curso/cadastrar.html.twig');
         return $this->redirectToRoute('curso');
     }
+
+    /**
+     * @return Response
+     */
+    // public function salvarEdicao(Request $request): Response
+    // {
+    //     $nome = $request->request->get('nome');
+    //     $grau = $request->request->get('grau');
+
+    //     $ge = $this->getDoctrine()->getManager();
+
+    //     $curso->setNome($nome);
+    //     $curso->setGrau($grau);
+
+    //     $ge->flush();
+    // }
 }
 
 ?>

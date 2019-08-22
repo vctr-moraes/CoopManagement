@@ -88,6 +88,11 @@ salvarCurso:
     controller: App\Controller\Curso\SalvarCursoController::salvar
     methods: GET|POST
 
+editarCurso:
+    path: /curso/editar
+    controller: App\Controller\Curso\CursoController::editar
+    methods: GET|POST
+
 #Serviço-----
 servico:
     path: /servico
