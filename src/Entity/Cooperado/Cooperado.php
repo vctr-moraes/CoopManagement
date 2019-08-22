@@ -163,6 +163,19 @@ class Cooperado
      */
     private $cotaParte;
 
+    /**
+     * @ORM\Column(type="string", length=2)
+     * AG: Aguardando
+     * AT: Ativo
+     * DE: Desligado
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $dataDesligamento;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -512,6 +525,30 @@ class Cooperado
     public function setCotaParte(float $cotaParte): self
     {
         $this->cotaParte = $cotaParte;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getDataDesligamento(): ?\DateTimeInterface
+    {
+        return $this->dataDesligamento;
+    }
+
+    public function setDataDesligamento(?\DateTimeInterface $dataDesligamento): self
+    {
+        $this->dataDesligamento = $dataDesligamento;
 
         return $this;
     }

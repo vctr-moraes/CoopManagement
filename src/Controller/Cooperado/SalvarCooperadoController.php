@@ -48,8 +48,10 @@ class SalvarCooperadoController extends AbstractController
         $telefoneResidencial = $request->request->get('telefoneResidencial');
         $telefoneCelular = $request->request->get('telefoneCelular');
         $email = $request->request->get('email');
-        $dataMatricula = $request->get('dataMatricula');
+        // $dataMatricula = $request->get('dataMatricula');
+        $dataMatricula = (\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
         $cotaParte = $request->request->get('cotaParte');
+        $status = "AG";
 
         $ge = $this->getDoctrine()->getManager();
 
@@ -58,7 +60,6 @@ class SalvarCooperadoController extends AbstractController
         $cooperado->setNome($nome)
             ->setSexo($sexo)
             ->setEstadoCivil($estadoCivil)
-            // ->setDataNascimento($dataNascimento)
             ->setDataNascimento(\DateTime::createFromFormat('Y-m-d', $dataNascimento))
             ->setRacaCor($racaCor)
             ->setNecessidadeEspecial($necessidadeEspecial)
@@ -83,8 +84,10 @@ class SalvarCooperadoController extends AbstractController
             ->setTelefoneResidencial($telefoneResidencial)
             ->setTelefoneCelular($telefoneCelular)
             ->setEmail($email)
-            ->setDataMatricula(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')))
-            ->setCotaParte($cotaParte);
+            // ->setDataMatricula(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')))
+            ->setDataMatricula($dataMatricula)
+            ->setCotaParte($cotaParte)
+            ->setStatus($status);
 
         $ge->persist($cooperado);
         $ge->flush();
