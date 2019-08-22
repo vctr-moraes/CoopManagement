@@ -37,6 +37,20 @@
             return $this->render('curso/cadastrar.html.twig');
         }
 
-        
+        public function editar()
+        {
+            $cursos = $this->getDoctrine()
+                ->getRepository(Curso::class)->findById(
+                    array(
+                        'id' => 1
+                    )
+                );
+
+                $dados = array(
+                    'cursos' => $cursos
+                );
+
+            return $this->render('curso/editar.html.twig', $dados);
+        }        
     }
 ?>

@@ -21,7 +21,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Grau</th>
-                    <th scope="col"></th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                         <th scope="row">{{ curso.getId() }}</th>
                         <td>{{ curso.getNome() }}</td>
                         <td>{{ curso.getGrau() }}</td>
-                        <td><button class="btn btn-secondary">Editar</button></td>
+                        <td><a href="/curso/editar" class="btn btn-secondary">Editar</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
