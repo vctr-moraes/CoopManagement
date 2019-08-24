@@ -17,26 +17,31 @@
         </nav>
 
         <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Matrícula</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Curso</th>
-                    <th scope="col">Data de Matrícula</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cooperado in cooperados %}
+            <form action="/cooperado/efetivar" method="POST">
+                <thead>
                     <tr>
-                        <th scope="row">{{ cooperado.getId() }}</th>
-                        <td>{{ cooperado.getNome() }}</td>
-                        <td>{{ cooperado.getCurso().getNome() }}</td>
-                        <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
-                        <td><button class="btn btn-success">Efetivar</button></td>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Data de Matrícula</th>
+                        <th scope="col">Ações</th>
                     </tr>
-                {% endfor %}
-            </tbody>
+                </thead>
+                <tbody>
+                    {% for cooperado in cooperados %}
+                        <tr>
+                            <th scope="row">{{ cooperado.getId() }}</th>
+                            <td>{{ cooperado.getNome() }}</td>
+                            <td>{{ cooperado.getCurso().getNome() }}</td>
+                            <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
+                            <td> {#colocar um group button paa os botões#}
+                                <button class="btn btn-success" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Efetivar</button>
+                                <button class="btn btn-secondary">Ficha</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </form>
         </table>
     </div>
     

@@ -94,5 +94,33 @@ class CooperadoController extends AbstractController
 
         return $this->render('cooperado/novos.html.twig', $dados);
     }
+
+    /**
+     * @return Response
+     * Altera o status de AG (aguardando) para AT (ativo) do novo cooperado
+     */
+    public function efetivar($id = 8)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cooperado = $em->getRepository(Cooperado::class)->find($id);
+
+        $cooperado->setStatus('AT');
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('novasMatriculas'));
+        // return $this->render('cooperado/novos.html.twig');
+        // return $this->redirectToRoute('novasMatriculas');
+    }
+
+    public function desligar($id = 8)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cooperado = $em->getRepository(Cooperado::class)->find($id);
+
+        $cooperado->setStatus('DE')
+            ->setDataDesligamento(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $em->flush();
+
+        return $this->redirectToRoute('cooperados');
+    }
 }
-?>
