@@ -77,6 +77,11 @@ efetivarMatricula:
     controller: App\Controller\Cooperado\CooperadoController::efetivar
     methods: GET|POST
 
+desligarMatricula:
+    path: /cooperado/desligar
+    controller: App\Controller\Cooperado\CooperadoController::desligar
+    methods: GET|POST
+
 #Curso-----
 curso:
     path: /curso
