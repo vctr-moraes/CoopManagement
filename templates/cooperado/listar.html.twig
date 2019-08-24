@@ -35,9 +35,11 @@
                             <td>{{ cooperado.getCurso().getNome() }}</td>
                             <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
                             <td>
-                                <button class="btn btn-secondary" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Desligar</button>
-                                <button class="btn btn-secondary">Ficha</button>
-                                <button class="btn btn-secondary">Ficha</button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-danger" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Desligar</button>
+                                    <button class="btn btn-secondary">Ficha</button>
+                                    <button class="btn btn-primary">Ficha</button>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}
