@@ -72,6 +72,11 @@ novasMatriculas:
     controller: App\Controller\Cooperado\CooperadoController::novos
     methods: GET|POST
 
+efetivarMatricula:
+    path: /cooperado/efetivar
+    controller: App\Controller\Cooperado\CooperadoController::efetivar
+    methods: GET|POST
+
 #Curso-----
 curso:
     path: /curso
