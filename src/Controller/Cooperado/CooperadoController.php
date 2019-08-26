@@ -97,7 +97,7 @@ class CooperadoController extends AbstractController
 
     /**
      * @return Response
-     * Altera o status de AG (aguardando) para AT (ativo) do novo cooperado
+     * Altera o status do novo cooperado de AG (aguardando) para AT (ativo)
      */
     public function efetivar($id = 8)
     {
@@ -112,15 +112,41 @@ class CooperadoController extends AbstractController
         // return $this->redirectToRoute('novasMatriculas');
     }
 
-    public function desligar($id = 8)
+    // public function desligar($id = 8)
+    // {
+    //     $em = $this->getDoctrine()->getManager();
+    //     $cooperado = $em->getRepository(Cooperado::class)->find($id);
+
+    //     $cooperado->setStatus('DE')
+    //         ->setDataDesligamento(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+    //     $em->flush();
+
+    //     return $this->redirectToRoute('cooperados');
+    // }
+
+    public function acaoBotoes()
     {
-        $em = $this->getDoctrine()->getManager();
-        $cooperado = $em->getRepository(Cooperado::class)->find($id);
+        switch ($_POST['acao']) {
+            case 'desligar':
+                $id = $_POST['id'];
+                $em = $this->getDoctrine()->getManager();
+                $cooperado = $em->getRepository(Cooperado::class)->find($id);
+        
+                $cooperado->setStatus('DE')
+                    ->setDataDesligamento(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+                $em->flush();
+        
+                return $this->redirectToRoute('cooperados');
 
-        $cooperado->setStatus('DE')
-            ->setDataDesligamento(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
-        $em->flush();
+                break;
 
-        return $this->redirectToRoute('cooperados');
+            case 'ficha':
+                # code...
+                break;
+            
+            case 'editar':
+                # code...
+                break;
+        }
     }
 }

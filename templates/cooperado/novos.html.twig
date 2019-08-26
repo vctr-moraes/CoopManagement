@@ -35,8 +35,8 @@
                             <td>{{ cooperado.getCurso().getNome() }}</td>
                             <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
                             <td> {#colocar um group button paa os botões#}
-                                <button class="btn btn-success" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Efetivar</button>
-                                <button class="btn btn-secondary">Ficha</button>
+                                <button class="btn btn-outline-success" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Efetivar</button>
+                                <button class="btn btn-outline-secondary">Ficha</button>
                             </td>
                         </tr>
                     {% endfor %}
