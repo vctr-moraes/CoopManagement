@@ -9,7 +9,7 @@
 
         <form action="/cooperado/salvar" method="POST" name="form1" class="needs-validation" id="form-cooperado" novalidate>
             <div class="form-row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom01">Nome</label>
                     <input name="nome" type="text" class="form-control" id="validationCustom01" placeholder="Nome completo" required>
                     <div class="valid-feedback">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom02">Estado civil</label>
                     <select name="estadoCivil" class="form-control">
                         <option value="" selected disabled>Selecione</option>
@@ -38,18 +38,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom03">Sexo</label><br>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="sexo" class="custom-control-input"
-                            required>
-                        <label class="custom-control-label" for="customRadioInline1">Masculino</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="sexo" class="custom-control-input"
-                            required>
-                        <label class="custom-control-label" for="customRadioInline2">Feminino</label>
-                    </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationCustom03">Sexo</label>
+                    <select name="sexo" id="" class="form-control">
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
                     <div class="valid-feedback">
                         Ótimo!
                     </div>
@@ -58,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom04">Data de nascimento</label>
                     <input class="form-control" type="date" name="dataNascimento" id="">
                     <div class="valid-feedback">
@@ -69,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom05">Raça/cor</label>
                     <select name="racaCor" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -87,7 +82,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom06">Necessidades especiais</label>
                     <select name="necessidadeEspecial" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -107,7 +102,7 @@
 
                 <hr class="col-md-11 mb-3">
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom07">CPF</label>
                     <input name="cpf" type="text" class="form-control" id="validationCustom04" placeholder="" required>
                     <div class="valid-feedback">
@@ -118,7 +113,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom08">RG</label>
                     <input name="rg" type="text" class="form-control" id="validationCustom04" placeholder="" required>
                     <div class="valid-feedback">
@@ -129,7 +124,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom09">Órgão expedidor</label>
                     <input name="orgaoExpedidorRg" type="text" class="form-control" id="validationCustom04" placeholder="Digite a sigla" required>
                     <div class="valid-feedback">
@@ -140,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom10">Data da expedição</label>
                     <input name="dataExpedicaoRg" class="form-control" type="date" name="dataNascimento" id="">
                     <div class="valid-feedback">
@@ -175,7 +170,7 @@
 
                 <hr class="col-md-11 mb-3">
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom13">Nome do pai</label>
                     <input name="nomePai" type="text" class="form-control" id="validationCustom13" placeholder="Nome completo" required>
                     <div class="valid-feedback">
@@ -186,7 +181,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom14">Nome da mãe</label>
                     <input name="nomeMae" type="text" class="form-control" id="validationCustom14" placeholder="Nome completo" required>
                     <div class="valid-feedback">
@@ -197,7 +192,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom15">Renda familiar</label>
                     <select name="rendaFamiliar" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -218,7 +213,7 @@
 
                 <hr class="col-md-11 mb-3">
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom13">Matrícula</label>
                     <input name="matricula" type="text" class="form-control" id="validationCustom13" placeholder="Matrícula acadêmica" required>
                     <div class="valid-feedback">
@@ -229,7 +224,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom16">Curso matriculado</label>
                     <select name="curso" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -245,7 +240,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom17">Turma</label>
                     <select name="turma" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -282,7 +277,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom18">Grau de escolaridade completo</label>
                     <select name="escolaridade" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -324,7 +319,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom21">Cidade</label>
                     <input name="cidade" type="text" class="form-control" id="validationCustom21" placeholder="" required>
                     <div class="valid-feedback">
@@ -335,7 +330,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom22">CEP</label>
                     <input name="cep" type="text" class="form-control" id="validationCustom22" placeholder="CEP ou Caixa Postal"
                         required>
@@ -347,7 +342,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom23">Estado</label>
                     <select name="estado" class="custom-select">
                         <option selected disabled>Selecione</option>
@@ -387,7 +382,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom24">E-mail</label>
                     <input name="email" type="email" class="form-control" id="validationCustom24" placeholder="" required>
                     <div class="valid-feedback">
@@ -398,9 +393,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom25">Telefone residencial</label>
-                    <input name="telefoneResidencial" type="tel" class="form-control" id="validationCustom25" placeholder="" required>
+                    <input name="telefoneResidencial" type="text" class="form-control tel" id="validationCustom25" placeholder="" required>
                     <div class="valid-feedback">
                         Ótimo!
                     </div>
@@ -409,9 +404,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="validationCustom26">Telefone celular</label>
-                    <input name="telefoneCelular" type="tel" class="form-control" id="validationCustom26" placeholder="" required>
+                    <input name="telefoneCelular" type="text" class="form-control tel" id="validationCustom26" placeholder="" required>
                     <div class="valid-feedback">
                         Ótimo!
                     </div>
@@ -556,11 +551,24 @@
                     onOpen: function(){
                         setTimeout(() => {
                             $('#form-cooperado').submit();
-                        }, 1000);
+                        }, 3000);
                     }
                 });
             });
         });
+        
+        /* Máscara para input de telefone */
+        var MaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00000';
+        },
+        
+        Options = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(MaskBehavior.apply({}, arguments), options);
+            }
+        };
+
+        $('.tel').mask(MaskBehavior, Options);
 
     </script>
 {% endblock %}
