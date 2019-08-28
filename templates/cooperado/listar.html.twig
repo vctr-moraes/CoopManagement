@@ -35,6 +35,7 @@
                             <td>{{ cooperado.getCurso().getNome() }}</td>
                             <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
                             <td>
+                                <input type="hidden" value="{{ cooperado.getId() }}" name="id">
                                 <button type="submit" class="btn btn-outline-danger" name="acao" value="desligar" id="{{ cooperado.getId() }}">Desligar</button>
                                 <button type="submit" class="btn btn-outline-success" name="acao" value="ficha" id="{{ cooperado.getId() }}">Ficha</button>
                                 <button type="submit" class="btn btn-outline-success" name="acao" value="editar" id="{{ cooperado.getId() }}">Editar</button>

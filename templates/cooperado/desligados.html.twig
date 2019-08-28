@@ -16,28 +16,34 @@
             <a class="nav-link" href="/usuario">Voltar</a><br><br>
         </nav>
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Matrícula</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Curso</th>
-                    <th scope="col">Data de Desligamento</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cooperado in cooperados %}
+        {% if cooperados %}
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <th scope="row">{{ cooperado.getId() }}</th>
-                        <td>{{ cooperado.getNome() }}</td>
-                        <td>{{ cooperado.getCurso().getNome() }}</td>
-                        <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
-                        <td><button class="btn btn-secondary">Editar</button></td>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Data de Desligamento</th>
+                        <th scope="col">Ações</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for cooperado in cooperados %}
+                        <tr>
+                            <th scope="row">{{ cooperado.getId() }}</th>
+                            <td>{{ cooperado.getNome() }}</td>
+                            <td>{{ cooperado.getCurso().getNome() }}</td>
+                            <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
+                            <td><button class="btn btn-secondary">Editar</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if not cooperados %}
+            <h5 style="text-align: center; color: grey">Não existem cooperados desligados</h5>
+        {% endif %}
     </div>
 
 {% endblock %}

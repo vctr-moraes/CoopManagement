@@ -16,24 +16,29 @@
         </nav>
 
         <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Grau</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for curso in cursos %}
+            <form action="/curso/editar" method="POST">
+                <thead>
                     <tr>
-                        <th scope="row">{{ curso.getId() }}</th>
-                        <td>{{ curso.getNome() }}</td>
-                        <td>{{ curso.getGrau() }}</td>
-                        <td><a href="/curso/editar" class="btn btn-secondary">Editar</a></td>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Grau</th>
+                        <th scope="col">Ações</th>
                     </tr>
-                {% endfor %}
-            </tbody>
+                </thead>
+                <tbody>
+                    {% for curso in cursos %}
+                        <input type="hidden" value="{{ curso.getId() }}" name="id">
+                        <tr>
+                            <th scope="row">{{ curso.getId() }}</th>
+                            <td>{{ curso.getNome() }}</td>
+                            <td>{{ curso.getGrau() }}</td>
+                            <td>
+                                <button class="btn btn-outline-success" id="{{ curso.getId() }}" name="{{ curso.getId() }}" type="submit">Editar</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </form>
         </table>
     </div>
 
