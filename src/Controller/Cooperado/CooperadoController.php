@@ -99,8 +99,9 @@ class CooperadoController extends AbstractController
      * @return Response
      * Altera o status do novo cooperado de AG (aguardando) para AT (ativo)
      */
-    public function efetivar($id = 8)
+    public function efetivar()
     {
+        $id = $_POST['id'];
         $em = $this->getDoctrine()->getManager();
         $cooperado = $em->getRepository(Cooperado::class)->find($id);
 
