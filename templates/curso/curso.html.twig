@@ -19,7 +19,6 @@
             <form action="/curso/editar" method="POST">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Grau</th>
                         <th scope="col">Ações</th>
@@ -29,11 +28,10 @@
                     {% for curso in cursos %}
                         <input type="hidden" value="{{ curso.getId() }}" name="id">
                         <tr>
-                            <th scope="row">{{ curso.getId() }}</th>
                             <td>{{ curso.getNome() }}</td>
                             <td>{{ curso.getGrau() }}</td>
                             <td>
-                                <button class="btn btn-outline-success" id="{{ curso.getId() }}" name="{{ curso.getId() }}" type="submit">Editar</button>
+                                <button class="btn btn-outline-secondary" id="{{ curso.getId() }}" name="{{ curso.getId() }}" type="submit">Editar</button>
                             </td>
                         </tr>
                     {% endfor %}

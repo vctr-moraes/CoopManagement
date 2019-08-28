@@ -21,7 +21,6 @@
                 <form action="/cooperado/efetivar" method="POST">
                     <thead>
                         <tr>
-                            <th scope="col">Matrícula</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Curso</th>
                             <th scope="col">Data de Matrícula</th>
@@ -32,7 +31,6 @@
                         {% for cooperado in cooperados %}
                             <input type="hidden" value="{{ cooperado.getId() }}" name="id">
                             <tr>
-                                <th scope="row">{{ cooperado.getId() }}</th>
                                 <td>{{ cooperado.getNome() }}</td>
                                 <td>{{ cooperado.getCurso().getNome() }}</td>
                                 <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
