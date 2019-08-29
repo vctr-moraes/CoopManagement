@@ -2,6 +2,21 @@
 
 {% block title %}Cooperados{% endblock %}
 
+{% block stylesheets %}
+
+    <style>
+        .mensagem {
+            height:100px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-100px;
+            color: grey;
+        }
+    </style>
+
+{% endblock %}
+
 {% block body %}
 
     <div class="container">
@@ -46,8 +61,9 @@
         {% endif %}
 
         {% if not cooperados %}
-            <h5 style="text-align: center; color: grey">Não há novas matrículas</h5>
+            <h5 class="mensagem">Não há novas matrículas</h5>
         {% endif %}
     </div>
     
 {% endblock %}
+
