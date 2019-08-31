@@ -82,6 +82,11 @@ desligarMatricula:
     controller: App\Controller\Cooperado\CooperadoController::desligar
     methods: GET|POST
 
+editarMatricula:
+    path: /cooperado/editar
+    controller: App\Controller\Cooperado\CooperadoController::editar
+    methods: GET|POST
+
 acaoBotoes:
     path: /cooperado/acaoBotoes
     controller: App\Controller\Cooperado\CooperadoController::acaoBotoes

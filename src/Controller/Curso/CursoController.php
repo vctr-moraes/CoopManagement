@@ -40,6 +40,7 @@
         public function editar()
         {
             $id = $_POST['id'];
+            
             $cursos = $this->getDoctrine()
                 ->getRepository(Curso::class)->findById(
                     array(

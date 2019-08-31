@@ -146,7 +146,25 @@ class CooperadoController extends AbstractController
                 break;
             
             case 'editar':
-                # code...
+                $id = $_POST['id'];
+
+                $cursos = $this->getDoctrine()
+                    ->getRepository(Curso::class)->findAll();
+
+                $cooperados = $this->getDoctrine()
+                    ->getRepository(Cooperado::class)->findById(
+                        array(
+                            'id' => $id
+                        )
+                    );
+
+                    $dados = array(
+                        'cooperados' => $cooperados,
+                        'cursos' => $cursos
+                    );
+
+                return $this->render('cooperado/editar.html.twig', $dados);
+
                 break;
         }
     }
