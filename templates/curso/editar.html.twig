@@ -25,9 +25,8 @@
                 <div class="col-md-5 mb-3">
                     <label for="grau" name="grau">Grau acadêmico</label>
                     <select class="form-control" name="grau" required>
-                        <option value="{{ curso.getGrau() }}" selected>{{ curso.getGrau() }}</option>
-                        <option value="Técnico">Técnico</option>
-                        <option value="Superior">Superior</option>
+                        <option value="Técnico" {{ curso.getGrau() == 'Técnico' ? 'selected' : '' }}>Técnico</option>
+                        <option value="Superior" {{ curso.getGrau() == 'Superior' ? 'selected' : '' }}>Superior</option>
                     </select>
                 </div>
                 <br>
