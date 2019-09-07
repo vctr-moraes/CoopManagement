@@ -33,26 +33,31 @@
 
         {% if cooperados %}
             <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Matrícula</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Curso</th>
-                        <th scope="col">Data de Desligamento</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for cooperado in cooperados %}
+                <form action="/cooperado/acaoBotoes" method="POST">
+                    <thead>
                         <tr>
-                            <th scope="row">{{ cooperado.getId() }}</th>
-                            <td>{{ cooperado.getNome() }}</td>
-                            <td>{{ cooperado.getCurso().getNome() }}</td>
-                            <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
-                            <td><button class="btn btn-outline-secondary">Ficha</button></td>
+                            <th scope="col">Matrícula</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Data de Desligamento</th>
+                            <th scope="col">Ações</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
+                    </thead>
+                    <tbody>
+                        {% for cooperado in cooperados %}
+                            <tr>
+                                <input type="hidden" value="{{ cooperado.getId() }}" name="id">
+                                <th scope="row">{{ cooperado.getId() }}</th>
+                                <td>{{ cooperado.getNome() }}</td>
+                                <td>{{ cooperado.getCurso().getNome() }}</td>
+                                <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
+                                <td>
+                                    <button class="btn btn-outline-info" type="submit" name="acao" value="ficha" id="{{ cooperado.getId() }}" title="Abrir a ficha de matrícula">Ficha</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </form>
             </table>
         {% endif %}
 
