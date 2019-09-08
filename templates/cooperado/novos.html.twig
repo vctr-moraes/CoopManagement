@@ -50,7 +50,7 @@
                                 <td>{{ cooperado.getCurso().getNome() }}</td>
                                 <td>{{ cooperado.getDataMatricula()|date('d/m/Y') }}</td>
                                 <td>
-                                    <button class="btn btn-outline-success" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" type="submit">Efetivar</button>
+                                    <button class="btn btn-outline-success" id="{{ cooperado.getId() }}" name="{{ cooperado.getId() }}" value="{{ cooperado.getId() }}" type="submit">Efetivar</button>
                                     <button class="btn btn-outline-secondary" id="{{ cooperado.getId() }}">Ficha</button>
                                 </td>
                             </tr>
