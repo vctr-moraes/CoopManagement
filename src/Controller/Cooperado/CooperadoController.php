@@ -102,10 +102,13 @@ class CooperadoController extends AbstractController
     public function efetivar()
     {
         $id = $_POST['id'];
+
         $em = $this->getDoctrine()->getManager();
+
         $cooperado = $em->getRepository(Cooperado::class)->find($id);
 
         $cooperado->setStatus('AT');
+
         $em->flush();
 
         return $this->redirect($this->generateUrl('novasMatriculas'));
@@ -130,11 +133,18 @@ class CooperadoController extends AbstractController
         switch ($_POST['acao']) {
             case 'desligar':
                 $id = $_POST['id'];
+
                 $em = $this->getDoctrine()->getManager();
-                $cooperado = $em->getRepository(Cooperado::class)->find($id);
+
+                $cooperado = $em->getRepository(Cooperado::class)->findById(
+                    array(
+                        'id' => $id
+                    )
+                );
         
                 $cooperado->setStatus('DE')
                     ->setDataDesligamento(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+                    
                 $em->flush();
         
                 return $this->redirectToRoute('cooperados');
@@ -143,6 +153,7 @@ class CooperadoController extends AbstractController
 
             case 'ficha':
                 # code...
+
                 break;
             
             case 'editar':
@@ -158,10 +169,10 @@ class CooperadoController extends AbstractController
                         )
                     );
 
-                    $dados = array(
-                        'cooperados' => $cooperados,
-                        'cursos' => $cursos
-                    );
+                $dados = array(
+                    'cooperados' => $cooperados,
+                    'cursos' => $cursos
+                );
 
                 return $this->render('cooperado/editar.html.twig', $dados);
 

@@ -45,6 +45,7 @@
                     </thead>
                     <tbody>
                         {% for cooperado in cooperados %}
+                            <input type="hidden" value="{{ cooperado.getId() }}" name="id">
                             <tr>
                                 <th scope="row">{{ cooperado.getId() }}</th>
                                 <td>{{ cooperado.getNome() }}</td>
