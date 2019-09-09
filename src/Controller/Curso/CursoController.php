@@ -1,58 +1,57 @@
 <?php 
 
-    namespace App\Controller\Curso;
+namespace App\Controller\Curso;
 
-    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-    use Symfony\Component\HttpFoundation\Response;
-    use App\Entity\Curso\Curso;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Curso\Curso;
 
-    class CursoController extends AbstractController
+class CursoController extends AbstractController
+{
+    /**
+     * Retorna a view principal para gerenciamento de cursos
+     */
+    public function curso()
     {
-        /**
-         * Retorna a view principal para gerenciamento de cursos
-         */
-        public function curso()
-        {
-            $cursos = $this->getDoctrine()
-                ->getRepository(Curso::class)->findAll();
+        $cursos = $this->getDoctrine()
+            ->getRepository(Curso::class)->findAll();
 
-            if (!$cursos) {
-                // throw $this->createNotFoundException(
-                //     'Curso não encontrado'
-                // );
-            }
+        if (!$cursos) {
+            // throw $this->createNotFoundException(
+            //     'Curso não encontrado'
+            // );
+        }
+
+        $dados = array(
+            'cursos' => $cursos
+        );
+
+        return $this->render('curso/curso.html.twig', $dados);
+    }
+
+    /**
+     * Retorna a view para cadastro de cursos
+     */
+    public function cadastrar()
+    {
+        return $this->render('curso/cadastrar.html.twig');
+    }
+
+    public function editar()
+    {
+        $id = $_POST['id'];
+        
+        $cursos = $this->getDoctrine()
+            ->getRepository(Curso::class)->findById(
+                array(
+                    'id' => $id
+                )
+            );
 
             $dados = array(
                 'cursos' => $cursos
             );
 
-            return $this->render('curso/curso.html.twig', $dados);
-        }
-
-        /**
-         * Retorna a view para cadastro de cursos
-         */
-        public function cadastrar()
-        {
-            return $this->render('curso/cadastrar.html.twig');
-        }
-
-        public function editar()
-        {
-            $id = $_POST['id'];
-            
-            $cursos = $this->getDoctrine()
-                ->getRepository(Curso::class)->findById(
-                    array(
-                        'id' => $id
-                    )
-                );
-
-                $dados = array(
-                    'cursos' => $cursos
-                );
-
-            return $this->render('curso/editar.html.twig', $dados);
-        }        
-    }
-?>
+        return $this->render('curso/editar.html.twig', $dados);
+    }        
+}

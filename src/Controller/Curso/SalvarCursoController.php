@@ -55,5 +55,3 @@ class SalvarCursoController extends AbstractController
     //     $ge->flush();
     // }
 }
-
-?>
