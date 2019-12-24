@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoopManagement", "CoopManagement.csproj", "{97E919A4-EA24-4B74-8E62-52A1F7F84E99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97E919A4-EA24-4B74-8E62-52A1F7F84E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E919A4-EA24-4B74-8E62-52A1F7F84E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E919A4-EA24-4B74-8E62-52A1F7F84E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E919A4-EA24-4B74-8E62-52A1F7F84E99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4BF8B12-50A4-4A98-B5E1-7DCD2A0409FA}
+	EndGlobalSection
+EndGlobal
