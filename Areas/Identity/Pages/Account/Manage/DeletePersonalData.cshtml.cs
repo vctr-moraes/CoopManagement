@@ -31,6 +31,7 @@ namespace CoopManagement.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
         }
 

@@ -22,6 +22,7 @@ namespace CoopManagement.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
         }
 
+        [Display(Name = "Usuário")]
         public string Username { get; set; }
 
         [TempData]
@@ -33,7 +34,7 @@ namespace CoopManagement.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Número de telefone")]
             public string PhoneNumber { get; set; }
         }
 

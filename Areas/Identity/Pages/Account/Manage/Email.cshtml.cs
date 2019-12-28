@@ -31,6 +31,7 @@ namespace CoopManagement.Areas.Identity.Pages.Account.Manage
 
         public string Username { get; set; }
 
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
