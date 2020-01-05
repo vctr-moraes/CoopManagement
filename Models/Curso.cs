@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace CoopManagement.Models
 {
-    public class Curso
+    public class Curso : Entidade
     {
-        private int _id { get; set; }
         private string _nome;
         private string _grau;
         private readonly List<Cooperado> _cooperados = new List<Cooperado>();
