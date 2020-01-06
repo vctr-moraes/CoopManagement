@@ -7,8 +7,12 @@ namespace CoopManagement.Models
 {
     public class Curso : Entidade
     {
+        private static readonly string Tecnico = "Técnico";
+        private static readonly string Superior = "Superior";
+
         private string _nome;
         private string _grau;
+        private static readonly string[] Graus = { Tecnico, Superior };
         private readonly List<Cooperado> _cooperados = new List<Cooperado>();
 
         public string Nome
@@ -30,7 +34,7 @@ namespace CoopManagement.Models
             set
             {
                 DomainException.When(string.IsNullOrEmpty(value), "O campo Grau é obrigatório.");
-                DomainException.When(value.Trim().Length > 50, "O campo Grupo pode ter no máximo 50 caracteres.");
+                DomainException.When(Graus.Contains(value), "O Grau informado é inválido.");
             }
         }
 

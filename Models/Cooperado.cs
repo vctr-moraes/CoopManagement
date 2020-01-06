@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CoopManagement.Models
 {
-    public class Cooperado
+    public class Cooperado : Entidade
     {
         private static readonly string Masculino = "Masculino";
         private static readonly string Feminino = "Feminino";
@@ -28,7 +28,6 @@ namespace CoopManagement.Models
         private static readonly string Visual = "Visual";
         private static readonly string Auditiva = "Auditiva";
 
-        private int _id { get; set; }
         private string _nome;
         private string _sexo;
         private static readonly string[] Sexos = { Masculino, Feminino };
