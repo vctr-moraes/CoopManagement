@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CoopManagement.Models;
 
-namespace CoopManagement.Pages.Cursos
+namespace CoopManagement.Pages.Cooperados
 {
     public class CreateModel : PageModel
     {
@@ -20,11 +20,12 @@ namespace CoopManagement.Pages.Cursos
 
         public IActionResult OnGet()
         {
+        ViewData["CursoId"] = new SelectList(_context.Curso, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Curso Curso { get; set; }
+        public Cooperado Cooperado { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -35,7 +36,7 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
-            _context.Curso.Add(Curso);
+            _context.Cooperado.Add(Cooperado);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

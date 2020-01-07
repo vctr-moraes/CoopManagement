@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CoopManagement.Models;
 
-namespace CoopManagement.Pages.Cursos
+namespace CoopManagement.Pages.Cooperados
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace CoopManagement.Pages.Cursos
         }
 
         [BindProperty]
-        public Curso Curso { get; set; }
+        public Cooperado Cooperado { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,12 +29,14 @@ namespace CoopManagement.Pages.Cursos
                 return NotFound();
             }
 
-            Curso = await _context.Curso.FirstOrDefaultAsync(m => m.Id == id);
+            Cooperado = await _context.Cooperado
+                .Include(c => c.Curso).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Curso == null)
+            if (Cooperado == null)
             {
                 return NotFound();
             }
+           ViewData["CursoId"] = new SelectList(_context.Curso, "Id", "Id");
             return Page();
         }
 
@@ -47,7 +49,7 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
-            _context.Attach(Curso).State = EntityState.Modified;
+            _context.Attach(Cooperado).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +57,7 @@ namespace CoopManagement.Pages.Cursos
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CursoExists(Curso.Id))
+                if (!CooperadoExists(Cooperado.Id))
                 {
                     return NotFound();
                 }
@@ -68,9 +70,9 @@ namespace CoopManagement.Pages.Cursos
             return RedirectToPage("./Index");
         }
 
-        private bool CursoExists(int id)
+        private bool CooperadoExists(int id)
         {
-            return _context.Curso.Any(e => e.Id == id);
+            return _context.Cooperado.Any(e => e.Id == id);
         }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CoopManagement.Models;
 
-namespace CoopManagement.Pages.Cursos
+namespace CoopManagement.Pages.Cooperados
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,12 @@ namespace CoopManagement.Pages.Cursos
             _context = context;
         }
 
-        public IList<Curso> Curso { get;set; }
+        public IList<Cooperado> Cooperado { get;set; }
 
         public async Task OnGetAsync()
         {
-            Curso = await _context.Curso.ToListAsync();
+            Cooperado = await _context.Cooperado
+                .Include(c => c.Curso).ToListAsync();
         }
     }
 }

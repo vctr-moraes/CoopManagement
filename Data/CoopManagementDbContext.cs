@@ -13,4 +13,6 @@ using CoopManagement.Models;
         }
 
         public DbSet<CoopManagement.Models.Curso> Curso { get; set; }
+
+        public DbSet<CoopManagement.Models.Cooperado> Cooperado { get; set; }
     }

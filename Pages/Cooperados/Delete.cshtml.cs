@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CoopManagement.Models;
 
-namespace CoopManagement.Pages.Cursos
+namespace CoopManagement.Pages.Cooperados
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace CoopManagement.Pages.Cursos
         }
 
         [BindProperty]
-        public Curso Curso { get; set; }
+        public Cooperado Cooperado { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,10 @@ namespace CoopManagement.Pages.Cursos
                 return NotFound();
             }
 
-            Curso = await _context.Curso.FirstOrDefaultAsync(m => m.Id == id);
+            Cooperado = await _context.Cooperado
+                .Include(c => c.Curso).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Curso == null)
+            if (Cooperado == null)
             {
                 return NotFound();
             }
@@ -44,11 +45,11 @@ namespace CoopManagement.Pages.Cursos
                 return NotFound();
             }
 
-            Curso = await _context.Curso.FindAsync(id);
+            Cooperado = await _context.Cooperado.FindAsync(id);
 
-            if (Curso != null)
+            if (Cooperado != null)
             {
-                _context.Curso.Remove(Curso);
+                _context.Cooperado.Remove(Cooperado);
                 await _context.SaveChangesAsync();
             }
 
