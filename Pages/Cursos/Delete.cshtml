@@ -12,21 +12,7 @@
 <div>
     <h4>Curso</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Grau)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Grau)
-        </dd>
-    </dl>
-    
+    <partial name="_CursosDetalhesPartial" />
     <form method="post">
         <input type="hidden" asp-for="Curso.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
