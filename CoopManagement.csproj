@@ -17,10 +17,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewsModels\Cooperados\" />
-  </ItemGroup>
-
 
 
 </Project>

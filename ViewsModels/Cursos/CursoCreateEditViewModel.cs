@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CoopManagement.Models;
 using System.ComponentModel.DataAnnotations;
+using CoopManagement.Models;
 
 namespace CoopManagement.ViewsModels.Cursos
 {
     public class CursoCreateEditViewModel
     {
-        public CursoCreateEditViewModel()
-        {
-        }
-
         public CursoCreateEditViewModel(Curso curso)
         {
             Id = curso.Id;
