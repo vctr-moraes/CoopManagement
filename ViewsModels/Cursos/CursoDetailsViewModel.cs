@@ -25,4 +25,3 @@ namespace CoopManagement.ViewsModels.Cursos
         public string Grau { get; set; }
     }
 }
-    

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CoopManagement.Models;
+using CoopManagement.ViewsModels.Cooperados;
 
 namespace CoopManagement.Pages.Cooperados
 {
@@ -16,19 +17,18 @@ namespace CoopManagement.Pages.Cooperados
         public CreateModel(CoopManagementDbContext context)
         {
             _context = context;
+            CooperadoVM = new CooperadoCreateEditViewModel();
         }
 
         public IActionResult OnGet()
         {
-        ViewData["CursoId"] = new SelectList(_context.Curso, "Id", "Id");
+            ViewData["CursoId"] = new SelectList(_context.Curso, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Cooperado Cooperado { get; set; }
+        public CooperadoCreateEditViewModel CooperadoVM { get; set; }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -36,7 +36,49 @@ namespace CoopManagement.Pages.Cooperados
                 return Page();
             }
 
-            _context.Cooperado.Add(Cooperado);
+            try
+            {
+                var cooperado = new Cooperado()
+                {
+                    Id = CooperadoVM.Id,
+                    Nome = CooperadoVM.Nome,
+                    Sexo = CooperadoVM.Sexo,
+                    EstadoCivil = CooperadoVM.EstadoCivil,
+                    DataNascimento = CooperadoVM.DataNascimento,
+                    RacaCor = CooperadoVM.RacaCor,
+                    NecessidadeEspecial = CooperadoVM.NecessidadeEspecial,
+                    Cpf = CooperadoVM.Cpf,
+                    Rg = CooperadoVM.Rg,
+                    OrgaoExpedidorRg = CooperadoVM.OrgaoExpedidorRg,
+                    DataExpedicaoRg = CooperadoVM.DataExpedicaoRg,
+                    Naturalidade = CooperadoVM.Naturalidade,
+                    Nacionalidade = CooperadoVM.Nacionalidade,
+                    NomePai = CooperadoVM.NomePai,
+                    NomeMae = CooperadoVM.NomeMae,
+                    RendaFamiliar = CooperadoVM.RendaFamiliar,
+                    Matricula = CooperadoVM.Matricula,
+                    Curso = CooperadoVM.Curso,
+                    Turma = CooperadoVM.Turma,
+                    Escolaridade = CooperadoVM.Escolaridade,
+                    Rua = CooperadoVM.Rua,
+                    Bairro = CooperadoVM.Bairro,
+                    Cidade = CooperadoVM.Cidade,
+                    Cep = CooperadoVM.Cep,
+                    Estado = CooperadoVM.Estado,
+                    TelefoneResidencial = CooperadoVM.TelefoneResidencial,
+                    TelefoneCelular = CooperadoVM.TelefoneCelular,
+                    Email = CooperadoVM.Email,
+                    DataMatricula = CooperadoVM.DataMatricula,
+                    DataDesligamento = CooperadoVM.DataDesligamento,
+                    CotaParte = CooperadoVM.CotaParte,
+                    StatusMatricula = CooperadoVM.StatusMatricula
+                };
+            }
+            catch (Exception)
+            {
+                return Page();
+            }
+
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

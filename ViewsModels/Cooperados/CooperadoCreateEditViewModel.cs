@@ -35,7 +35,7 @@ namespace CoopManagement.ViewsModels.Cooperados
             Escolaridade = cooperado.Escolaridade;
             Rua = cooperado.Rua;
             Bairro = cooperado.Bairro;
-            Cidade = cooperado.Bairro;
+            Cidade = cooperado.Cidade;
             Cep = cooperado.Cep;
             Estado = cooperado.Estado;
             TelefoneResidencial = cooperado.TelefoneResidencial;
@@ -112,6 +112,8 @@ namespace CoopManagement.ViewsModels.Cooperados
         [Required(ErrorMessage = "O campo Curso é obrigatório.")]
         [Display(Name = "Curso")]
         public Curso Curso { get; set; }
+
+        public int CursoId { get; set; }
 
         [Required(ErrorMessage = "O campo Turma é obrigatório.")]
         [Display(Name = "Turma")]
