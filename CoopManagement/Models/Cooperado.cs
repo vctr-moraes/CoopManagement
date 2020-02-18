@@ -134,7 +134,7 @@ namespace CoopManagement.Models
         public decimal CotaParte { get; set; }
 
         [Display(Name = "Status da Matrícula")]
-        public string StatusMatricula { get; set; }
+        public StatusMatricula StatusMatricula { get; set; }
 
         /* EF Relations */
         public Curso Curso { get; set; }
