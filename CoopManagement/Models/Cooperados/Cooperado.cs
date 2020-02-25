@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using CoopManagement.Models.Cooperados;
+using CoopManagement.Models.Cursos;
 
-namespace CoopManagement.Models
+namespace CoopManagement.Models.Cooperados
 {
     public class Cooperado : Entidade
     {

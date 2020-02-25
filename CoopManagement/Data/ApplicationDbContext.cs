@@ -4,6 +4,8 @@ using System.Text;
 using CoopManagement.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using CoopManagement.Models.Cooperados;
+using CoopManagement.Models.Cursos;
 
 namespace CoopManagement.Data
 {
