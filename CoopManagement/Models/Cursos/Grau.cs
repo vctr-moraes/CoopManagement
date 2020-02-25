@@ -7,7 +7,7 @@ namespace CoopManagement.Models.Cursos
 {
     public enum Grau
     {
-        Tecnico = 1,
-        Supeerior = 2
+        Técnico = 1,
+        Superior = 2
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CoopManagement.Data;
 using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoopManagement.Pages.Cursos
 {
@@ -24,7 +25,7 @@ namespace CoopManagement.Pages.Cursos
 
         public async Task OnGetAsync()
         {
-            Curso = await _context.Cursos.ToListAsync();
+            Curso = await _context.Cursos.OrderBy(p => p.Grau).ToListAsync();
         }
     }
 }

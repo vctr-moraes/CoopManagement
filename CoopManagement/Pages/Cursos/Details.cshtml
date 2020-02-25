@@ -1,14 +1,14 @@
 ﻿@page
-@model CoopManagement.DetailsModel
+@model CoopManagement.Pages.Cursos.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Cursos";
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Curso</h4>
+    <h4>Detalhes do curso</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -26,6 +26,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Curso.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Curso.Id">Editar</a> |
+    <a asp-page="./Index">Voltar</a>
 </div>

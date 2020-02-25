@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CoopManagement.Data;
 using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoopManagement.Pages.Cursos
 {

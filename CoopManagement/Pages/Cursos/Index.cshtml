@@ -1,14 +1,14 @@
 ﻿@page
-@model CoopManagement.IndexModel
+@model CoopManagement.Pages.Cursos.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cursos";
 }
 
-<h1>Index</h1>
+<h1>Cursos</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-page="Create">Cadastrar novo curso</a>
 </p>
 <table class="table">
     <thead>
@@ -23,20 +23,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Curso) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grau)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Curso) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grau)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
+                    <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

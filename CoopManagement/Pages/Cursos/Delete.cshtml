@@ -1,15 +1,15 @@
 ﻿@page
-@model CoopManagement.DeleteModel
+@model CoopManagement.Pages.Cursos.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Cursos";
 }
 
-<h1>Delete</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja deletar este curso?</h3>
 <div>
-    <h4>Curso</h4>
+    <h4>Deletar curso</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -28,7 +28,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Curso.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Voltar</a>
     </form>
 </div>
