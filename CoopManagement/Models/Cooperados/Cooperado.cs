@@ -10,8 +10,6 @@ namespace CoopManagement.Models.Cooperados
 {
     public class Cooperado : Entidade
     {
-        public Guid CursoId { get; set; }
-
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [MaxLength(100, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres.")]
@@ -74,10 +72,14 @@ namespace CoopManagement.Models.Cooperados
         [Display(Name = "Renda Familiar")]
         public string RendaFamiliar { get; set; }
 
-        [Display(Name = "Matrícula")]
+        [Display(Name = "Matrícula Acadêmica")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [MaxLength(20, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres.")]
         public string Matricula { get; set; }
+
+        [Display(Name = "Curso")]
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        public Guid CursoId { get; set; }
 
         [Display(Name = "Turma")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
@@ -113,6 +115,7 @@ namespace CoopManagement.Models.Cooperados
         public string Estado { get; set; }
 
         [Display(Name = "Telefone Residencial")]
+        [StringLength(10, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 10)]
         public string TelefoneResidencial { get; set; }
 
         [Display(Name = "Telefone Celular")]
@@ -132,11 +135,13 @@ namespace CoopManagement.Models.Cooperados
         public DateTime DataDesligamento { get; set; }
 
         [Display(Name = "Cota-parte")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public decimal CotaParte { get; set; }
 
-        [Display(Name = "Status da Matrícula")]
-        public StatusMatricula StatusMatricula { get; set; }
+        [Display(Name = "Matrícula")]
+        public StatusMatricula StatusMatricula { get; set; } = StatusMatricula.Aguardando;
 
         /* EF Relations */
         public Curso Curso { get; set; }

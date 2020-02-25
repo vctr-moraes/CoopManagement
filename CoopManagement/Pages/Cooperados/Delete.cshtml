@@ -2,14 +2,14 @@
 @model CoopManagement.Pages.Cooperados.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Cooperados";
 }
 
-<h1>Delete</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja deletar este cooperado?</h3>
 <div>
-    <h4>Cooperado</h4>
+    <h4>Deletar cooperado</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -202,7 +202,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Cooperado.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Voltar</a>
     </form>
 </div>

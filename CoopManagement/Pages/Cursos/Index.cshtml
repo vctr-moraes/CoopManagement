@@ -5,38 +5,54 @@
     ViewData["Title"] = "Cursos";
 }
 
-<h1>Cursos</h1>
+<style>
+    .info {
+        color: lightgrey;
+        line-height: 350px;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a class="btn btn-outline-primary" asp-page="Create">Cadastrar novo curso</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Curso[0].Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Curso[0].Grau)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Curso) {
+
+@if (Model.Curso.Count == 0)
+{
+    <h4 class="text-center info">Não há cursos cadastrados no sistema</h4>
+}
+else
+{
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Grau)
-                </td>
-                <td class="text-right">
-                    <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
-                    <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
-                    <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso[0].Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Curso[0].Grau)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Curso)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grau)
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
+                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

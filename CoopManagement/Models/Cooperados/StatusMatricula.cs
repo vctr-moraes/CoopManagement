@@ -7,7 +7,8 @@ namespace CoopManagement.Models.Cooperados
 {
     public enum StatusMatricula
     {
-        Masculino = 1,
-        Feminino = 2
+        Ativo = 1,
+        Inativo = 2,
+        Aguardando = 3
     }
 }

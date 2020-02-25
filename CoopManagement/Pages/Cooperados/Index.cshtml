@@ -2,215 +2,69 @@
 @model CoopManagement.Pages.Cooperados.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cooperados";
 }
 
-<h1>Index</h1>
+<style>
+    .info {
+        color: grey;
+        line-height: 400px;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-page="Create">Cadastrar novo cooperado</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Sexo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].EstadoCivil)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].DataNascimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].RacaCor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].NecessidadeEspecial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Cpf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Rg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].OrgaoExpedidorRg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].DataExpedicaoRg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Naturalidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Nacionalidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].NomePai)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].NomeMae)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].RendaFamiliar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Matricula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Turma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Escolaridade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Logradouro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Bairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].TelefoneResidencial)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].TelefoneCelular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].DataMatricula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].DataDesligamento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].CotaParte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].StatusMatricula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cooperado[0].Curso)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Cooperado) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstadoCivil)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RacaCor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NecessidadeEspecial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cpf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrgaoExpedidorRg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataExpedicaoRg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naturalidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nacionalidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomePai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeMae)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RendaFamiliar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Matricula)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Turma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Escolaridade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Logradouro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelefoneResidencial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelefoneCelular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataMatricula)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDesligamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CotaParte)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusMatricula)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Curso.Nome)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@if (Model.Cooperado.Count == 0)
+{
+    <h4 class="text-center info">Não há cooperados cadastrados no sistema</h4>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cooperado[0].Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cooperado[0].Matricula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cooperado[0].DataMatricula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cooperado[0].StatusMatricula)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cooperado)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataMatricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StatusMatricula)
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
+                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

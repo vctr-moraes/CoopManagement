@@ -1,22 +1,25 @@
 ﻿@page
 @model CoopManagement.Pages.Cooperados.CreateModel
+@using CoopManagement.Models.Cooperados
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cooperados";
 }
 
-<h1>Create</h1>
+<style>
+    .info {
+        cursor: help;
+    }
+</style>
 
-<h4>Cooperado</h4>
+<h1>@ViewData["Title"]</h1>
+
+<h4>Cadastrar novo cooperado</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Cooperado.CursoId" class="control-label"></label>
-                <select asp-for="Cooperado.CursoId" class ="form-control" asp-items="ViewBag.CursoId"></select>
-            </div>
             <div class="form-group">
                 <label asp-for="Cooperado.Nome" class="control-label"></label>
                 <input asp-for="Cooperado.Nome" class="form-control" />
@@ -24,12 +27,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.Sexo" class="control-label"></label>
-                <select asp-for="Cooperado.Sexo" class="form-control"></select>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="Masculino" name="Cooperado.Sexo" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="Masculino">Masculino</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="Feminino" name="Cooperado.Sexo" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="Feminino">Feminino</label>
+                </div>
                 <span asp-validation-for="Cooperado.Sexo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.EstadoCivil" class="control-label"></label>
-                <select asp-for="Cooperado.EstadoCivil" class="form-control"></select>
+                <select asp-for="Cooperado.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivil>()">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.EstadoCivil" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,12 +51,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.RacaCor" class="control-label"></label>
-                <select asp-for="Cooperado.RacaCor" class="form-control"></select>
+                <select asp-for="Cooperado.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCor>()">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.RacaCor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.NecessidadeEspecial" class="control-label"></label>
-                <select asp-for="Cooperado.NecessidadeEspecial" class="form-control"></select>
+                <select asp-for="Cooperado.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecial>()">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.NecessidadeEspecial" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -68,13 +84,17 @@
                 <span asp-validation-for="Cooperado.DataExpedicaoRg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cooperado.Naturalidade" class="control-label"></label>
+                <abbr title="Cidade em que você nasceu">
+                    <label asp-for="Cooperado.Naturalidade" class="control-label info"></label>
+                </abbr>
                 <input asp-for="Cooperado.Naturalidade" class="form-control" />
                 <span asp-validation-for="Cooperado.Naturalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cooperado.Nacionalidade" class="control-label"></label>
-                <input asp-for="Cooperado.Nacionalidade" class="form-control" />
+                <abbr title="País em que você nasceu">
+                    <label asp-for="Cooperado.Nacionalidade" class="control-label info"></label>
+                </abbr>
+                <input asp-for="Cooperado.Nacionalidade" class="form-control" placeholder="Ex.: Brasileiro(a)" />
                 <span asp-validation-for="Cooperado.Nacionalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -89,7 +109,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.RendaFamiliar" class="control-label"></label>
-                <input asp-for="Cooperado.RendaFamiliar" class="form-control" />
+                <select asp-for="Cooperado.RendaFamiliar" class="form-control">
+                    <option selected disabled>Selecionar</option>
+                    <option value="Até R$ 1.500,00">Até R$ 1.500,00</option>
+                    <option value="Até R$ 3.000,00">Até R$ 3.000,00</option>
+                    <option value="Até R$ 4.500,00">Até R$ 4.500,00</option>
+                    <option value="Acima de R$ 5.000,00">Acima de R$ 5.000,00</option>
+                </select>
                 <span asp-validation-for="Cooperado.RendaFamiliar" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -98,13 +124,19 @@
                 <span asp-validation-for="Cooperado.Matricula" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Cooperado.CursoId" class="control-label"></label>
+                <select asp-for="Cooperado.CursoId" class="form-control" asp-items="ViewBag.CursoId"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Cooperado.Turma" class="control-label"></label>
                 <input asp-for="Cooperado.Turma" class="form-control" />
                 <span asp-validation-for="Cooperado.Turma" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.Escolaridade" class="control-label"></label>
-                <select asp-for="Cooperado.Escolaridade" class="form-control"></select>
+                <select asp-for="Cooperado.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<Escolaridade>()">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.Escolaridade" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -148,36 +180,91 @@
                 <span asp-validation-for="Cooperado.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cooperado.DataMatricula" class="control-label"></label>
-                <input asp-for="Cooperado.DataMatricula" class="form-control" />
-                <span asp-validation-for="Cooperado.DataMatricula" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cooperado.DataDesligamento" class="control-label"></label>
-                <input asp-for="Cooperado.DataDesligamento" class="form-control" />
-                <span asp-validation-for="Cooperado.DataDesligamento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Cooperado.CotaParte" class="control-label"></label>
                 <input asp-for="Cooperado.CotaParte" class="form-control" />
                 <span asp-validation-for="Cooperado.CotaParte" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cooperado.StatusMatricula" class="control-label"></label>
-                <select asp-for="Cooperado.StatusMatricula" class="form-control"></select>
-                <span asp-validation-for="Cooperado.StatusMatricula" class="text-danger"></span>
+                <strong>
+                    <a href="#" data-toggle="modal" data-target="#exampleModalScrollable">Estatuto social da COOPA-IFES</a>
+                </strong>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" id="salvar" disabled />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Voltar</a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Estatuto Social</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-justify">
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+            </div>
+            <div class="modal-footer">
+                <div class="custom-control custom-checkbox text-left">
+                    <input type="checkbox" class="custom-control-input" id="checkAceitarTermos" onclick="habilitarBtn()">
+                    <label class="custom-control-label" for="checkAceitarTermos">Li e estou de acordo com este estatuto social</label>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    $(document).ready(function () {
+        $("#Cooperado_TelefoneResidencial").mask("(99) 9999-9999");
+        $("#Cooperado_TelefoneCelular").mask("(99) 99999-9999");
+        $("#Cooperado_Cep").mask("99.999.999");
+        $("#Cooperado_Cpf").mask("999.999.999-99");
+
+        $('#Cooperado_Matricula').on("change", function (event) {
+            $(this).val($(this).val().toUpperCase());
+        });
+    });
+
+    function habilitarBtn(){  
+        if(document.getElementById('checkAceitarTermos').checked == true){ 	 
+            document.getElementById('salvar').disabled = ""
+        }
+        
+        if(document.getElementById('checkAceitarTermos').checked == false){ 	
+            document.getElementById('salvar').disabled = "disabled"
+        }	
+    }
+</script>

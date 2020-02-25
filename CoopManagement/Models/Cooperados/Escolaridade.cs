@@ -9,6 +9,6 @@ namespace CoopManagement.Models.Cooperados
     {
         PrimeiroGrau = 1,
         SegundoGrau = 2,
-        TerceiroGray = 3
+        TerceiroGrau = 3
     }
 }
