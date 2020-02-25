@@ -272,7 +272,4 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
-# Novos incluídos
-ScaffoldingReadMe.txt
-
 # End of https://www.gitignore.io/api/aspnetcore
