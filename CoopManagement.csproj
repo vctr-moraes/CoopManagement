@@ -5,6 +5,19 @@
     <UserSecretsId>aspnet-CoopManagement-9609C310-8776-40CE-AB7F-CB715B8A5A10</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200228025247_TabelaEstados.cs" />
+    <Compile Remove="Data\Migrations\20200228025247_TabelaEstados.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200228030213_TabelaEstados.cs" />
+    <Compile Remove="Data\Migrations\20200228030213_TabelaEstados.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200228031325_TabelaEstados2.cs" />
+    <Compile Remove="Data\Migrations\20200228031325_TabelaEstados2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200228143032_Estados.cs" />
+    <Compile Remove="Data\Migrations\20200228143032_Estados.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200310031033_Ajustes.cs" />
+    <Compile Remove="Data\Migrations\20200310031033_Ajustes.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />

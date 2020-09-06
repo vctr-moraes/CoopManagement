@@ -87,7 +87,7 @@
                 <abbr title="Cidade em que você nasceu">
                     <label asp-for="Cooperado.Naturalidade" class="control-label info"></label>
                 </abbr>
-                <input asp-for="Cooperado.Naturalidade" class="form-control" />
+                <input asp-for="Cooperado.Naturalidade" class="form-control" placeholder="Ex.: Alegrense" />
                 <span asp-validation-for="Cooperado.Naturalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -161,7 +161,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.Estado" class="control-label"></label>
-                <input asp-for="Cooperado.Estado" class="form-control" />
+                <select asp-for="Cooperado.Estado" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecial>()">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.Estado" class="text-danger"></span>
             </div>
             <div class="form-group">

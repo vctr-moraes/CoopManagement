@@ -87,7 +87,7 @@
                 <abbr title="Cidade em que você nasceu">
                     <label asp-for="Cooperado.Naturalidade" class="control-label info"></label>
                 </abbr>
-                <input asp-for="Cooperado.Naturalidade" class="form-control" />
+                <input asp-for="Cooperado.Naturalidade" class="form-control" placeholder="Ex.: Alegrense" />
                 <span asp-validation-for="Cooperado.Naturalidade" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -161,7 +161,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cooperado.Estado" class="control-label"></label>
-                <input asp-for="Cooperado.Estado" class="form-control" />
+                <select asp-for="Cooperado.Estado" class="form-control">
+                    <option selected disabled>Selecionar</option>
+                </select>
                 <span asp-validation-for="Cooperado.Estado" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -185,7 +187,7 @@
                 <span asp-validation-for="Cooperado.CotaParte" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <strong>
+                <strong title="É necessário ler e concordar com os termos deste estatuto para concluir sua matrícula.">
                     <a href="#" data-toggle="modal" data-target="#exampleModalScrollable">Estatuto social da COOPA-IFES</a>
                 </strong>
             </div>
@@ -231,12 +233,14 @@
                 Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
             </div>
             <div class="modal-footer">
-                <div class="custom-control custom-checkbox text-left">
-                    <input type="checkbox" class="custom-control-input" id="checkAceitarTermos" onclick="habilitarBtn()">
-                    <label class="custom-control-label" for="checkAceitarTermos">Li e estou de acordo com este estatuto social</label>
+                <div class="text-left">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="checkAceitarTermos" onclick="habilitarBtn()">
+                        <label class="custom-control-label" for="checkAceitarTermos">Li e estou de acordo com este estatuto social</label>
+                    </div>
                 </div>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmar" disabled>Confirmar</button>
             </div>
         </div>
     </div>
@@ -247,24 +251,26 @@
 }
 
 <script>
-    $(document).ready(function () {
-        $("#Cooperado_TelefoneResidencial").mask("(99) 9999-9999");
-        $("#Cooperado_TelefoneCelular").mask("(99) 99999-9999");
-        $("#Cooperado_Cep").mask("99.999.999");
-        $("#Cooperado_Cpf").mask("999.999.999-99");
+    //$(document).ready(function () {
+    //    $("#Cooperado_TelefoneResidencial").mask("(99) 9999-9999");
+    //    $("#Cooperado_TelefoneCelular").mask("(99) 99999-9999");
+    //    $("#Cooperado_Cep").mask("99.999.999");
+    //    $("#Cooperado_Cpf").mask("999.999.999-99");
 
-        $('#Cooperado_Matricula').on("change", function (event) {
-            $(this).val($(this).val().toUpperCase());
-        });
-    });
+    //    $('#Cooperado_Matricula').on("change", function (event) {
+    //        $(this).val($(this).val().toUpperCase());
+    //    });
+    //});
 
     function habilitarBtn(){  
         if(document.getElementById('checkAceitarTermos').checked == true){ 	 
             document.getElementById('salvar').disabled = ""
+            document.getElementById('confirmar').disabled = ""
         }
         
         if(document.getElementById('checkAceitarTermos').checked == false){ 	
             document.getElementById('salvar').disabled = "disabled"
+            document.getElementById('confirmar').disabled = "disabled"
         }	
     }
 </script>

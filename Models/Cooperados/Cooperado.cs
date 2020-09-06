@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using CoopManagement.Models.Cooperados;
@@ -24,6 +25,7 @@ namespace CoopManagement.Models.Cooperados
         public EstadoCivil EstadoCivil { get; set; }
 
         [Display(Name = "Data de Nascimento")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         public DateTime DataNascimento { get; set; }
 
@@ -47,6 +49,7 @@ namespace CoopManagement.Models.Cooperados
         public string OrgaoExpedidorRg { get; set; }
 
         [Display(Name = "Data de Expedição")]
+        [DataType(DataType.Date)]
         public DateTime DataExpedicaoRg { get; set; }
 
         [Display(Name = "Naturalidade")]
@@ -115,29 +118,36 @@ namespace CoopManagement.Models.Cooperados
         public string Estado { get; set; }
 
         [Display(Name = "Telefone Residencial")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Por favor, digite um número de telefone válido.")]
         [StringLength(10, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 10)]
         public string TelefoneResidencial { get; set; }
 
-        [Display(Name = "Telefone Celular")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [Display(Name = "Telefone Celular")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Por favor, digite um número de telefone válido.")]
         [StringLength(11, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 11)]
         public string TelefoneCelular { get; set; }
 
         [Display(Name = "E-mail")]
+        [EmailAddress]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [MaxLength(100, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres.")]
         public string Email { get; set; }
 
         [Display(Name = "Data de Matrícula")]
+        [DataType(DataType.Date)]
         public DateTime DataMatricula { get; set; }
 
         [Display(Name = "Data de Desligamento")]
+        [DataType(DataType.Date)]
         public DateTime DataDesligamento { get; set; }
 
+        [Range(10, 100, ErrorMessage = "O valor para a {0} deve estar entre R$ 10,00 e R$ 100,00.")]
         [Display(Name = "Cota-parte")]
-        [DataType(DataType.Currency)]
+        [DataType(DataType.Currency, ErrorMessage = "O campo {0} deve ser um número.")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal CotaParte { get; set; }
 
         [Display(Name = "Matrícula")]
