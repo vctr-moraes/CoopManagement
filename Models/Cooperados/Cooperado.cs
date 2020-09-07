@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using CoopManagement.Models.Cooperados;
 using CoopManagement.Models.Cursos;
 
 namespace CoopManagement.Models.Cooperados
@@ -39,13 +35,15 @@ namespace CoopManagement.Models.Cooperados
 
         [Display(Name = "CPF")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(11, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 11)]
+        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 11 caracteres.")]
         public string Cpf { get; set; }
 
         [Display(Name = "RG")]
+        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public string Rg { get; set; }
 
         [Display(Name = "Órgão Expedidor")]
+        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public string OrgaoExpedidorRg { get; set; }
 
         [Display(Name = "Data de Expedição")]
@@ -73,6 +71,7 @@ namespace CoopManagement.Models.Cooperados
         public string NomeMae { get; set; }
 
         [Display(Name = "Renda Familiar")]
+        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public string RendaFamiliar { get; set; }
 
         [Display(Name = "Matrícula Acadêmica")]
@@ -86,10 +85,12 @@ namespace CoopManagement.Models.Cooperados
 
         [Display(Name = "Turma")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public string Turma { get; set; }
 
         [Display(Name = "Escolaridade")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [StringLength(50, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public Escolaridade Escolaridade { get; set; }
 
         [Display(Name = "Logradouro")]
@@ -109,7 +110,6 @@ namespace CoopManagement.Models.Cooperados
 
         [Display(Name = "CEP")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(8, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 8)]
         public string Cep { get; set; }
 
         [Display(Name = "Estado")]
@@ -118,14 +118,12 @@ namespace CoopManagement.Models.Cooperados
         public string Estado { get; set; }
 
         [Display(Name = "Telefone Residencial")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Por favor, digite um número de telefone válido.")]
-        [StringLength(10, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 10)]
+        [DataType(DataType.PhoneNumber)]
         public string TelefoneResidencial { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [Display(Name = "Telefone Celular")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Por favor, digite um número de telefone válido.")]
-        [StringLength(11, ErrorMessage = "O campo {0} precisa ter {1} caracteres.", MinimumLength = 11)]
+        [DataType(DataType.PhoneNumber)]
         public string TelefoneCelular { get; set; }
 
         [Display(Name = "E-mail")]
