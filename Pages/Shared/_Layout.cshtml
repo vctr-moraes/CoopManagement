@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
     @*Fontawesome*@
-    <link href="~/lib/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="~/lib/fontawesome/css/brands.min.css" rel="stylesheet" />
-    <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/lib/Inspinia/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/lib/Inspinia/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/lib/Inspinia/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
 
     @*Inspinia*@
     <link rel="stylesheet" href="~/lib/Inspinia/css/animate.css" />
@@ -89,25 +89,26 @@
             </div>
         </div>
     </div>
+    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @*jQuery*@
+    <script src="~/lib/Inspinia/js/jquery-3.1.1.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/popper.min.js" type="text/javascript"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
 
     @*Bootstrap*@
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     @*Inspinia*@
-    <script src="~/lib/Inspinia/js/plugins/pace/pace.min.js"></script>
     <script src="~/lib/Inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="~/lib/Inspinia/js/plugins/pace/pace.min.js"></script>
     <script src="~/lib/Inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="~/lib/Inspinia/js/demo/peity-demo.js"></script>
     <script src="~/lib/Inspinia/js/inspinia.js"></script>
-
-    @*Fontawesome*@
-    <script src="~/lib/fontawesome/js/fontawesome.min.js"></script>
-    <script src="~/lib/fontawesome/js/brands.min.js"></script>
-    <script src="~/lib/fontawesome/js/all.min.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/pace/pace.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
