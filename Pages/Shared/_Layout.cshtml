@@ -4,53 +4,110 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CoopManagement</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="~/css/site.css" />
+
+    @*Bootstrap*@
+    <link rel="stylesheet" href="~/lib/jquery/dist/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @*Fontawesome*@
+    <link href="~/lib/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+
+    @*Inspinia*@
+    <link rel="stylesheet" href="~/lib/Inspinia/css/animate.css" />
+    <link rel="stylesheet" href="~/lib/Inspinia/css/style.css" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">CoopManagement</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Cursos/Index">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Cooperados/Index">Cooperados</a>
-                        </li>
-                    </ul>
-                </div>
+<body class="md-skin fixed-nav no-skin-config">
+    <div class="pace pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element offset-md-4">
+                            <img alt="image" class="rounded-circle" src="~/imagens/logo-coop.jpg" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">CoopManagement</span>
+                                <span class="text-muted text-xs block">Perfil <b class="caret"></b></span>
+                            </a>
+                            <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                                <ul class="dropdown-menu animated m-t-xs">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Contacts</a></li>
+                                    <li><a class="dropdown-item" href="#">Mailbox</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="logo-element">
+                            <img alt="Geoserviços" src="~/imagens/logo-coop.jpg" />
+                        </div>
+                    </li>
+                    <li>
+                        <a asp-page="/Index" aria-expanded="false"><i class="fas fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a><i class="fas fa-user-friends"></i> <span class="nav-label">Cooperados</span></a>
+                    </li>
+                    <li>
+                        <a><i class="fas fa-tasks"></i> <span class="nav-label">Cursos</span></a>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-outline btn-secondary" href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a href="#" target="_blank">
+                                Matricular-se
+                            </a>
+                        </li>
+                        @await Html.PartialAsync("_LoginPartial")
+                        &nbsp;&nbsp;&nbsp;
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <div>
+                    <strong>CoopManagement</strong> &copy; @DateTime.Now.Year
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - CoopManagement - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*Bootstrap*@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @*Inspinia*@
+    <script src="~/lib/Inspinia/js/plugins/pace/pace.min.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/pace/pace.min.js"></script>
+    <script src="~/lib/Inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/Inspinia/js/inspinia.js"></script>
+
+    @*Fontawesome*@
+    <script src="~/lib/fontawesome/js/fontawesome.min.js"></script>
+    <script src="~/lib/fontawesome/js/brands.min.js"></script>
+    <script src="~/lib/fontawesome/js/all.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
