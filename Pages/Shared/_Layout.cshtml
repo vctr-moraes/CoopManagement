@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CoopManagement</title>
 
-    <link rel="stylesheet" href="~/css/site.css" />
-
     @*Bootstrap*@
     <link rel="stylesheet" href="~/lib/jquery/dist/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -32,9 +30,9 @@
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element offset-md-4">
-                            <img alt="image" class="rounded-circle" src="~/imagens/logo-coop.jpg" />
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle offset-md-4" src="~/imagens/logo-coop.jpg" />
+                            <a data-toggle="dropdown" class="dropdown-toggle text-center" href="#">
                                 <span class="block m-t-xs font-bold">CoopManagement</span>
                                 <span class="text-muted text-xs block">Perfil <b class="caret"></b></span>
                             </a>
@@ -54,10 +52,10 @@
                         <a asp-page="/Index" aria-expanded="false"><i class="fas fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                     </li>
                     <li>
-                        <a><i class="fas fa-user-friends"></i> <span class="nav-label">Cooperados</span></a>
+                        <a asp-page="/Cooperados/Index"><i class="fas fa-users"></i> <span class="nav-label">Cooperados</span></a>
                     </li>
                     <li>
-                        <a><i class="fas fa-tasks"></i> <span class="nav-label">Cursos</span></a>
+                        <a asp-page="/Cursos/Index"><i class="fas fa-tasks"></i> <span class="nav-label">Cursos</span></a>
                     </li>
                 </ul>
             </div>
@@ -66,11 +64,11 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-outline btn-secondary" href="#"><i class="fa fa-bars"></i> </a>
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i> </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <a href="#" target="_blank">
+                            <a asp-page="/Cooperados/Create">
                                 Matricular-se
                             </a>
                         </li>
@@ -82,15 +80,13 @@
             <div>
                 @RenderBody()
             </div>
-            <div class="footer">
+            <div class="footer fixed">
                 <div>
                     <strong>CoopManagement</strong> &copy; @DateTime.Now.Year
                 </div>
             </div>
         </div>
     </div>
-    
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @*jQuery*@
     <script src="~/lib/Inspinia/js/jquery-3.1.1.min.js"></script>

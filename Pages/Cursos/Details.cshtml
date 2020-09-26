@@ -5,27 +5,52 @@
     ViewData["Title"] = "Cursos";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <h4>Detalhes do curso</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Grau)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Grau)
-        </dd>
-    </dl>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Cursos</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-page="/Index">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-page="/Cursos/Index">Cursos</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Detalhes do curso</strong>
+            </li>
+        </ol>
+    </div>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Curso.Id">Editar</a> |
-    <a asp-page="./Index">Voltar</a>
+
+<div class="wrapper wrapper-content">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div>
+                <h4>Detalhes do curso</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Curso.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Curso.Nome)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Curso.Grau)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Curso.Grau)
+                    </dd>
+                </dl>
+                <a class="btn btn-secondary" asp-page="./Index">
+                    <i class="fa fa-arrow-left"></i>
+                    Voltar
+                </a>
+                <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Curso.Id">
+                    <i class="fa fa-pencil-alt"></i>
+                    Editar
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

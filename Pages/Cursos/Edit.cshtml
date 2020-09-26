@@ -6,36 +6,58 @@
     ViewData["Title"] = "Cursos";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<h4>Editar curso</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Curso.Nome" class="control-label"></label>
-                <input asp-for="Curso.Nome" class="form-control" />
-                <span asp-validation-for="Curso.Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Curso.Grau" class="control-label"></label>
-                <select asp-for="Curso.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
-                    <option selected disabled>Selecionar</option>
-                </select>
-                <span asp-validation-for="Curso.Grau" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Curso.Id" />
-            <div class="form-group">
-                <input type="submit" value="Savar" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Cursos</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-page="/Index">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-page="/Cursos/Index">Cursos</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Editar curso</strong>
+            </li>
+        </ol>
     </div>
 </div>
 
-<div>
-    <a asp-page="./Index">Voltar</a>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label asp-for="Curso.Nome" class="control-label"></label>
+                                <input asp-for="Curso.Nome" class="form-control" />
+                                <span asp-validation-for="Curso.Nome" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-6">
+                                <label asp-for="Curso.Grau" class="control-label"></label>
+                                <select asp-for="Curso.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
+                                    <option selected disabled>Selecionar</option>
+                                </select>
+                                <span asp-validation-for="Curso.Grau" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" asp-for="Curso.Id" />
+                        <a class="btn btn-secondary" asp-page="./Index">
+                            <i class="fa fa-arrow-left"></i>
+                            Voltar
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check"></i>
+                            Salvar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

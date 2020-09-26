@@ -5,30 +5,55 @@
     ViewData["Title"] = "Cursos";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Cursos</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-page="/Index">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-page="/Cursos/Index">Cursos</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Detalhes do curso</strong>
+            </li>
+        </ol>
+    </div>
+</div>
 
-<h3>Tem certeza que deseja deletar este curso?</h3>
-<div>
-    <h4>Deletar curso</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Nome)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso.Grau)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Curso.Grau)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Curso.Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-page="./Index">Voltar</a>
-    </form>
+<div class="wrapper wrapper-content">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div>
+                <h4>Deletar curso</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Curso.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Curso.Nome)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Curso.Grau)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Curso.Grau)
+                    </dd>
+                </dl>
+                <form method="post">
+                    <input type="hidden" asp-for="Curso.Id" />
+                    <a asp-page="./Index" type="button" class="btn btn-secondary">
+                        <i class="fa fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="far fa-trash-alt"></i>
+                        Deletar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

@@ -12,47 +12,79 @@
     }
 </style>
 
-<h1>@ViewData["Title"]</h1>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Cursos</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-page="/Index">Home</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Cursos</strong>
+            </li>
+        </ol>
+    </div>
+</div>
 
-<p>
-    <a class="btn btn-outline-primary" asp-page="Create">Cadastrar novo curso</a>
-</p>
-
-@if (Model.Curso.Count == 0)
-{
-    <h4 class="text-center info">Não há cursos cadastrados no sistema</h4>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Curso[0].Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Curso[0].Grau)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Curso)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grau)
-                    </td>
-                    <td class="text-right">
-                        <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
-                        <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
-                        <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<div class="wrapper wrapper-content">
+    <div class="">
+        @if (Model.Curso.Count == 0)
+        {
+            <div class="vertical-center justify-content-center">
+                <h4 class="text-muted" align="center">
+                    Não há cursos cadastrados no sistema <br />
+                    <a asp-page="Create" class="btn btn-link">
+                        <i class="fa fa-plus"></i>
+                        Cadastrar primeiro
+                    </a>
+                </h4>
+            </div>
+        }
+        else
+        {
+            <div class="ibox">
+                <div class="ibox-title">
+                    <div class="ibox-tools">
+                        <a asp-page="Create" class="btn btn-link text-primary">
+                            <i class="fa fa-plus"></i>
+                            Cadastrar novo curso
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table border">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Curso[0].Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Curso[0].Grau)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Curso)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Grau)
+                                    </td>
+                                    <td class="text-right">
+                                        <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                                        <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
+                                        <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>
