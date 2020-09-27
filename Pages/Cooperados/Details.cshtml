@@ -5,201 +5,226 @@
     ViewData["Title"] = "Cooperados";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <h4>Detalhes do cooperado</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Nome)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Nome)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Sexo)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Sexo)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.EstadoCivil)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.EstadoCivil)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.DataNascimento)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.DataNascimento)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.RacaCor)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.RacaCor)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.NecessidadeEspecial)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.NecessidadeEspecial)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Cpf)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Cpf)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Rg)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Rg)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.OrgaoExpedidorRg)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.OrgaoExpedidorRg)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.DataExpedicaoRg)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.DataExpedicaoRg)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Naturalidade)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Naturalidade)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Nacionalidade)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Nacionalidade)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.NomePai)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.NomePai)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.NomeMae)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.NomeMae)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.RendaFamiliar)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.RendaFamiliar)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Matricula)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Matricula)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Turma)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Turma)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Escolaridade)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Escolaridade)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Logradouro)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Logradouro)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Bairro)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Bairro)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Cidade)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Cidade)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Cep)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Cep)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Estado)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Estado)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.TelefoneResidencial)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.TelefoneResidencial)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.TelefoneCelular)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.TelefoneCelular)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Email)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Email)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.DataMatricula)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.DataMatricula)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.DataDesligamento)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.DataDesligamento)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.CotaParte)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.CotaParte)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.StatusMatricula)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.StatusMatricula)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Cooperado.Curso)
-        </dt>
-        <dd class="col-sm-8">
-            @Html.DisplayFor(model => model.Cooperado.Curso.Nome)
-        </dd>
-    </dl>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Cooperados</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-page="/Index">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a asp-page="/Cooperados/Index">Cursos</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Detalhes do cooperado</strong>
+            </li>
+        </ol>
+    </div>
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Cooperado.Id">Editar</a> |
-    <a asp-page="./Index">Voltar</a>
+
+<div class="wrapper wrapper-content">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div>
+                <h4>Detalhes do cooperado</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Nome)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Nome)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Sexo)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Sexo)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.EstadoCivil)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.EstadoCivil)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.DataNascimento)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.DataNascimento)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.RacaCor)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.RacaCor)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.NecessidadeEspecial)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.NecessidadeEspecial)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Cpf)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Cpf)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Rg)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Rg)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.OrgaoExpedidorRg)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.OrgaoExpedidorRg)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.DataExpedicaoRg)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.DataExpedicaoRg)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Naturalidade)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Naturalidade)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Nacionalidade)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Nacionalidade)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.NomePai)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.NomePai)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.NomeMae)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.NomeMae)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.RendaFamiliar)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.RendaFamiliar)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Matricula)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Matricula)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Turma)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Turma)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Escolaridade)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Escolaridade)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Logradouro)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Logradouro)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Bairro)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Bairro)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Cidade)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Cidade)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Cep)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Cep)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Estado)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Estado)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.TelefoneResidencial)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.TelefoneResidencial)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.TelefoneCelular)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.TelefoneCelular)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Email)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Email)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.DataMatricula)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.DataMatricula)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.DataDesligamento)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.DataDesligamento)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.CotaParte)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.CotaParte)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.StatusMatricula)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.StatusMatricula)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Cooperado.Curso)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Cooperado.Curso.Nome)
+                    </dd>
+                </dl>
+                <a class="btn btn-secondary" asp-page="./Index">
+                    <i class="fa fa-arrow-left"></i>
+                    Voltar
+                </a>
+                <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Cooperado.Id">
+                    <i class="fa fa-pencil-alt"></i>
+                    Editar
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
