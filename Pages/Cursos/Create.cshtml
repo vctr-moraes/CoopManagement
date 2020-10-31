@@ -1,6 +1,5 @@
 ﻿@page
 @model CoopManagement.Pages.Cursos.CreateModel
-@using CoopManagement.Models.Cursos
 
 @{
     ViewData["Title"] = "Cursos";
@@ -28,7 +27,7 @@
         <div class="col-12">
             <div class="ibox">
                 <div class="ibox-content">
-                    @{ await Html.RenderPartialAsync("_CursoFormPartial", "Model.CursoVM"); }
+                    @{ await Html.RenderPartialAsync("_CursoFormPartial", Model.CursoVM); }
                 </div>
             </div>
         </div>

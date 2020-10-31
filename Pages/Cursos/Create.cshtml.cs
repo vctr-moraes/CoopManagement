@@ -9,6 +9,7 @@ using CoopManagement.Data;
 using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
 using Microsoft.AspNetCore.Authorization;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cursos
 {
@@ -19,15 +20,16 @@ namespace CoopManagement.Pages.Cursos
         public CreateModel(ApplicationDbContext context)
         {
             //_context = context;
+            CursoVM = new CursoViewModel();
         }
+
+        [BindProperty]
+        public CursoViewModel CursoVM { get; set; }
 
         public IActionResult OnGet()
         {
             return Page();
         }
-
-        [BindProperty]
-        public Curso Curso { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
