@@ -1,0 +1,28 @@
+﻿@model CoopManagement.ViewsModels.CursoViewModel
+@using CoopManagement.Models.Cursos
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label asp-for="@Model.Nome" class="control-label"></label>
+            <input asp-for="@Model.Nome" class="form-control" />
+            <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group col-6">
+            <label asp-for="@Model.Grau" class="control-label"></label>
+            <select asp-for="@Model.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
+                <option selected disabled>Selecionar</option>
+            </select>
+            <span asp-validation-for="@Model.Grau" class="text-danger"></span>
+        </div>
+    </div>
+    <a class="btn btn-secondary" asp-page="./Index">
+        <i class="fa fa-arrow-left"></i>
+        Voltar
+    </a>
+    <button type="submit" class="btn btn-primary">
+        <i class="fa fa-check"></i>
+        Salvar
+    </button>
+</form>

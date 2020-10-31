@@ -28,31 +28,7 @@
         <div class="col-12">
             <div class="ibox">
                 <div class="ibox-content">
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label asp-for="Curso.Nome" class="control-label"></label>
-                                <input asp-for="Curso.Nome" class="form-control" />
-                                <span asp-validation-for="Curso.Nome" class="text-danger"></span>
-                            </div>
-                            <div class="form-group col-6">
-                                <label asp-for="Curso.Grau" class="control-label"></label>
-                                <select asp-for="Curso.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
-                                    <option selected disabled>Selecionar</option>
-                                </select>
-                                <span asp-validation-for="Curso.Grau" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <a class="btn btn-secondary" asp-page="./Index">
-                            <i class="fa fa-arrow-left"></i>
-                            Voltar
-                        </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-check"></i>
-                            Salvar
-                        </button>
-                    </form>
+                    @{ await Html.RenderPartialAsync("_CursoFormPartial", "Model.CursoVM"); }
                 </div>
             </div>
         </div>

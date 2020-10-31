@@ -36,12 +36,10 @@
     {
         <div class="ibox">
             <div class="ibox-title">
-                <div class="ibox-tools">
-                    <a asp-page="Create" class="btn btn-link text-primary">
-                        <i class="fa fa-plus"></i>
-                        Cadastrar novo curso
-                    </a>
-                </div>
+                <a asp-page="Create" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    Novo curso
+                </a>
             </div>
             <div class="ibox-content">
                 <table class="table border">
@@ -67,9 +65,15 @@
                                     @Html.DisplayFor(modelItem => item.Grau)
                                 </td>
                                 <td class="text-right">
-                                    <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
-                                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Detalhes</a>
-                                    <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+                                    <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id" title="Editar">
+                                        <i class=" fa fa-pencil-alt"></i>
+                                    </a>
+                                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
+                                        <i class=" far fa-list-alt"></i>
+                                    </a>
+                                    <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id" title="Excluir">
+                                        <i class=" far fa-trash-alt"></i>
+                                    </a>
                                 </td>
                             </tr>
                         }

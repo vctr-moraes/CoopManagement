@@ -18,7 +18,7 @@ namespace CoopManagement.Pages.Cursos
 
         public CreateModel(ApplicationDbContext context)
         {
-            _context = context;
+            //_context = context;
         }
 
         public IActionResult OnGet()
@@ -29,8 +29,6 @@ namespace CoopManagement.Pages.Cursos
         [BindProperty]
         public Curso Curso { get; set; }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -38,8 +36,8 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
-            _context.Cursos.Add(Curso);
-            await _context.SaveChangesAsync();
+            //_context.Cursos.Add(Curso);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
