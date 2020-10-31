@@ -5,7 +5,7 @@ using CoopManagement.Models.Cursos;
 
 namespace CoopManagement.Models.Cooperados
 {
-    public class Cooperado : Entidade
+    public class Cooperado : Entity
     {
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]

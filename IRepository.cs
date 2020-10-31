@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoopManagement.Models;
 
 namespace CoopManagement
 {
-    public interface IRepository<TEntity>
+    public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        Task<TEntity> RecuperarAsync(Guid id);
-        Task SalvarAsync(TEntity entity);
-        Task ExcluirAsync(TEntity entity);
-        Task ExcluirVariosAsync(IEnumerable<TEntity> entities);
+        Task Adicionar(TEntity entity);
+        Task<TEntity> ObterPorId(Guid id);
+        Task Atualizar(TEntity entity);
+        Task Remover(Guid id);
+        Task<int> SaveChanges();
     }
 }

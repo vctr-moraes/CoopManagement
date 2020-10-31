@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using CoopManagement.Models.Cooperados;
 
 namespace CoopManagement.Models.Cursos
 {
-    public class Curso : Entidade
+    public class Curso : Entity
     {
         public string Nome { get; set; }
 
