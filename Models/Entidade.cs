@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoopManagement.Models
 {
-    public abstract class Entidade
+    public abstract class Entity
     {
-        protected Entidade()
+        protected Entity()
         {
             Id = Guid.NewGuid();
         }
