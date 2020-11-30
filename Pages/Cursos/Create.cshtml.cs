@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using CoopManagement.Data;
-using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
-using Microsoft.AspNetCore.Authorization;
 using CoopManagement.ViewsModels;
+using CoopManagement.Interfaces;
 
 namespace CoopManagement.Pages.Cursos
 {
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICursoRepository _cursoRepository;
 
-        public CreateModel(ApplicationDbContext context)
+        public CreateModel(ICursoRepository cursoRepository)
         {
-            //_context = context;
+            _cursoRepository = cursoRepository;
             CursoVM = new CursoViewModel();
         }
 
@@ -38,10 +33,22 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
-            //_context.Cursos.Add(Curso);
-            //await _context.SaveChangesAsync();
+            try
+            {
+                Curso curso = new Curso
+                {
+                    Nome = CursoVM.Nome,
+                    Grau = (Grau)Enum.Parse(typeof(Grau), CursoVM.Grau.ToString())
+                };
 
-            return RedirectToPage("./Index");
+                await _cursoRepository.SalvarCurso(curso);
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
         }
     }
 }

@@ -1,54 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CoopManagement.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoopManagement.Data.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
     {
-        private readonly ApplicationDbContext _context;
-        private readonly DbSet<TEntity> DbSet;
+        protected readonly ApplicationDbContext Db;
+        protected readonly DbSet<TEntity> DbSet;
 
-        public Repository(ApplicationDbContext context)
+        public Repository(ApplicationDbContext db)
         {
-            _context = context;
+            Db = db;
+            DbSet = db.Set<TEntity>();
         }
 
-        public async Task ExcluirAsync(TEntity entity)
+        public virtual async Task Adicionar(TEntity entity)
         {
-            _context.Remove(entity);
-            await _context.SaveChangesAsync();
+            DbSet.Add(entity);
+            await SaveChanges();
         }
 
-        public async Task ExcluirVariosAsync(IEnumerable<TEntity> entities)
+        public virtual async Task Atualizar(TEntity entity)
         {
-            _context.RemoveRange(entities);
-            await _context.SaveChangesAsync();
+            var oldEntity = Db.Set<TEntity>().Find(entity.Id);
+            Db.Entry(oldEntity).State = EntityState.Modified;
+            DbSet.Update(entity);
+            await SaveChanges();
         }
 
-        public async Task<TEntity> RecuperarAsync(Guid id)
+        public virtual async Task<TEntity> ObterPorId(Guid id)
         {
             return await DbSet.FindAsync(id);
         }
 
-        public async Task SalvarAsync(TEntity entity)
+        public virtual async Task Remover(Guid id)
         {
-            var entidadeAntiga = _context.Set<TEntity>().Find(entity.Id);
+            var entity = await ObterPorId(id);
+            DbSet.Remove(entity);
+            await SaveChanges();
+        }
 
-            if (entidadeAntiga == null)
-            {
-                _context.Add(entity);
-            }
-            else
-            {
-                _context.Entry(entidadeAntiga).State = EntityState.Deleted;
-                _context.Update(entity);
-            }
+        public async Task<int> SaveChanges()
+        {
+            return await Db.SaveChangesAsync();
+        }
 
-            await _context.SaveChangesAsync();
+        public void Dispose()
+        {
+            Db?.Dispose();
         }
     }
 }

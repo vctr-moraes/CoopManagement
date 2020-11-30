@@ -35,13 +35,15 @@
     else
     {
         <div class="ibox">
-            <div class="ibox-title">
-                <a asp-page="Create" class="btn btn-primary">
-                    <i class="fa fa-plus"></i>
-                    Novo curso
-                </a>
-            </div>
             <div class="ibox-content">
+                <div class="row form-group">
+                    <div class="ibox-title">
+                        <a asp-page="Create" class="btn btn-primary">
+                            <i class="fa fa-plus"></i>
+                            Novo curso
+                        </a>
+                    </div>
+                </div>
                 <table class="table border">
                     <thead class="thead-light">
                         <tr>
@@ -69,7 +71,7 @@
                                         <i class=" fa fa-pencil-alt"></i>
                                     </a>
                                     <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
-                                        <i class=" far fa-list-alt"></i>
+                                        <i class=" fa fa-search"></i>
                                     </a>
                                     <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id" title="Excluir">
                                         <i class=" far fa-trash-alt"></i>
