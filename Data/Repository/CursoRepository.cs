@@ -14,7 +14,7 @@ namespace CoopManagement.Data.Repository
 
         public async Task AtualizarCurso(Curso curso)
         {
-            await AtualizarCurso(curso);
+            await Atualizar(curso);
         }
 
         public async Task ExcluirCurso(Guid id)
