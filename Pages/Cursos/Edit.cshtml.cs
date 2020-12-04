@@ -1,48 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
-using Microsoft.AspNetCore.Authorization;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cursos
 {
     public class EditModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICursoRepository _cursoRepository;
 
-        public EditModel(ApplicationDbContext context)
+        public EditModel(ICursoRepository cursoRepository)
         {
-            _context = context;
+            _cursoRepository = cursoRepository;
         }
 
         [BindProperty]
-        public Curso Curso { get; set; }
+        public CursoViewModel CursoVM { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Curso = await _context.Cursos.FirstOrDefaultAsync(m => m.Id == id);
+            Curso curso = await _cursoRepository.ObterCurso(id);
 
-            if (Curso == null)
+            if (curso == null)
             {
                 return NotFound();
             }
+
+            CursoVM = new CursoViewModel(curso);
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -50,30 +46,26 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
-            _context.Attach(Curso).State = EntityState.Modified;
+            Curso curso = await _cursoRepository.ObterCurso(CursoVM.Id);
+
+            if (curso == null)
+            {
+                return NotFound();
+            }
+
+            curso.Nome = CursoVM.Nome;
+            curso.Grau = (Grau)CursoVM.Grau;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _cursoRepository.AtualizarCurso(curso);
+                return await Task.FromResult(RedirectToPage("./Index"));
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException ex)
             {
-                if (!CursoExists(Curso.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
             }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool CursoExists(Guid id)
-        {
-            return _context.Cursos.Any(e => e.Id == id);
         }
     }
 }

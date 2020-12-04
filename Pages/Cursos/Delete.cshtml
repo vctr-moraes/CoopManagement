@@ -31,20 +31,20 @@
                 <hr />
                 <dl class="row">
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Curso.Nome)
+                        @Html.DisplayNameFor(model => model.CursoVM.Nome)
                     </dt>
                     <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Curso.Nome)
+                        @Html.DisplayFor(model => model.CursoVM.Nome)
                     </dd>
                     <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Curso.Grau)
+                        @Html.DisplayNameFor(model => model.CursoVM.Grau)
                     </dt>
                     <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Curso.Grau)
+                        @Html.DisplayFor(model => model.CursoVM.Grau)
                     </dd>
                 </dl>
                 <form method="post">
-                    <input type="hidden" asp-for="Curso.Id" />
+                    <input type="hidden" asp-for="CursoVM.Id" />
                     <a asp-page="./Index" type="button" class="btn btn-secondary">
                         <i class="fa fa-arrow-left"></i>
                         Voltar

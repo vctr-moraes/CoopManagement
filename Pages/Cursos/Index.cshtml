@@ -20,7 +20,7 @@
 </div>
 
 <div class="wrapper wrapper-content">
-    @if (Model.Curso.Count == 0)
+    @if (Model.Cursos.Count == 0)
     {
         <div class="vertical-center justify-content-center">
             <h4 class="text-muted" align="center">
@@ -48,16 +48,16 @@
                     <thead class="thead-light">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Curso[0].Nome)
+                                @Html.DisplayNameFor(model => model.Cursos[0].Nome)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Curso[0].Grau)
+                                @Html.DisplayNameFor(model => model.Cursos[0].Grau)
                             </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Curso)
+                        @foreach (var item in Model.Cursos)
                         {
                             <tr>
                                 <td>

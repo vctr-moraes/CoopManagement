@@ -1,6 +1,6 @@
 ﻿@page
 @model CoopManagement.Pages.Cooperados.CreateModel
-@using CoopManagement.Models.Cooperados
+@using CoopManagement.ViewsModels
 
 @{
     ViewData["Title"] = "Cooperados";
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label asp-for="Cooperado.EstadoCivil" class="control-label"></label>
-                                <select asp-for="Cooperado.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivil>()">
+                                <select asp-for="Cooperado.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivilViewModel>()">
                                     <option selected disabled>Selecionar</option>
                                 </select>
                                 <span asp-validation-for="Cooperado.EstadoCivil" class="text-danger"></span>
@@ -66,14 +66,14 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label asp-for="Cooperado.RacaCor" class="control-label"></label>
-                                <select asp-for="Cooperado.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCor>()">
+                                <select asp-for="Cooperado.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCorViewModel>()">
                                     <option selected disabled>Selecionar</option>
                                 </select>
                                 <span asp-validation-for="Cooperado.RacaCor" class="text-danger"></span>
                             </div>
                             <div class="form-group col-6">
                                 <label asp-for="Cooperado.NecessidadeEspecial" class="control-label"></label>
-                                <select asp-for="Cooperado.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecial>()">
+                                <select asp-for="Cooperado.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecialViewModel>()">
                                     <option selected disabled>Selecionar</option>
                                 </select>
                                 <span asp-validation-for="Cooperado.NecessidadeEspecial" class="text-danger"></span>
@@ -165,7 +165,7 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label asp-for="Cooperado.Escolaridade" class="control-label"></label>
-                                <select asp-for="Cooperado.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<Escolaridade>()">
+                                <select asp-for="Cooperado.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<EscolaridadeViewModel>()">
                                     <option selected disabled>Selecionar</option>
                                 </select>
                                 <span asp-validation-for="Cooperado.Escolaridade" class="text-danger"></span>
@@ -334,16 +334,16 @@
         //    });
         //});
 
-        function habilitarBtn(){  
-            if(document.getElementById('checkAceitarTermos').checked == true){ 	 
+        function habilitarBtn() {
+            if (document.getElementById('checkAceitarTermos').checked == true) {
                 document.getElementById('salvar').disabled = ""
                 document.getElementById('confirmar').disabled = ""
             }
-        
-            if(document.getElementById('checkAceitarTermos').checked == false){ 	
+
+            if (document.getElementById('checkAceitarTermos').checked == false) {
                 document.getElementById('salvar').disabled = "disabled"
                 document.getElementById('confirmar').disabled = "disabled"
-            }	
+            }
         }
     </script>
 }

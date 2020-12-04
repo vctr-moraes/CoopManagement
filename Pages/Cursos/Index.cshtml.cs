@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
-using CoopManagement.Models.Cursos;
-using Microsoft.AspNetCore.Authorization;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cursos
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICursoRepository _cursoRepository;
 
-        public IndexModel(ApplicationDbContext context)
+        public IndexModel(ICursoRepository cursoRepository)
         {
-            _context = context;
+            _cursoRepository = cursoRepository;
         }
 
-        public IList<Curso> Curso { get;set; }
+        [BindProperty]
+        public List<CursoViewModel> Cursos { get; set; }
 
-        public async Task OnGetAsync()
+        public ActionResult OnGet()
         {
-            Curso = await _context.Cursos.OrderBy(p => p.Grau).ToListAsync();
+            Cursos = _cursoRepository.ObterTodosCursos().Select(curso => new CursoViewModel(curso)).ToList();
+            return Page();
         }
     }
 }

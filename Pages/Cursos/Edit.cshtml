@@ -32,19 +32,19 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row">
                             <div class="form-group col-6">
-                                <label asp-for="Curso.Nome" class="control-label"></label>
-                                <input asp-for="Curso.Nome" class="form-control" />
-                                <span asp-validation-for="Curso.Nome" class="text-danger"></span>
+                                <label asp-for="CursoVM.Nome" class="control-label"></label>
+                                <input asp-for="CursoVM.Nome" class="form-control" />
+                                <span asp-validation-for="CursoVM.Nome" class="text-danger"></span>
                             </div>
                             <div class="form-group col-6">
-                                <label asp-for="Curso.Grau" class="control-label"></label>
-                                <select asp-for="Curso.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
+                                <label asp-for="CursoVM.Grau" class="control-label"></label>
+                                <select asp-for="CursoVM.Grau" class="form-control" asp-items="Html.GetEnumSelectList<Grau>()">
                                     <option selected disabled>Selecionar</option>
                                 </select>
-                                <span asp-validation-for="Curso.Grau" class="text-danger"></span>
+                                <span asp-validation-for="CursoVM.Grau" class="text-danger"></span>
                             </div>
                         </div>
-                        <input type="hidden" asp-for="Curso.Id" />
+                        <input type="hidden" asp-for="CursoVM.Id" />
                         <a class="btn btn-secondary" asp-page="./Index">
                             <i class="fa fa-arrow-left"></i>
                             Voltar

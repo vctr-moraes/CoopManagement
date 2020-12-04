@@ -1,61 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
 using CoopManagement.Models.Cursos;
-using Microsoft.AspNetCore.Authorization;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cursos
 {
     public class DeleteModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICursoRepository _cursoRepository;
 
-        public DeleteModel(ApplicationDbContext context)
+        public DeleteModel(ICursoRepository cursoRepository)
         {
-            _context = context;
+            _cursoRepository = cursoRepository;
         }
 
         [BindProperty]
-        public Curso Curso { get; set; }
+        public CursoViewModel CursoVM { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Curso = await _context.Cursos.FirstOrDefaultAsync(m => m.Id == id);
+            Curso curso = await _cursoRepository.ObterCurso(id);
 
-            if (Curso == null)
+            if (curso == null)
             {
                 return NotFound();
             }
+
+            CursoVM = new CursoViewModel(curso);
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(Guid? id)
+        public async Task<IActionResult> OnPostAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            
+            Curso curso = await _cursoRepository.ObterCurso(id);
 
-            Curso = await _context.Cursos.FindAsync(id);
-
-            if (Curso != null)
+            if (curso == null)
             {
-                _context.Cursos.Remove(Curso);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                await _cursoRepository.ExcluirCurso(curso.Id);
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
         }
     }
 }

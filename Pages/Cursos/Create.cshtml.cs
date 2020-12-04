@@ -33,14 +33,14 @@ namespace CoopManagement.Pages.Cursos
                 return Page();
             }
 
+            Curso curso = new Curso
+            {
+                Nome = CursoVM.Nome,
+                Grau = (Grau)Enum.Parse(typeof(Grau), CursoVM.Grau.ToString())
+            };
+
             try
             {
-                Curso curso = new Curso
-                {
-                    Nome = CursoVM.Nome,
-                    Grau = (Grau)Enum.Parse(typeof(Grau), CursoVM.Grau.ToString())
-                };
-
                 await _cursoRepository.SalvarCurso(curso);
                 return RedirectToPage("./Index");
             }
