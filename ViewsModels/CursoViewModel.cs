@@ -1,6 +1,6 @@
-﻿using CoopManagement.Models.Cursos;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CoopManagement.Models.Cursos;
 
 namespace CoopManagement.ViewsModels
 {
@@ -12,8 +12,7 @@ namespace CoopManagement.ViewsModels
         {
             Id = curso.Id;
             Nome = curso.Nome;
-            //Grau = EnumHelper<Grau>.GetDisplayValue(curso.Grau);
-            Grau = Convert.ToString(curso.Grau);
+            Grau = (GrauViewModel)curso.Grau;
         }
 
         [Key]
@@ -26,6 +25,6 @@ namespace CoopManagement.ViewsModels
 
         [Display(Name = "Grau")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        public string Grau { get; set; }
+        public GrauViewModel Grau { get; set; }
     }
 }
