@@ -28,20 +28,7 @@
             <div>
                 <h4>Detalhes do curso</h4>
                 <hr />
-                <dl class="row">
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.CursoVM.Nome)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.CursoVM.Nome)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.CursoVM.Grau)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.CursoVM.Grau)
-                    </dd>
-                </dl>
+                @{ await Html.RenderPartialAsync("_CursoDetalhesPartial", Model.CursoVM); }
                 <a class="btn btn-secondary" asp-page="./Index">
                     <i class="fa fa-arrow-left"></i>
                     Voltar
