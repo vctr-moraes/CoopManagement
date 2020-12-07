@@ -15,6 +15,7 @@ namespace CoopManagement.Pages.Cursos
         public DeleteModel(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
+            CursoVM = new CursoViewModel();
         }
 
         [BindProperty]

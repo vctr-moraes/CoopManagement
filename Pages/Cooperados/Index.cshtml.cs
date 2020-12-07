@@ -1,31 +1,28 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
-using CoopManagement.Models.Cooperados;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cooperados
 {
     public class IndexModel : PageModel
     {
-        private readonly CoopManagement.Data.ApplicationDbContext _context;
+        private readonly ICooperadoRepository _cooperadoRepository;
 
-        public IndexModel(CoopManagement.Data.ApplicationDbContext context)
+        public IndexModel(ICooperadoRepository cooperadoRepository)
         {
-            _context = context;
+            _cooperadoRepository = cooperadoRepository;
         }
+        
+        [BindProperty]
+        public IList<CooperadoViewModel> Cooperados { get; set; }
 
-        public IList<Cooperado> Cooperado { get;set; }
-
-        public async Task OnGetAsync()
+        public ActionResult OnGet()
         {
-            Cooperado = await _context.Cooperados
-                .Include(c => c.Curso).ToListAsync();
+            Cooperados = _cooperadoRepository.ObterTodosCooperados().Select(cooperado => new CooperadoViewModel(cooperado)).ToList();
+            return Page();
         }
     }
 }

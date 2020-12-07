@@ -11,6 +11,7 @@ namespace CoopManagement.Configurations
         {
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<ICursoRepository, CursoRepository>();
+            services.AddScoped<ICooperadoRepository, CooperadoRepository>();
 
             return services;
         }

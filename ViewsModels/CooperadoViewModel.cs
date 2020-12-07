@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CoopManagement.Models.Cooperados;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CoopManagement.ViewsModels
 {
@@ -28,6 +30,7 @@ namespace CoopManagement.ViewsModels
             NomeMae = cooperado.NomeMae;
             RendaFamiliar = cooperado.RendaFamiliar;
             Matricula = cooperado.Matricula;
+            Curso = new CursoViewModel(cooperado.Curso);
             CursoId = cooperado.CursoId;
             Turma = cooperado.Turma;
             Escolaridade = (EscolaridadeViewModel)cooperado.Escolaridade;
@@ -119,6 +122,10 @@ namespace CoopManagement.ViewsModels
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [MaxLength(20, ErrorMessage = "O campo {0} pode ter no máximo {1} caracteres.")]
         public string Matricula { get; set; }
+
+        public CursoViewModel Curso { get; set; }
+
+        public IEnumerable<SelectListItem> Cursos { get; set; }
 
         [Display(Name = "Curso")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]

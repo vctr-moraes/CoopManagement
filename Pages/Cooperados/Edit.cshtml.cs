@@ -1,49 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
 using CoopManagement.Models.Cooperados;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cooperados
 {
     public class EditModel : PageModel
     {
-        private readonly CoopManagement.Data.ApplicationDbContext _context;
+        private readonly ICooperadoRepository _cooperadoRepository;
+        private readonly ICursoRepository _cursoRepository;
 
-        public EditModel(CoopManagement.Data.ApplicationDbContext context)
+        public EditModel(ICooperadoRepository cooperadoRepository, ICursoRepository cursoRepository)
         {
-            _context = context;
+            _cooperadoRepository = cooperadoRepository;
+            _cursoRepository = cursoRepository;
+            CooperadoVM = new CooperadoViewModel();
         }
 
         [BindProperty]
-        public Cooperado Cooperado { get; set; }
+        public CooperadoViewModel CooperadoVM { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Cooperado = await _context.Cooperados
-                .Include(c => c.Curso).FirstOrDefaultAsync(m => m.Id == id);
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
 
-            if (Cooperado == null)
+            if (cooperado == null)
             {
                 return NotFound();
             }
-           ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Nome");
+
+            CooperadoVM = new CooperadoViewModel(cooperado);
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -51,30 +50,74 @@ namespace CoopManagement.Pages.Cooperados
                 return Page();
             }
 
-            _context.Attach(Cooperado).State = EntityState.Modified;
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(CooperadoVM.Id);
+
+            if (cooperado == null)
+            {
+                return NotFound();
+            }
+
+            cooperado.Bairro = CooperadoVM.Bairro;
+            cooperado.Cep = CooperadoVM.Cep;
+            cooperado.Cidade = CooperadoVM.Cidade;
+            cooperado.CotaParte = CooperadoVM.CotaParte;
+            cooperado.Cpf = CooperadoVM.Cpf;
+            cooperado.Curso = await _cursoRepository.ObterCurso(CooperadoVM.CursoId);
+            cooperado.CursoId = CooperadoVM.CursoId;
+            cooperado.DataExpedicaoRg = CooperadoVM.DataExpedicaoRg;
+            cooperado.DataMatricula = CooperadoVM.DataMatricula;
+            cooperado.DataNascimento = CooperadoVM.DataNascimento;
+            cooperado.Email = CooperadoVM.Email;
+            cooperado.Escolaridade = (Escolaridade)CooperadoVM.Escolaridade;
+            cooperado.Estado = CooperadoVM.Estado;
+            cooperado.EstadoCivil = (EstadoCivil)CooperadoVM.EstadoCivil;
+            cooperado.Logradouro = CooperadoVM.Logradouro;
+            cooperado.Matricula = CooperadoVM.Matricula;
+            cooperado.Nacionalidade = CooperadoVM.Nacionalidade;
+            cooperado.Naturalidade = CooperadoVM.Naturalidade;
+            cooperado.NecessidadeEspecial = (NecessidadeEspecial)CooperadoVM.NecessidadeEspecial;
+            cooperado.Nome = CooperadoVM.Nome;
+            cooperado.NomeMae = CooperadoVM.NomeMae;
+            cooperado.NomePai = CooperadoVM.NomePai;
+            cooperado.OrgaoExpedidorRg = CooperadoVM.OrgaoExpedidorRg;
+            cooperado.RacaCor = (RacaCor)CooperadoVM.RacaCor;
+            cooperado.RendaFamiliar = CooperadoVM.RendaFamiliar;
+            cooperado.Rg = CooperadoVM.Rg;
+            cooperado.Sexo = (Sexo)CooperadoVM.Sexo;
+            cooperado.StatusMatricula = (StatusMatricula)CooperadoVM.StatusMatricula;
+            cooperado.TelefoneCelular = CooperadoVM.TelefoneCelular;
+            cooperado.TelefoneResidencial = CooperadoVM.TelefoneResidencial;
+            cooperado.Turma = CooperadoVM.Turma;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _cooperadoRepository.AtualizarCooperado(cooperado);
+                return await Task.FromResult(RedirectToPage("./Index"));
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!CooperadoExists(Cooperado.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
             }
-
-            return RedirectToPage("./Index");
         }
 
-        private bool CooperadoExists(Guid id)
+        public override PageResult Page()
         {
-            return _context.Cooperados.Any(e => e.Id == id);
+            InicializarCooperado();
+            return base.Page();
+        }
+
+        private void InicializarCooperado()
+        {
+            if (CooperadoVM != null)
+            {
+                CooperadoVM.Cursos = _cursoRepository.ObterTodosCursos()
+                    .Select(c => new SelectListItem
+                    {
+                        Text = c.Nome,
+                        Value = c.Id.ToString()
+                    });
+            }
         }
     }
 }

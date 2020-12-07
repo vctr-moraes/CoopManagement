@@ -20,9 +20,9 @@
 </div>
 
 <div class="wrapper wrapper-content">
-    @if (Model.Cooperado.Count == 0)
+    @if (Model.Cooperados.Count == 0)
     {
-        <div class="vertical-center justify-content-center">
+        <div class="middle-box">
             <h4 class="text-muted" align="center">
                 Não há cooperados cadastrados no sistema <br />
                 <a asp-page="Create" class="btn btn-link">
@@ -48,22 +48,22 @@
                     <thead class="thead-light">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Cooperado[0].Nome)
+                                @Html.DisplayNameFor(model => model.Cooperados[0].Nome)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Cooperado[0].Matricula)
+                                @Html.DisplayNameFor(model => model.Cooperados[0].Matricula)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Cooperado[0].DataMatricula)
+                                @Html.DisplayNameFor(model => model.Cooperados[0].DataMatricula)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Cooperado[0].StatusMatricula)
+                                @Html.DisplayNameFor(model => model.Cooperados[0].StatusMatricula)
                             </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Cooperado)
+                        @foreach (var item in Model.Cooperados)
                         {
                             <tr>
                                 <td>

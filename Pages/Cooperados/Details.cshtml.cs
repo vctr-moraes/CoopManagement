@@ -1,41 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using CoopManagement.Data;
-using CoopManagement.Models;
 using CoopManagement.Models.Cooperados;
+using CoopManagement.Interfaces;
+using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cooperados
 {
     public class DetailsModel : PageModel
     {
-        private readonly CoopManagement.Data.ApplicationDbContext _context;
+        private readonly ICooperadoRepository _cooperadoRepository;
 
-        public DetailsModel(CoopManagement.Data.ApplicationDbContext context)
+        public DetailsModel(ICooperadoRepository cooperadoRepository)
         {
-            _context = context;
+            _cooperadoRepository = cooperadoRepository;
         }
 
-        public Cooperado Cooperado { get; set; }
+        [BindProperty]
+        public CooperadoViewModel CooperadoVM { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(Guid? id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Cooperado = await _context.Cooperados
-                .Include(c => c.Curso).FirstOrDefaultAsync(m => m.Id == id);
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
 
-            if (Cooperado == null)
+            if (cooperado == null)
             {
                 return NotFound();
             }
+
+            CooperadoVM = new CooperadoViewModel(cooperado);
             return Page();
         }
     }
