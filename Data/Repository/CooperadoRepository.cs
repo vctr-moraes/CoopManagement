@@ -25,12 +25,12 @@ namespace CoopManagement.Data.Repository
 
         public async Task<Cooperado> ObterCooperado(Guid id)
         {
-            return await Db.Cooperados.FirstOrDefaultAsync(c => c.Id == id);
+            return await Db.Cooperados.Include(c => c.Curso).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public List<Cooperado> ObterTodosCooperados()
         {
-            return Db.Cooperados.ToList();
+            return Db.Cooperados.Include(c => c.Curso).ToList();
         }
 
         public async Task SalvarCooperado(Cooperado cooperado)

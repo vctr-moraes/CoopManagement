@@ -138,7 +138,6 @@ namespace CoopManagement.ViewsModels
 
         [Display(Name = "Escolaridade")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(50, ErrorMessage = "O campo {0} pode ter no máximo 20 caracteres.")]
         public EscolaridadeViewModel Escolaridade { get; set; }
 
         [Display(Name = "Logradouro")]

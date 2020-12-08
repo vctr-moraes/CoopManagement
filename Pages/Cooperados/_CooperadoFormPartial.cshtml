@@ -26,7 +26,7 @@
         <div class="form-group col-6">
             <label asp-for="@Model.EstadoCivil" class="control-label"></label>
             <select asp-for="@Model.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivilViewModel>()">
-                <option selected disabled>Selecionar</option>
+                <option value="" selected disabled>Selecionar</option>
             </select>
             <span asp-validation-for="@Model.EstadoCivil" class="text-danger"></span>
         </div>
@@ -40,14 +40,14 @@
         <div class="form-group col-6">
             <label asp-for="@Model.RacaCor" class="control-label"></label>
             <select asp-for="@Model.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCorViewModel>()">
-                <option selected disabled>Selecionar</option>
+                <option value="" selected disabled>Selecionar</option>
             </select>
             <span asp-validation-for="@Model.RacaCor" class="text-danger"></span>
         </div>
         <div class="form-group col-6">
             <label asp-for="@Model.NecessidadeEspecial" class="control-label"></label>
             <select asp-for="@Model.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecialViewModel>()">
-                <option selected disabled>Selecionar</option>
+                <option value="" selected disabled>Selecionar</option>
             </select>
             <span asp-validation-for="@Model.NecessidadeEspecial" class="text-danger"></span>
         </div>
@@ -78,14 +78,14 @@
     </div>
     <div class="row">
         <div class="form-group col-6">
-            <abbr title="Cidade em que você nasceu">
+            <abbr title="Cidade onde você nasceu">
                 <label asp-for="@Model.Naturalidade" class="control-label info"></label>
             </abbr>
             <input asp-for="@Model.Naturalidade" class="form-control" placeholder="Ex.: Alegrense" />
             <span asp-validation-for="@Model.Naturalidade" class="text-danger"></span>
         </div>
         <div class="form-group col-6">
-            <abbr title="País em que você nasceu">
+            <abbr title="País onde você nasceu">
                 <label asp-for="@Model.Nacionalidade" class="control-label info"></label>
             </abbr>
             <input asp-for="@Model.Nacionalidade" class="form-control" placeholder="Ex.: Brasileiro(a)" />
@@ -108,7 +108,7 @@
         <div class="form-group col-6">
             <label asp-for="@Model.RendaFamiliar" class="control-label"></label>
             <select asp-for="@Model.RendaFamiliar" class="form-control">
-                <option selected disabled>Selecionar</option>
+                <option value="" selected disabled>Selecionar</option>
                 <option value="Até R$ 1.500,00">Até R$ 1.500,00</option>
                 <option value="Até R$ 3.000,00">Até R$ 3.000,00</option>
                 <option value="Até R$ 4.500,00">Até R$ 4.500,00</option>
@@ -140,7 +140,7 @@
         <div class="form-group col-6">
             <label asp-for="@Model.Escolaridade" class="control-label"></label>
             <select asp-for="@Model.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<EscolaridadeViewModel>()">
-                <option selected disabled>Selecionar</option>
+                <option value="" selected disabled>Selecionar</option>
             </select>
             <span asp-validation-for="@Model.Escolaridade" class="text-danger"></span>
         </div>
