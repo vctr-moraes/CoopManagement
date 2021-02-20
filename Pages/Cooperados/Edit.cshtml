@@ -5,31 +5,10 @@
     ViewData["Title"] = "Cooperados";
 }
 
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-12">
-        <h2>Cooperados</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a asp-page="/Index">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a asp-page="/Cooperados/Index">Cooperados</a>
-            </li>
-            <li class="breadcrumb-item active">
-                <strong>Editar cooperado</strong>
-            </li>
-        </ol>
-    </div>
-</div>
-
-<div class="wrapper wrapper-content">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="ibox">
-                <div class="ibox-content">
-                    @{ await Html.RenderPartialAsync("_CooperadoFormPartial", Model.CooperadoVM); }
-                </div>
-            </div>
+            @{ await Html.RenderPartialAsync("_CooperadoFormPartial", Model.CooperadoVM); }
         </div>
     </div>
 </div>

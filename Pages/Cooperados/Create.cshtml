@@ -6,9 +6,33 @@
 }
 
 
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            <div class="row wrapper white-bg page-heading">
+                <div class="col-lg-12">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
+                        <h2 class="h3 mb-0 text-gray-800">Cooperados</h2>
+                        <div class="btn-group">
+                            <a class="d-none d-sm-inline-block btn btn-primary btn-sm shadow-sm" asp-page="Create">
+                                <i class="fa fa-plus fa-sm text-white-50"></i>
+                                Cadastrar
+                            </a>
+                            <button type="button" class="d-none d-sm-inline-block btn btn-primary btn-sm shadow-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Novos</a>
+                                <a class="dropdown-item" href="#">Ativos</a>
+                                <a class="dropdown-item" href="#">Inativos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
             @{ await Html.RenderPartialAsync("_CooperadoFormPartial", Model.CooperadoVM); }
         </div>
     </div>
