@@ -37,5 +37,31 @@ namespace CoopManagement.Pages.Cooperados
             CooperadoVM = new CooperadoViewModel(cooperado);
             return Page();
         }
+
+        public async Task<IActionResult> OnPostAsync(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
+
+            if (cooperado == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _cooperadoRepository.ExcluirCooperado(cooperado.Id);
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
+        }
     }
 }
