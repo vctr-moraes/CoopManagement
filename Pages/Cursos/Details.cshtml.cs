@@ -37,5 +37,31 @@ namespace CoopManagement.Pages.Cursos
             CursoVM = new CursoViewModel(curso);
             return Page();
         }
+
+        public async Task<IActionResult> OnPostAsync(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
+            Curso curso = await _cursoRepository.ObterCurso(id);
+
+            if (curso == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _cursoRepository.ExcluirCurso(curso.Id);
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
+        }
     }
 }

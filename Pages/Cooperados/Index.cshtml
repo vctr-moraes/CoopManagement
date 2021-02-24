@@ -29,95 +29,77 @@
                     </div>
                 </div>
             </div>
-            @* <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a asp-page="/Index">Home</a>
-                </li>
-                <li class="breadcrumb-item active">
-                    <strong>Cooperados</strong>
-                </li>
-            </ol> *@
             <hr>
         </div>
     </div>
 
-    <div class="">
-        @if (Model.Cooperados.Count == 0)
-        {
-            <div class="middle-box">
-                <h4 class="text-muted" align="center">
-                    Não há cooperados cadastrados no sistema <br />
-                    <a asp-page="Create" class="btn btn-link">
-                        <i class="fa fa-plus"></i>
-                        Cadastrar primeiro
-                    </a>
-                </h4>
+    @if (Model.Cooperados.Count == 0)
+    {
+        <div class="middle-box">
+            <h4 class="text-muted" align="center">
+                Não há cooperados cadastrados no sistema <br />
+                <a asp-page="Create" class="btn btn-link">
+                    <i class="fa fa-plus"></i>
+                    Cadastrar primeiro
+                </a>
+            </h4>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Cooperados ativos</h6>
             </div>
-        }
-        else
-        {
-            @* <div class="row form-group">
-                <div class="ibox-title">
-                    <a asp-page="Create" class="btn btn-primary">
-                        <i class="fa fa-plus"></i>
-                        Novo cooperado
-                    </a>
-                </div>
-            </div> *@
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Cooperados ativos</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                            <table class="table border">
-                                <thead class="thead-light">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <table class="table border">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cooperados[0].Nome)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cooperados[0].Matricula)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cooperados[0].DataMatricula)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cooperados[0].StatusMatricula)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Cooperados)
+                                {
                                     <tr>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Cooperados[0].Nome)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Cooperados[0].Matricula)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Cooperados[0].DataMatricula)
-                                        </th>
-                                        <th>
-                                            @Html.DisplayNameFor(model => model.Cooperados[0].StatusMatricula)
-                                        </th>
-                                        <th></th>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nome)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Matricula)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DataMatricula)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.StatusMatricula)
+                                        </td>
+                                        <td class="text-right">
+                                            <a class="btn btn-sm btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.Cooperados)
-                                    {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Nome)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Matricula)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.DataMatricula)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.StatusMatricula)
-                                            </td>
-                                            <td class="text-right">
-                                                <a class="btn btn-sm btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
-                                                    <i class="fa fa-search"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
