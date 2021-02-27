@@ -16,18 +16,20 @@
                 @Html.DisplayFor(model => model.Grau)
             </dd>
         </dl>
-        <a asp-page="./Index" type="button" class="btn btn-secondary">
-            <i class="fa fa-arrow-left text-white-50"></i>
-            Voltar
-        </a>
-        <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Id">
-            <i class="fa fa-pencil-alt text-white-50"></i>
-            Editar
-        </a>
-        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="far fa-trash-alt text-white-50"></i>
-            Deletar
-        </button>
+        <div class="text-right">
+            <a asp-page="./Index" type="button" class="btn btn-secondary">
+                <i class="fa fa-arrow-left text-white-50"></i>
+                Voltar
+            </a>
+            <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Id">
+                <i class="fa fa-pencil-alt text-white-50"></i>
+                Editar
+            </a>
+            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                <i class="far fa-trash-alt text-white-50"></i>
+                Deletar
+            </button>
+        </div>
     </div>
 </div>
 
