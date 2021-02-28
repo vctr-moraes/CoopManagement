@@ -1,251 +1,235 @@
 ﻿@model CoopManagement.ViewsModels.CooperadoViewModel
 @using CoopManagement.ViewsModels
 
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Nome" class="control-label"></label>
-                    <input asp-for="@Model.Nome" class="form-control" />
-                    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Sexo" class="control-label"></label><br />
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="Masculino" name="Cooperado.Sexo" value="1" class="custom-control-input">
-                        <label class="custom-control-label" for="Masculino">Masculino</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="Feminino" name="Cooperado.Sexo" value="2" class="custom-control-input">
-                        <label class="custom-control-label" for="Feminino">Feminino</label>
-                    </div>
-                    <span asp-validation-for="@Model.Sexo" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.EstadoCivil" class="control-label"></label>
-                    <select asp-for="@Model.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivilViewModel>()">
-                        <option value="" selected disabled>Selecionar</option>
-                    </select>
-                    <span asp-validation-for="@Model.EstadoCivil" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.DataNascimento" class="control-label"></label>
-                    <input asp-for="@Model.DataNascimento" class="form-control" />
-                    <span asp-validation-for="@Model.DataNascimento" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.RacaCor" class="control-label"></label>
-                    <select asp-for="@Model.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCorViewModel>()">
-                        <option value="" selected disabled>Selecionar</option>
-                    </select>
-                    <span asp-validation-for="@Model.RacaCor" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.NecessidadeEspecial" class="control-label"></label>
-                    <select asp-for="@Model.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecialViewModel>()">
-                        <option value="" selected disabled>Selecionar</option>
-                    </select>
-                    <span asp-validation-for="@Model.NecessidadeEspecial" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Cpf" class="control-label"></label>
-                    <input asp-for="@Model.Cpf" class="form-control" />
-                    <span asp-validation-for="@Model.Cpf" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Rg" class="control-label"></label>
-                    <input asp-for="@Model.Rg" class="form-control" />
-                    <span asp-validation-for="@Model.Rg" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.OrgaoExpedidorRg" class="control-label"></label>
-                    <input asp-for="@Model.OrgaoExpedidorRg" class="form-control" />
-                    <span asp-validation-for="@Model.OrgaoExpedidorRg" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.DataExpedicaoRg" class="control-label"></label>
-                    <input asp-for="@Model.DataExpedicaoRg" class="form-control" />
-                    <span asp-validation-for="@Model.DataExpedicaoRg" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <abbr title="Cidade onde você nasceu">
-                        <label asp-for="@Model.Naturalidade" class="control-label info"></label>
-                    </abbr>
-                    <input asp-for="@Model.Naturalidade" class="form-control" placeholder="Ex.: Alegrense" />
-                    <span asp-validation-for="@Model.Naturalidade" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <abbr title="País onde você nasceu">
-                        <label asp-for="@Model.Nacionalidade" class="control-label info"></label>
-                    </abbr>
-                    <input asp-for="@Model.Nacionalidade" class="form-control" placeholder="Ex.: Brasileiro(a)" />
-                    <span asp-validation-for="@Model.Nacionalidade" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.NomePai" class="control-label"></label>
-                    <input asp-for="@Model.NomePai" class="form-control" />
-                    <span asp-validation-for="@Model.NomePai" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.NomeMae" class="control-label"></label>
-                    <input asp-for="@Model.NomeMae" class="form-control" />
-                    <span asp-validation-for="@Model.NomeMae" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.RendaFamiliar" class="control-label"></label>
-                    <select asp-for="@Model.RendaFamiliar" class="form-control">
-                        <option value="" selected disabled>Selecionar</option>
-                        <option value="Até R$ 1.500,00">Até R$ 1.500,00</option>
-                        <option value="Até R$ 3.000,00">Até R$ 3.000,00</option>
-                        <option value="Até R$ 4.500,00">Até R$ 4.500,00</option>
-                        <option value="Acima de R$ 5.000,00">Acima de R$ 5.000,00</option>
-                    </select>
-                    <span asp-validation-for="@Model.RendaFamiliar" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Matricula" class="control-label"></label>
-                    <input asp-for="@Model.Matricula" class="form-control" />
-                    <span asp-validation-for="@Model.Matricula" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.CursoId" class="control-label"></label>
-                    <select asp-for="@Model.CursoId" class="form-control" asp-items="Model.Cursos">
-                        <option value="" selected disabled>Selecionar</option>
-                    </select>
-                    <span asp-validation-for="@Model.CursoId" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Turma" class="control-label"></label>
-                    <input asp-for="@Model.Turma" class="form-control" />
-                    <span asp-validation-for="@Model.Turma" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Escolaridade" class="control-label"></label>
-                    <select asp-for="@Model.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<EscolaridadeViewModel>()">
-                        <option value="" selected disabled>Selecionar</option>
-                    </select>
-                    <span asp-validation-for="@Model.Escolaridade" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Logradouro" class="control-label"></label>
-                    <input asp-for="@Model.Logradouro" class="form-control" />
-                    <span asp-validation-for="@Model.Logradouro" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Bairro" class="control-label"></label>
-                    <input asp-for="@Model.Bairro" class="form-control" />
-                    <span asp-validation-for="@Model.Bairro" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Cidade" class="control-label"></label>
-                    <input asp-for="@Model.Cidade" class="form-control" />
-                    <span asp-validation-for="@Model.Cidade" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Cep" class="control-label"></label>
-                    <input asp-for="@Model.Cep" class="form-control" />
-                    <span asp-validation-for="@Model.Cep" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Estado" class="control-label"></label>
-                    <select asp-for="@Model.Estado" class="form-control">
-                        <option value="" disabled selected>Selecionar</option>
-                        <option value="Acre">Acre</option>
-                        <option value="Alagoas">Alagoas</option>
-                        <option value="Amapá">Amapá</option>
-                        <option value="Amazonas">Amazonas</option>
-                        <option value="Bahia">Bahia</option>
-                        <option value="Ceará">Ceará</option>
-                        <option value="Distrito Federal">Distrito Federal</option>
-                        <option value="Espírito Santo">Espírito Santo</option>
-                        <option value="Goiás">Goiás</option>
-                        <option value="Maranhão">Maranhão</option>
-                        <option value="Mato Grosso">Mato Grosso</option>
-                        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                        <option value="Minas Gerais">Minas Gerais</option>
-                        <option value="Pará">Pará</option>
-                        <option value="Paraíba">Paraíba</option>
-                        <option value="Paraná">Paraná</option>
-                        <option value="Pernambuco">Pernambuco</option>
-                        <option value="Piauí">Piauí</option>
-                        <option value="Rio de Janeiro">Rio de Janeiro</option>
-                        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                        <option value="Rondônia">Rondônia</option>
-                        <option value="Roraima">Roraima</option>
-                        <option value="Santa Catarina">Santa Catarina</option>
-                        <option value="São Paulo">São Paulo</option>
-                        <option value="Sergipe">Sergipe</option>
-                        <option value="Tocantins">Tocantins</option>
-                    </select>
-                    <span asp-validation-for="@Model.Estado" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.TelefoneResidencial" class="control-label"></label>
-                    <input asp-for="@Model.TelefoneResidencial" class="form-control" />
-                    <span asp-validation-for="@Model.TelefoneResidencial" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.TelefoneCelular" class="control-label"></label>
-                    <input asp-for="@Model.TelefoneCelular" class="form-control" />
-                    <span asp-validation-for="@Model.TelefoneCelular" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <label asp-for="@Model.Email" class="control-label"></label>
-                    <input asp-for="@Model.Email" class="form-control" />
-                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group col-6">
-                    <label asp-for="@Model.CotaParte" class="control-label"></label>
-                    <input asp-for="@Model.CotaParte" class="form-control" />
-                    <span asp-validation-for="@Model.CotaParte" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6">
-                    <strong title="É necessário ler e concordar com os termos deste estatuto para concluir sua matrícula.">
-                        <a href="#" data-toggle="modal" data-target="#exampleModalScrollable">Estatuto social da COOPA-IFES</a>
-                    </strong>
-                </div>
-            </div>
-            <div class="text-right">
-                <a class="btn btn-secondary" asp-page="./Index">
-                    <i class="fa fa-arrow-left text-white-50"></i>
-                    Voltar
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-check text-white-50"></i>
-                    Salvar
-                </button>
-            </div>
-        </form>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Nome" class="control-label"></label>
+        <input asp-for="@Model.Nome" class="form-control" />
+        <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Sexo" class="control-label"></label><br />
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="Masculino" name="Cooperado.Sexo" value="1" class="custom-control-input">
+            <label class="custom-control-label" for="Masculino">Masculino</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="Feminino" name="Cooperado.Sexo" value="2" class="custom-control-input">
+            <label class="custom-control-label" for="Feminino">Feminino</label>
+        </div>
+        <span asp-validation-for="@Model.Sexo" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.EstadoCivil" class="control-label"></label>
+        <select asp-for="@Model.EstadoCivil" class="form-control" asp-items="Html.GetEnumSelectList<EstadoCivilViewModel>()">
+            <option value="" selected disabled>Selecionar</option>
+        </select>
+        <span asp-validation-for="@Model.EstadoCivil" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.DataNascimento" class="control-label"></label>
+        <input asp-for="@Model.DataNascimento" class="form-control" />
+        <span asp-validation-for="@Model.DataNascimento" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.RacaCor" class="control-label"></label>
+        <select asp-for="@Model.RacaCor" class="form-control" asp-items="Html.GetEnumSelectList<RacaCorViewModel>()">
+            <option value="" selected disabled>Selecionar</option>
+        </select>
+        <span asp-validation-for="@Model.RacaCor" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.NecessidadeEspecial" class="control-label"></label>
+        <select asp-for="@Model.NecessidadeEspecial" class="form-control" asp-items="Html.GetEnumSelectList<NecessidadeEspecialViewModel>()">
+            <option value="" selected disabled>Selecionar</option>
+        </select>
+        <span asp-validation-for="@Model.NecessidadeEspecial" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Cpf" class="control-label"></label>
+        <input asp-for="@Model.Cpf" class="form-control" />
+        <span asp-validation-for="@Model.Cpf" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Rg" class="control-label"></label>
+        <input asp-for="@Model.Rg" class="form-control" />
+        <span asp-validation-for="@Model.Rg" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.OrgaoExpedidorRg" class="control-label"></label>
+        <input asp-for="@Model.OrgaoExpedidorRg" class="form-control" />
+        <span asp-validation-for="@Model.OrgaoExpedidorRg" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.DataExpedicaoRg" class="control-label"></label>
+        <input asp-for="@Model.DataExpedicaoRg" class="form-control" />
+        <span asp-validation-for="@Model.DataExpedicaoRg" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <abbr title="Cidade onde você nasceu">
+            <label asp-for="@Model.Naturalidade" class="control-label info"></label>
+        </abbr>
+        <input asp-for="@Model.Naturalidade" class="form-control" placeholder="Ex.: Alegrense" />
+        <span asp-validation-for="@Model.Naturalidade" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <abbr title="País onde você nasceu">
+            <label asp-for="@Model.Nacionalidade" class="control-label info"></label>
+        </abbr>
+        <input asp-for="@Model.Nacionalidade" class="form-control" placeholder="Ex.: Brasileiro(a)" />
+        <span asp-validation-for="@Model.Nacionalidade" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.NomePai" class="control-label"></label>
+        <input asp-for="@Model.NomePai" class="form-control" />
+        <span asp-validation-for="@Model.NomePai" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.NomeMae" class="control-label"></label>
+        <input asp-for="@Model.NomeMae" class="form-control" />
+        <span asp-validation-for="@Model.NomeMae" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.RendaFamiliar" class="control-label"></label>
+        <select asp-for="@Model.RendaFamiliar" class="form-control">
+            <option value="" selected disabled>Selecionar</option>
+            <option value="Até R$ 1.500,00">Até R$ 1.500,00</option>
+            <option value="Até R$ 3.000,00">Até R$ 3.000,00</option>
+            <option value="Até R$ 4.500,00">Até R$ 4.500,00</option>
+            <option value="Acima de R$ 5.000,00">Acima de R$ 5.000,00</option>
+        </select>
+        <span asp-validation-for="@Model.RendaFamiliar" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Matricula" class="control-label"></label>
+        <input asp-for="@Model.Matricula" class="form-control" />
+        <span asp-validation-for="@Model.Matricula" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.CursoId" class="control-label"></label>
+        <select asp-for="@Model.CursoId" class="form-control" asp-items="Model.Cursos">
+            <option value="" selected disabled>Selecionar</option>
+        </select>
+        <span asp-validation-for="@Model.CursoId" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Turma" class="control-label"></label>
+        <input asp-for="@Model.Turma" class="form-control" />
+        <span asp-validation-for="@Model.Turma" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Escolaridade" class="control-label"></label>
+        <select asp-for="@Model.Escolaridade" class="form-control" asp-items="Html.GetEnumSelectList<EscolaridadeViewModel>()">
+            <option value="" selected disabled>Selecionar</option>
+        </select>
+        <span asp-validation-for="@Model.Escolaridade" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Logradouro" class="control-label"></label>
+        <input asp-for="@Model.Logradouro" class="form-control" />
+        <span asp-validation-for="@Model.Logradouro" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Bairro" class="control-label"></label>
+        <input asp-for="@Model.Bairro" class="form-control" />
+        <span asp-validation-for="@Model.Bairro" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Cidade" class="control-label"></label>
+        <input asp-for="@Model.Cidade" class="form-control" />
+        <span asp-validation-for="@Model.Cidade" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Cep" class="control-label"></label>
+        <input asp-for="@Model.Cep" class="form-control" />
+        <span asp-validation-for="@Model.Cep" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.Estado" class="control-label"></label>
+        <select asp-for="@Model.Estado" class="form-control">
+            <option value="" disabled selected>Selecionar</option>
+            <option value="Acre">Acre</option>
+            <option value="Alagoas">Alagoas</option>
+            <option value="Amapá">Amapá</option>
+            <option value="Amazonas">Amazonas</option>
+            <option value="Bahia">Bahia</option>
+            <option value="Ceará">Ceará</option>
+            <option value="Distrito Federal">Distrito Federal</option>
+            <option value="Espírito Santo">Espírito Santo</option>
+            <option value="Goiás">Goiás</option>
+            <option value="Maranhão">Maranhão</option>
+            <option value="Mato Grosso">Mato Grosso</option>
+            <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+            <option value="Minas Gerais">Minas Gerais</option>
+            <option value="Pará">Pará</option>
+            <option value="Paraíba">Paraíba</option>
+            <option value="Paraná">Paraná</option>
+            <option value="Pernambuco">Pernambuco</option>
+            <option value="Piauí">Piauí</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+            <option value="Rondônia">Rondônia</option>
+            <option value="Roraima">Roraima</option>
+            <option value="Santa Catarina">Santa Catarina</option>
+            <option value="São Paulo">São Paulo</option>
+            <option value="Sergipe">Sergipe</option>
+            <option value="Tocantins">Tocantins</option>
+        </select>
+        <span asp-validation-for="@Model.Estado" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.TelefoneResidencial" class="control-label"></label>
+        <input asp-for="@Model.TelefoneResidencial" class="form-control" />
+        <span asp-validation-for="@Model.TelefoneResidencial" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.TelefoneCelular" class="control-label"></label>
+        <input asp-for="@Model.TelefoneCelular" class="form-control" />
+        <span asp-validation-for="@Model.TelefoneCelular" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <label asp-for="@Model.Email" class="control-label"></label>
+        <input asp-for="@Model.Email" class="form-control" />
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group col-6">
+        <label asp-for="@Model.CotaParte" class="control-label"></label>
+        <input asp-for="@Model.CotaParte" class="form-control" />
+        <span asp-validation-for="@Model.CotaParte" class="text-danger"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-6">
+        <strong title="É necessário ler e concordar com os termos deste estatuto para concluir sua matrícula.">
+            <a href="#" data-toggle="modal" data-target="#exampleModalScrollable">Estatuto social da COOPA-IFES</a>
+        </strong>
     </div>
 </div>

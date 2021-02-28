@@ -9,7 +9,23 @@
     <div class="row">
         <div class="col-12">
             @{ await Html.RenderPartialAsync("_HeaderPartial.cshtml"); }
-            @{ await Html.RenderPartialAsync("_CooperadoFormPartial", Model.CooperadoVM); }
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <form method="post">
+                        @{ await Html.RenderPartialAsync("_CooperadoFormPartial", Model.CooperadoVM); }
+                        <div class="text-right">
+                            <a class="btn btn-secondary" asp-page="./Index">
+                                <i class="fa fa-arrow-left text-white-50"></i>
+                                Voltar
+                            </a>
+                            <button type="submit" class="btn btn-primary" id="btn-criar-cooperado" disabled>
+                                <i class="fa fa-check text-white-50"></i>
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -45,14 +61,21 @@
                 Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
             </div>
             <div class="modal-footer">
-                <div class="text-left">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="checkAceitarTermos" onclick="habilitarBtn()">
-                        <label class="custom-control-label" for="checkAceitarTermos">Li e estou de acordo com este estatuto social</label>
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <div class="text-left">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkAceitarTermos" onclick="habilitarBtn()">
+                            <label class="custom-control-label" for="checkAceitarTermos">Li e estou de acordo com este estatuto social.</label>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-confirmar" disabled>
+                                <i class="fa fa-check text-white-50"></i>
+                            Confirmar
+                        </button>
                     </div>
                 </div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmar" disabled>Confirmar</button>
             </div>
         </div>
     </div>
@@ -75,13 +98,13 @@
 
         function habilitarBtn() {
             if (document.getElementById('checkAceitarTermos').checked == true) {
-                document.getElementById('salvar').disabled = ""
-                document.getElementById('confirmar').disabled = ""
+                document.getElementById('btn-criar-cooperado').disabled = ""
+                document.getElementById('btn-confirmar').disabled = ""
             }
 
             if (document.getElementById('checkAceitarTermos').checked == false) {
-                document.getElementById('salvar').disabled = "disabled"
-                document.getElementById('confirmar').disabled = "disabled"
+                document.getElementById('btn-criar-cooperado').disabled = "disabled"
+                document.getElementById('btn-confirmar').disabled = "disabled"
             }
         }
     </script>

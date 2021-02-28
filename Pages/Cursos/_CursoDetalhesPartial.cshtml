@@ -48,11 +48,14 @@
                 <h5>Tem certeza que deseja excluir este curso?</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="fa fa-times text-white-50"></i>
+                    Cancelar
+                </button>
                 <form method="post">
                     <input type="hidden" asp-for="Id" />
                     <button type="submit" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
+                        <i class="far fa-trash-alt text-white-50"></i>
                         Excluir
                     </button>
                 </form>
