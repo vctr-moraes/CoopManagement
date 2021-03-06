@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,11 +7,11 @@ using CoopManagement.ViewsModels;
 
 namespace CoopManagement.Pages.Cooperados
 {
-    public class IndexModel : PageModel
+    public class CooperadosInativosModel : PageModel
     {
         private readonly ICooperadoRepository _cooperadoRepository;
 
-        public IndexModel(ICooperadoRepository cooperadoRepository)
+        public CooperadosInativosModel(ICooperadoRepository cooperadoRepository)
         {
             _cooperadoRepository = cooperadoRepository;
         }
@@ -21,7 +21,7 @@ namespace CoopManagement.Pages.Cooperados
 
         public ActionResult OnGet()
         {
-            Cooperados = _cooperadoRepository.ObterCooperadosAtivos().Select(cooperado => new CooperadoViewModel(cooperado)).ToList();
+            Cooperados = _cooperadoRepository.ObterCooperadosInativos().Select(cooperado => new CooperadoViewModel(cooperado)).ToList();
             return Page();
         }
     }

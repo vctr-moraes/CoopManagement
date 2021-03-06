@@ -11,6 +11,8 @@ namespace CoopManagement.Interfaces
         Task AtualizarCooperado(Cooperado cooperado);
         Task<Cooperado> ObterCooperado(Guid id);
         Task ExcluirCooperado(Guid id);
-        List<Cooperado> ObterTodosCooperados();
+        List<Cooperado> ObterCooperadosAtivos();
+        List<Cooperado> ObterNovosCooperados();
+        List<Cooperado> ObterCooperadosInativos();
     }
 }

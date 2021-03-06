@@ -3,7 +3,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h2 class="h3 mb-0 text-gray-800">Cooperados</h2>
             <div class="btn-group">
-                <a class="d-none d-sm-inline-block btn btn-primary btn-sm shadow-sm" asp-page="Create">
+                <a class="d-none d-sm-inline-block btn btn-primary shadow-sm" asp-page="Create">
                     <i class="fa fa-plus fa-sm text-white-50"></i>
                     Cadastrar
                 </a>
@@ -11,9 +11,9 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Novos</a>
+                    <a class="dropdown-item" asp-page="/Cooperados/NovosCooperados">Novos</a>
                     <a class="dropdown-item" asp-page="/Cooperados/Index">Ativos</a>
-                    <a class="dropdown-item" href="#">Inativos</a>
+                    <a class="dropdown-item" asp-page="/Cooperados/CooperadosInativos">Inativos</a>
                 </div>
             </div>
         </div>

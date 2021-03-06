@@ -1,5 +1,5 @@
-﻿@page
-@model CoopManagement.Pages.Cooperados.IndexModel
+@page
+@model CoopManagement.Pages.Cooperados.NovosCooperadosModel
 
 @{
     ViewData["Title"] = "Cooperados";
@@ -16,11 +16,7 @@
     {
         <div class="middle-box">
             <h4 class="text-muted" align="center">
-                Não há cooperados ativos cadastrados no sistema <br />
-                <a asp-page="Create" class="btn btn-link">
-                    <i class="fa fa-plus"></i>
-                    Cadastrar primeiro
-                </a>
+                Não há novos cooperados cadastrados no sistema <br />
             </h4>
         </div>
     }
@@ -28,7 +24,7 @@
     {
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Cooperados ativos</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Novas matrículas</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
