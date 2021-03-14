@@ -191,18 +191,48 @@
             </dd>
         </dl>
         <div class="text-right">
-            <a asp-page="./Index" type="button" class="btn btn-secondary">
-                <i class="fa fa-arrow-left text-white-50"></i>
-                Voltar
-            </a>
-            <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Id">
-                <i class="fa fa-pencil-alt text-white-50"></i>
-                Editar
-            </a>
-            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                <i class="far fa-trash-alt text-white-50"></i>
-                Deletar
-            </button>
+            <form method="post">
+                <a asp-page="./Index" type="button" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left text-white-50"></i>
+                    Voltar
+                </a>
+                @{
+                    switch (Model.StatusMatricula)
+                    {
+                        case ViewsModels.StatusMatriculaViewModel.Aguardando:
+                            <button type="submit" class="btn btn-success" asp-page-handler="Confirmar" asp-route-id="@Model.Id">
+                                <i class="fa fa-check text-white-50"></i>
+                                Confirmar
+                            </button>
+                            break;
+
+                        case ViewsModels.StatusMatriculaViewModel.Ativo:
+                            <button type="submit" class="btn btn-success" asp-page-handler="Inativar" asp-route-id="@Model.Id">
+                                <i class="fa fa-check text-white-50"></i>
+                                Inativar
+                            </button>
+                            break;
+
+                        case ViewsModels.StatusMatriculaViewModel.Inativo:
+                            <button type="submit" class="btn btn-success" asp-page-handler="Ativar" asp-route-id="@Model.Id">
+                                <i class="fa fa-check text-white-50"></i>
+                                Ativar
+                            </button>
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                <a type="button" class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Id">
+                    <i class="fa fa-pencil-alt text-white-50"></i>
+                    Editar
+                </a>
+                <button type="button" class="btn btn-danger text-right" data-toggle="modal" data-target="#exampleModal">
+                    <i class="far fa-trash-alt text-white-50"></i>
+                    Deletar
+                </button>
+            </form>
         </div>
     </div>
 </div>

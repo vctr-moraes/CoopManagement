@@ -1,6 +1,12 @@
 ﻿@page
 @model CoopManagement.Pages.Cursos.IndexModel
 
+<style>
+    .id-curso {
+        cursor: pointer;
+    }
+</style>
+
 @{
     ViewData["Title"] = "Cursos";
 }
@@ -30,7 +36,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <table class="table border">
+                        <table class="table table-hover border">
                             <thead class="thead-light">
                                 <tr>
                                     <th>
@@ -39,23 +45,17 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Cursos[0].Grau)
                                     </th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.Cursos)
                                 {
-                                    <tr>
+                                    <tr class="id-curso" data-curso="@item.Id">
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Nome)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Grau)
-                                        </td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
-                                                <i class="fa fa-search text-white-50"></i>
-                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -67,3 +67,10 @@
         </div>
     }
 </div>
+
+<script>
+    $(".id-curso").click(function () {
+        const id_curso = $(this).data('curso');
+        window.location.href = "/Cursos/Details?id=" + id_curso
+    });
+</script>

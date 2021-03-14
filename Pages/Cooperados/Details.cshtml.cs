@@ -63,5 +63,86 @@ namespace CoopManagement.Pages.Cooperados
                 return Page();
             }
         }
+
+        public async Task<IActionResult> OnPostConfirmar(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
+            cooperado.StatusMatricula = StatusMatricula.Ativo;
+
+            if (cooperado == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _cooperadoRepository.AtualizarCooperado(cooperado);
+                return RedirectToPage("./NovosCooperados");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
+        }
+
+        public async Task<IActionResult> OnPostInativar(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
+            cooperado.StatusMatricula = StatusMatricula.Inativo;
+
+            if (cooperado == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _cooperadoRepository.AtualizarCooperado(cooperado);
+                return RedirectToPage("./Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
+        }
+
+        public async Task<IActionResult> OnPostAtivar(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Cooperado cooperado = await _cooperadoRepository.ObterCooperado(id);
+            cooperado.StatusMatricula = StatusMatricula.Ativo;
+
+            if (cooperado == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _cooperadoRepository.AtualizarCooperado(cooperado);
+                return RedirectToPage("./CooperadosInativos");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return Page();
+            }
+        }
     }
 }

@@ -1,6 +1,12 @@
 @page
 @model CoopManagement.Pages.Cooperados.NovosCooperadosModel
 
+<style>
+    .id-cooperado {
+        cursor: pointer;
+    }
+</style>
+
 @{
     ViewData["Title"] = "Cooperados";
 }
@@ -29,7 +35,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        <table class="table border">
+                        <table class="table table-hover border">
                             <thead class="thead-light">
                                 <tr>
                                     <th>
@@ -44,13 +50,12 @@
                                     <th>
                                         @Html.DisplayNameFor(model => model.Cooperados[0].StatusMatricula)
                                     </th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.Cooperados)
                                 {
-                                    <tr>
+                                    <tr class="id-cooperado" data-cooperado="@item.Id">
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Nome)
                                         </td>
@@ -63,11 +68,6 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.StatusMatricula)
                                         </td>
-                                        <td class="text-right">
-                                            <a class="btn btn-sm btn-secondary" asp-page="./Details" asp-route-id="@item.Id" title="Detalhes">
-                                                <i class="fa fa-search text-white-50"></i>
-                                            </a>
-                                        </td>
                                     </tr>
                                 }
                             </tbody>
@@ -78,3 +78,10 @@
         </div>
     }
 </div>
+
+<script>
+    $(".id-cooperado").click(function () {
+        const id_cooperado = $(this).data('cooperado');
+        window.location.href = "/Cooperados/Details?id=" + id_cooperado
+    });
+</script>
