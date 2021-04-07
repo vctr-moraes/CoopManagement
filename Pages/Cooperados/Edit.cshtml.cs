@@ -60,7 +60,7 @@ namespace CoopManagement.Pages.Cooperados
             cooperado.Bairro = CooperadoVM.Bairro;
             cooperado.Cep = CooperadoVM.Cep;
             cooperado.Cidade = CooperadoVM.Cidade;
-            cooperado.CotaParte = CooperadoVM.CotaParte;
+            cooperado.CotaParte = decimal.Parse(CooperadoVM.CotaParte);
             cooperado.Cpf = CooperadoVM.Cpf;
             cooperado.Curso = await _cursoRepository.ObterCurso(CooperadoVM.CursoId);
             cooperado.CursoId = CooperadoVM.CursoId;

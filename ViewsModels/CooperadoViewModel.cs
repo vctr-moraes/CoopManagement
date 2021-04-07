@@ -44,7 +44,7 @@ namespace CoopManagement.ViewsModels
             Email = cooperado.Email;
             DataMatricula = cooperado.DataMatricula;
             DataDesligamento = cooperado.DataDesligamento;
-            CotaParte = cooperado.CotaParte;
+            CotaParte = cooperado.CotaParte.ToString();
             StatusMatricula = (StatusMatriculaViewModel)cooperado.StatusMatricula;
         }
 
@@ -79,7 +79,7 @@ namespace CoopManagement.ViewsModels
 
         [Display(Name = "CPF")]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [StringLength(20, ErrorMessage = "O campo {0} pode ter no máximo 11 caracteres.")]
+        [StringLength(11, ErrorMessage = "O campo {0} deve conter, exatamente, 11 caracteres.")]
         public string Cpf { get; set; }
 
         [Display(Name = "RG")]
@@ -187,13 +187,10 @@ namespace CoopManagement.ViewsModels
         [DataType(DataType.Date)]
         public DateTime DataDesligamento { get; set; }
 
-        [Range(10, 100, ErrorMessage = "O valor para a {0} deve estar entre R$ 10,00 e R$ 100,00.")]
         [Display(Name = "Cota-parte")]
-        [DataType(DataType.Currency, ErrorMessage = "O campo {0} deve ser um número.")]
-        [DisplayFormat(DataFormatString = "{0:C2}")]
+        [DataType(DataType.Text)]
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal CotaParte { get; set; }
+        public string CotaParte { get; set; }
 
         [Display(Name = "Matrícula")]
         public StatusMatriculaViewModel StatusMatricula { get; set; } = StatusMatriculaViewModel.Aguardando;

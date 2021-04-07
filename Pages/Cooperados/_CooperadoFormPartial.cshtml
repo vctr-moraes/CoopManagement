@@ -222,7 +222,7 @@
     </div>
     <div class="form-group col-6">
         <label asp-for="@Model.CotaParte" class="control-label"></label>
-        <input asp-for="@Model.CotaParte" class="form-control" />
+        <input asp-for="@Model.CotaParte" class="form-control" onkeypress="return ValidarInput(event)" />
         <span asp-validation-for="@Model.CotaParte" class="text-danger"></span>
     </div>
 </div>
@@ -233,3 +233,15 @@
         </strong>
     </div>
 </div>
+
+<script>
+    function ValidarInput(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0 || tecla == 44) return true;
+            else return false;
+        }
+    }
+</script>
