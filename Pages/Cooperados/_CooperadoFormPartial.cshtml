@@ -12,11 +12,11 @@
         <label asp-for="@Model.Sexo" class="control-label"></label><br />
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="Masculino" name="Cooperado.Sexo" value="1" class="custom-control-input">
-            <label class="custom-control-label" for="Masculino">Masculino</label>
+            <label class="custom-control-label" for="Masculino" style="cursor: pointer;">Masculino</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="Feminino" name="Cooperado.Sexo" value="2" class="custom-control-input">
-            <label class="custom-control-label" for="Feminino">Feminino</label>
+            <label class="custom-control-label" for="Feminino" style="cursor: pointer;">Feminino</label>
         </div>
         <span asp-validation-for="@Model.Sexo" class="text-danger"></span>
     </div>

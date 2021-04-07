@@ -193,6 +193,6 @@ namespace CoopManagement.ViewsModels
         public string CotaParte { get; set; }
 
         [Display(Name = "Matrícula")]
-        public StatusMatriculaViewModel StatusMatricula { get; set; } = StatusMatriculaViewModel.Aguardando;
+        public StatusMatriculaViewModel StatusMatricula { get; set; }
     }
 }

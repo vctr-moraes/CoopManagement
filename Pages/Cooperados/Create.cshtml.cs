@@ -66,7 +66,7 @@ namespace CoopManagement.Pages.Cooperados
                 RendaFamiliar = CooperadoVM.RendaFamiliar,
                 Rg = CooperadoVM.Rg,
                 Sexo = (Sexo)CooperadoVM.Sexo,
-                StatusMatricula = (StatusMatricula)CooperadoVM.StatusMatricula,
+                StatusMatricula = StatusMatricula.Aguardando,
                 TelefoneCelular = CooperadoVM.TelefoneCelular,
                 TelefoneResidencial = CooperadoVM.TelefoneResidencial,
                 Turma = CooperadoVM.Turma
