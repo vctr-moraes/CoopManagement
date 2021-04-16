@@ -1,7 +1,8 @@
-﻿using CoopManagement.Data;
+﻿using Microsoft.Extensions.DependencyInjection;
+using CoopManagement.Data;
 using CoopManagement.Data.Repository;
 using CoopManagement.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
+using CoopManagement.Notificacoes;
 
 namespace CoopManagement.Configurations
 {
@@ -12,6 +13,7 @@ namespace CoopManagement.Configurations
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<ICursoRepository, CursoRepository>();
             services.AddScoped<ICooperadoRepository, CooperadoRepository>();
+            services.AddScoped<INotificador, Notificador>();
 
             return services;
         }

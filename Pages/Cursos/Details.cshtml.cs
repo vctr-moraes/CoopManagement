@@ -55,6 +55,7 @@ namespace CoopManagement.Pages.Cursos
             try
             {
                 await _cursoRepository.ExcluirCurso(curso.Id);
+                TempData["Sucesso"] = "Curso excluído com sucesso!";
                 return RedirectToPage("./Index");
             }
             catch (Exception ex)

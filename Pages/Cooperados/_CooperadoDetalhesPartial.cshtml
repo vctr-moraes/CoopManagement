@@ -201,14 +201,14 @@
                     {
                         case ViewsModels.StatusMatriculaViewModel.Aguardando:
                             <button type="submit" class="btn btn-success" asp-page-handler="Confirmar" asp-route-id="@Model.Id">
-                                <i class="fa fa-check text-white-50"></i>
+                                <i class="fa fa-user-check text-white-50"></i>
                                 Confirmar
                             </button>
                             break;
 
                         case ViewsModels.StatusMatriculaViewModel.Ativo:
-                            <button type="submit" class="btn btn-success" asp-page-handler="Inativar" asp-route-id="@Model.Id">
-                                <i class="fa fa-check text-white-50"></i>
+                            <button type="submit" class="btn btn-warning" asp-page-handler="Inativar" asp-route-id="@Model.Id">
+                                <i class="fa fa-user-slash text-white-50"></i>
                                 Inativar
                             </button>
                             break;

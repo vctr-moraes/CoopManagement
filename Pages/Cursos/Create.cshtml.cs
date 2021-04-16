@@ -42,6 +42,7 @@ namespace CoopManagement.Pages.Cursos
             try
             {
                 await _cursoRepository.SalvarCurso(curso);
+                TempData["Sucesso"] = "Curso cadastrado com sucesso!";
                 return RedirectToPage("./Index");
             }
             catch (Exception ex)

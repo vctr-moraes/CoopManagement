@@ -59,6 +59,7 @@ namespace CoopManagement.Pages.Cursos
             try
             {
                 await _cursoRepository.AtualizarCurso(curso);
+                TempData["Sucesso"] = "Curso atualizado com sucesso!";
                 return await Task.FromResult(RedirectToPage("./Index"));
             }
             catch (DbUpdateConcurrencyException ex)
