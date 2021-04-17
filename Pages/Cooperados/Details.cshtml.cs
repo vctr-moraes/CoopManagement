@@ -18,7 +18,7 @@ namespace CoopManagement.Pages.Cooperados
         }
 
         [BindProperty]
-        public CooperadoViewModel CooperadoVM { get; set; }
+        public CooperadoDetailsViewModel CooperadoVM { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
@@ -34,7 +34,7 @@ namespace CoopManagement.Pages.Cooperados
                 return NotFound();
             }
 
-            CooperadoVM = new CooperadoViewModel(cooperado);
+            CooperadoVM = new CooperadoDetailsViewModel(cooperado);
             return Page();
         }
 
@@ -60,6 +60,7 @@ namespace CoopManagement.Pages.Cooperados
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
+                CooperadoVM = new CooperadoDetailsViewModel(cooperado);
                 return Page();
             }
         }

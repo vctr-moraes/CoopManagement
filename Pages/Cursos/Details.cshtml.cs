@@ -18,7 +18,7 @@ namespace CoopManagement.Pages.Cursos
         }
 
         [BindProperty]
-        public CursoViewModel CursoVM { get; set; }
+        public CursoDetailsViewModel CursoVM { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
@@ -34,7 +34,7 @@ namespace CoopManagement.Pages.Cursos
                 return NotFound();
             }
 
-            CursoVM = new CursoViewModel(curso);
+            CursoVM = new CursoDetailsViewModel(curso);
             return Page();
         }
 
@@ -61,6 +61,7 @@ namespace CoopManagement.Pages.Cursos
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
+                CursoVM = new CursoDetailsViewModel(curso);
                 return Page();
             }
         }
