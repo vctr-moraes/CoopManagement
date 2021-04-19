@@ -27,6 +27,10 @@ namespace CoopManagement.Data.Repository
         {
             return await Db.Cooperados.Include(c => c.Curso).FirstOrDefaultAsync(c => c.Id == id);
         }
+        public List<Cooperado> ObterCooperados()
+        {
+            return Db.Cooperados.Include(c => c.Curso).AsNoTracking().ToList();
+        }
 
         public List<Cooperado> ObterCooperadosAtivos()
         {
